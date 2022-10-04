@@ -1,0 +1,29 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYGZbs{}\PYG{n}{begin}\PYG{p}{\PYGZob{}}\PYG{n}{frame}\PYG{p}{\PYGZcb{}}
+
+\PYGZbs{}\PYG{n}{begin}\PYG{p}{\PYGZob{}}\PYG{n}{block}\PYG{p}{\PYGZcb{}\PYGZob{}}\PYG{n}{Problemstellung}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{vspace}\PYG{p}{\PYGZob{}}\PYG{l+m+mi}{2}\PYG{n}{pt}\PYG{p}{\PYGZcb{}}
+\PYG{n}{Lies} \PYG{n}{eine} \PYG{n}{ganze} \PYG{n}{Zahl} \PYGZbs{}\PYG{n}{py}\PYG{p}{\PYGZob{}}\PYG{n}{x}\PYG{p}{\PYGZcb{}} \PYG{n}{ein}\PYG{o}{.} \PYG{n}{Gib} \PYG{n}{dann} \PYG{n}{folgende} \PYG{n}{Zeilen} \PYG{n}{auf} \PYG{n}{der} \PYG{n}{Konsole} \PYG{n}{aus}
+
+\PYGZbs{}\PYG{n}{texttt}\PYG{p}{\PYGZob{}}\PYG{l+m+mi}{1}\PYG{p}{\PYGZcb{}}\PYGZbs{}\PYGZbs{}
+\PYGZbs{}\PYG{n}{texttt}\PYG{p}{\PYGZob{}}\PYG{l+m+mi}{2}\PYG{p}{\PYGZcb{}}\PYGZbs{}\PYGZbs{}
+\PYGZbs{}\PYG{n}{texttt}\PYG{p}{\PYGZob{}}\PYG{l+m+mi}{3}\PYG{p}{\PYGZcb{}}\PYGZbs{}\PYGZbs{}
+\PYGZbs{}\PYG{n}{texttt}\PYG{p}{\PYGZob{}}\PYG{l+m+mi}{4}\PYG{p}{\PYGZcb{}}\PYGZbs{}\PYGZbs{}
+\PYGZbs{}\PYG{n}{vdots} \PYGZbs{}\PYGZbs{}
+\PYGZbs{}\PYG{n}{texttt}\PYG{p}{\PYGZob{}}\PYG{n}{x}\PYG{p}{\PYGZcb{}}
+
+\PYGZbs{}\PYG{n}{vspace}\PYG{p}{\PYGZob{}}\PYG{l+m+mi}{12}\PYG{n}{pt}\PYG{p}{\PYGZcb{}}
+\PYG{n}{Wie} \PYG{n}{macht} \PYG{n}{man} \PYG{n}{das}\PYG{err}{?}
+
+\PYGZbs{}\PYG{n}{end}\PYG{p}{\PYGZob{}}\PYG{n}{block}\PYG{p}{\PYGZcb{}}
+\PYGZbs{}\PYG{n}{end}\PYG{p}{\PYGZob{}}\PYG{n}{frame}\PYG{p}{\PYGZcb{}}
+
+\PYGZbs{}\PYG{n}{begin}\PYG{p}{\PYGZob{}}\PYG{n}{fragile}\PYG{p}{\PYGZcb{}\PYGZob{}\PYGZcb{}}
+	\PYGZbs{}\PYG{n}{begin}\PYG{p}{\PYGZob{}}\PYG{n}{block}\PYG{p}{\PYGZcb{}\PYGZob{}}\PYG{n}{Lösung} \PYGZbs{}\PYG{n}{footnotesize} \PYG{p}{(}\PYG{n}{fast}\PYG{p}{)\PYGZcb{}}
+		\PYGZbs{}\PYG{n}{begin}\PYG{p}{\PYGZob{}}\PYG{n}{minted}\PYG{p}{\PYGZcb{}\PYGZob{}}\PYG{n}{python}\PYG{p}{\PYGZcb{}}
+			\PYG{n}{x} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Gib eine Zahl ein\PYGZdq{}}\PYG{p}{)}
+			\PYG{n}{x} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}
+
+			\PYG{k}{for} \PYG{n}{k} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{x}\PYG{p}{):}	
+			  \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{k}\PYG{p}{)}
+\end{Verbatim}

@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{name} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Gib ein Wort ein: \PYGZdq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Flag (Schalter) initialisieren}
+\PYG{n}{name\PYGZus{}contains\PYGZus{}letter\PYGZus{}a} \PYG{o}{=} \PYG{k+kc}{False}
+
+\PYG{k}{for} \PYG{n}{letter} \PYG{o+ow}{in} \PYG{n}{name}\PYG{p}{:}
+  \PYG{k}{if} \PYG{n}{letter} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}a\PYGZdq{}} \PYG{o+ow}{or} \PYG{n}{letter} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}A\PYGZdq{}}\PYG{p}{:}
+    \PYG{n}{name\PYGZus{}contains\PYGZus{}letter\PYGZus{}a} \PYG{o}{=} \PYG{k+kc}{True}
+
+\PYG{k}{if} \PYG{n}{name\PYGZus{}contains\PYGZus{}letter\PYGZus{}a}\PYG{p}{:}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Der Name enthält ein \PYGZsq{}a\PYGZsq{}.\PYGZdq{}}\PYG{p}{)}
+\PYG{k}{else}\PYG{p}{:}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Der Name enthält kein \PYGZsq{}a\PYGZsq{}.\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

@@ -1,0 +1,20 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k+kn}{import} \PYG{n+nn}{requests}
+\PYG{k+kn}{import} \PYG{n+nn}{json}
+
+\PYG{n}{response} \PYG{o}{=} \PYG{n}{requests}\PYG{o}{.}\PYG{n}{get}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}https://restcountries.com/v3.1/all\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{data} \PYG{o}{=} \PYG{n}{response}\PYG{o}{.}\PYG{n}{json}\PYG{p}{()}
+
+\PYG{n}{countries} \PYG{o}{=} \PYG{p}{[]}
+\PYG{k}{for} \PYG{n}{country} \PYG{o+ow}{in} \PYG{n}{data}\PYG{p}{:}
+    \PYG{k}{if} \PYG{l+s+s2}{\PYGZdq{}capital\PYGZdq{}} \PYG{o+ow}{in} \PYG{n}{country}\PYG{o}{.}\PYG{n}{keys}\PYG{p}{():}
+        \PYG{n}{countries}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(\PYGZob{}}
+            \PYG{l+s+s2}{\PYGZdq{}name\PYGZdq{}}\PYG{p}{:} \PYG{n}{country}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}name\PYGZdq{}}\PYG{p}{][}\PYG{l+s+s2}{\PYGZdq{}common\PYGZdq{}}\PYG{p}{],}
+            \PYG{l+s+s2}{\PYGZdq{}capital\PYGZdq{}}\PYG{p}{:} \PYG{n}{country}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}capital\PYGZdq{}}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{],}
+            \PYG{l+s+s2}{\PYGZdq{}population\PYGZdq{}}\PYG{p}{:} \PYG{n}{country}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}population\PYGZdq{}}\PYG{p}{],}
+            \PYG{l+s+s2}{\PYGZdq{}continent\PYGZdq{}}\PYG{p}{:} \PYG{n}{country}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}continents\PYGZdq{}}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]}
+        \PYG{p}{\PYGZcb{})}
+
+\PYG{k}{with} \PYG{n+nb}{open}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}countries.json\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}w\PYGZdq{}}\PYG{p}{)} \PYG{k}{as} \PYG{n}{my\PYGZus{}file}\PYG{p}{:}
+    \PYG{n}{json}\PYG{o}{.}\PYG{n}{dump}\PYG{p}{(}\PYG{n}{countries}\PYG{p}{,}\PYG{n}{my\PYGZus{}file}\PYG{p}{,} \PYG{n}{indent}\PYG{o}{=}\PYG{l+m+mi}{4}\PYG{p}{)}
+\end{Verbatim}

@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{number\PYGZus{}to\PYGZus{}guess} \PYG{o}{=} \PYG{l+m+mi}{512}
+\PYG{n}{guess} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Rate meine Zahl: \PYGZdq{}}\PYG{p}{)}
+\PYG{n}{guess} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{guess}\PYG{p}{)}
+\PYG{n}{counter} \PYG{o}{=} \PYG{l+m+mi}{1}
+
+\PYG{k}{while} \PYG{n}{guess} \PYG{o}{!=} \PYG{n}{number\PYGZus{}to\PYGZus{}guess}\PYG{p}{:}
+  \PYG{k}{if} \PYG{n}{guess} \PYG{o}{\PYGZlt{}} \PYG{n}{number\PYGZus{}to\PYGZus{}guess}\PYG{p}{:}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Deine Zahl war zu klein\PYGZdq{}}\PYG{p}{)}
+  \PYG{k}{else}\PYG{p}{:}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Deine Zahl war zu groß\PYGZdq{}}\PYG{p}{)}
+  \PYG{n}{guess} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Versuch\PYGZsq{}s nochmal: \PYGZdq{}}\PYG{p}{)}
+  \PYG{n}{guess} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{guess}\PYG{p}{)}
+  \PYG{n}{counter} \PYG{o}{=} \PYG{n}{counter} \PYG{o}{+} \PYG{l+m+mi}{1}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Du hast nach }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{counter}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ Versuchen gewonnen\PYGZdq{}}\PYG{p}{)}	
+\end{Verbatim}

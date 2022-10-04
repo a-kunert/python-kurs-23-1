@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{my\PYGZus{}dictionary} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+s+s2}{\PYGZdq{}China\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Peking\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Japan\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Tokio\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Korea\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Seoul\PYGZdq{}}\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{countries} \PYG{o}{=} \PYG{n}{my\PYGZus{}dictionary}\PYG{o}{.}\PYG{n}{keys}\PYG{p}{()}
+\PYG{n}{countries} \PYG{o}{=} \PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{countries}\PYG{p}{)}
+
+\PYG{n}{capitals} \PYG{o}{=} \PYG{n}{my\PYGZus{}dictionary}\PYG{o}{.}\PYG{n}{values}\PYG{p}{()}
+\PYG{n}{capitals} \PYG{o}{=} \PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{capitals}\PYG{p}{)}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{countries}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{capitals}\PYG{p}{)}
+\end{Verbatim}

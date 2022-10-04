@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{number} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Gib eine Zahl ein: \PYGZdq{}}\PYG{p}{)}
+\PYG{n}{result} \PYG{o}{=} \PYG{l+m+mi}{0}
+\PYG{c+c1}{\PYGZsh{} Wir lassen die Zahl als String, damit wir eine Schleife über die Ziffern legen können}
+\PYG{k}{for} \PYG{n}{digit} \PYG{o+ow}{in} \PYG{n}{number}\PYG{p}{:}
+  \PYG{n}{result} \PYG{o}{=} \PYG{n}{result} \PYG{o}{+} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{digit}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} Achtung: digit ist ja eigentlich ein String}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Die Quersumme von }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{number}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ ist }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{result}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{countries} \PYG{o}{=} \PYG{p}{[]}
+\PYG{k}{while} \PYG{k+kc}{True}\PYG{p}{:}
+  \PYG{n}{country} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Gib ein Land ein: \PYGZdq{}}\PYG{p}{)}
+  \PYG{k}{if} \PYG{n}{country} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}q\PYGZdq{}}\PYG{p}{:}
+    \PYG{k}{break}
+  \PYG{n}{countries}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{country}\PYG{p}{)}
+
+\PYG{n}{index} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Das wievielte Land möchtest Du nochmal anschauen?\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{index} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{index}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Das }\PYG{l+s+si}{\PYGZob{}} \PYG{n}{index} \PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{. Land ist }\PYG{l+s+si}{\PYGZob{}} \PYG{n}{countries}\PYG{p}{[}\PYG{n}{index}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{.\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

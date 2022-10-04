@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{counter} \PYG{o}{=} \PYG{l+m+mi}{1}
+\PYG{n}{counter} \PYG{o}{=} \PYG{n}{counter} \PYG{o}{+} \PYG{l+m+mi}{1} 	\PYG{c+c1}{\PYGZsh{} counter = 2}
+\end{Verbatim}

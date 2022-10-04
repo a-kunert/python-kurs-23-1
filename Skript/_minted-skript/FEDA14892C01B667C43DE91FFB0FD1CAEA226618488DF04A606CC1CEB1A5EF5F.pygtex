@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{countries} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}Guatemala\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Nicaragua\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Honduras\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Belize\PYGZdq{}}\PYG{p}{]}
+
+\PYG{k}{for} \PYG{p}{(}\PYG{n}{index}\PYG{p}{,} \PYG{n}{country}\PYG{p}{)} \PYG{o+ow}{in} \PYG{n+nb}{enumerate}\PYG{p}{(}\PYG{n}{countries}\PYG{p}{):}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Das }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{index} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{. Land ist }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{country}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Das 1. Land ist Guatemala}
+\PYG{c+c1}{\PYGZsh{} Das 2. Land ist Nicaragua}
+\PYG{c+c1}{\PYGZsh{} Das 3. Land ist Honduras}
+\PYG{c+c1}{\PYGZsh{} Das 4. Land ist Belize}
+\end{Verbatim}

@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{my\PYGZus{}list} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{]}
+
+\PYG{k}{def} \PYG{n+nf}{append}\PYG{p}{(}\PYG{n}{item}\PYG{p}{):}
+  \PYG{n}{my\PYGZus{}list}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{item}\PYG{p}{)}
+
+\PYG{n}{append}\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{my\PYGZus{}list}\PYG{p}{)}
+\end{Verbatim}

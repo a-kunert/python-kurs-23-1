@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{my\PYGZus{}list} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{6}\PYG{p}{,} \PYG{l+m+mi}{8}\PYG{p}{,} \PYG{l+m+mi}{10}\PYG{p}{]}
+
+\PYG{n}{my\PYGZus{}list}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{p}{]}     \PYG{c+c1}{\PYGZsh{} [4, 6]}
+\PYG{n}{my\PYGZus{}list}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{:}\PYG{l+m+mi}{4}\PYG{p}{]}     \PYG{c+c1}{\PYGZsh{} [2, 4, 6, 8]}
+\PYG{n}{my\PYGZus{}list}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{l+m+mi}{1}\PYG{p}{]}     \PYG{c+c1}{\PYGZsh{} []}
+\PYG{n}{my\PYGZus{}list}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{:}\PYG{l+m+mi}{4}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{]}   \PYG{c+c1}{\PYGZsh{} [2, 6]}
+\PYG{n}{my\PYGZus{}list}\PYG{p}{[:}\PYG{l+m+mi}{3}\PYG{p}{]}
+\PYG{n}{my\PYGZus{}list}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{:]}
+\PYG{n}{my\PYGZus{}list}\PYG{p}{[:]}
+\PYG{n}{my\PYGZus{}list}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{p}{]}
+\PYG{n}{my\PYGZus{}list}\PYG{p}{[}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{3}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}
+\PYG{n}{my\PYGZus{}list}\PYG{p}{[::}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}
+\end{Verbatim}

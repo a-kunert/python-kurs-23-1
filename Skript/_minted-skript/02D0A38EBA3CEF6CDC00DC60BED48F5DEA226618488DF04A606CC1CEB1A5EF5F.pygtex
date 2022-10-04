@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{old\PYGZus{}capitals} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+s+s2}{\PYGZdq{}Deutschland\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Bonn\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Norwegen\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Oslo\PYGZdq{}}\PYG{p}{\PYGZcb{}}
+\PYG{n}{new\PYGZus{}capitals} \PYG{o}{=} \PYG{n}{old\PYGZus{}capitals}
+
+\PYG{n}{new\PYGZus{}capitals}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}Deutschland\PYGZdq{}}\PYG{p}{]} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}Berlin\PYGZdq{}}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{old\PYGZus{}capitals}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{new\PYGZus{}capitals}\PYG{p}{)}
+\end{Verbatim}

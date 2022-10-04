@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{def} \PYG{n+nf}{get\PYGZus{}state}\PYG{p}{(}\PYG{n}{temp}\PYG{p}{):}
+  \PYG{k}{if} \PYG{n}{temp} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{0}\PYG{p}{:}
+    \PYG{k}{return} \PYG{l+s+s2}{\PYGZdq{}fest\PYGZdq{}}
+  \PYG{k}{if} \PYG{n}{temp} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{100}\PYG{p}{:}
+    \PYG{k}{return} \PYG{l+s+s2}{\PYGZdq{}gasförmig\PYGZdq{}}
+  \PYG{k}{return} \PYG{l+s+s2}{\PYGZdq{}flüssig\PYGZdq{}}
+\end{Verbatim}

@@ -1,0 +1,100 @@
+\documentclass[algorithm,
+pgfplots,
+colortheme=dark,
+%handout
+]{cuzbeamer}
+
+\usepackage[ngerman]{babel}
+\usepackage[scale=2]{ccicons}
+\usepackage{listings}
+\usepackage{csquotes}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\newcommand{\py}[1]{\mintinline{python}{#1}}
+\newcommand{\pybw}[1]{\mintinline[style=bw]{python}{#1}}
+\newcommand{\bash}[1]{\mintinline{bash}{#1}}
+\newcommand{\spacechar}{\texttt{\char32\hspace{2pt}}}
+
+\definecolor{highlightdark}{RGB}{203,236,157}
+\definecolor{highlight}{RGB}{79,107,139}
+
+
+
+
+
+\newcommand{\console}[1]{\texttt{\color{\highlightcolor}#1}}
+
+\let\oldquote\quote
+\let\endoldquote\endquote
+\renewenvironment{quote}[2][]
+{\if\relax\detokenize{#1}\relax
+	\def\quoteauthor{#2}%
+	\else
+	\def\quoteauthor{#2~---~#1}%
+	\fi
+	\oldquote}
+{\par\nobreak\smallskip\hfill(\quoteauthor)%
+	\endoldquote\addvspace{\bigskipamount}}
+
+
+
+%\newenvironment{mysolution}{\begin{frame}<beamer:0>[fragile]\begin{exampleblock}{Lösung}\begin{minted}{python}}%
+%		{\end{minted}\end{exampleblock}\end{frame}}
+
+
+%\newtheorem{solutionblock}{Example}
+\newenvironment<>{solutionblock}[1]{%
+\setbeamercolor{block title example}{fg=cyan!60!white}%
+\setbeamercolor{itemize item}{fg=cyan!60!white}%
+\begin{exampleblock}<beamer:0>{#1}
+\vspace{2pt}
+	
+}%
+{\end{exampleblock}}
+
+
+
+
+\begin{document}
+\input{initialization.tex}
+%\subtitle{Teil 12: Geografie-Quiz}
+%\date{16. Dezember 2021}
+
+\subtitle{Eine Einführung}
+%\date{\today}
+\date{5. Oktober 2022}
+\maketitle
+
+
+
+\input{skript_tag_1}
+\input{skript_tag_2}
+%\input{skript_tag_3}
+%\input{skript_tag_4}
+%\input{skript_tag_5}
+%\input{skript_tag_6}
+%\input{skript_tag_7}
+%\input{skript_tag_8}
+%\input{skript_tag_9}
+%\input{skript_tag_10}
+%\input{skript_tag_11}
+%\input{skript_tag_12}
+
+%\input{ide}
+
+
+
+
+
+
+
+
+
+\end{document}
+
+
+
+
+
+

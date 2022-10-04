@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{grades} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{12}\PYG{p}{,} \PYG{l+m+mi}{9}\PYG{p}{,} \PYG{l+m+mi}{14}\PYG{p}{,} \PYG{l+m+mi}{11}\PYG{p}{]}
+\PYG{n}{total\PYGZus{}sum} \PYG{o}{=} \PYG{n+nb}{sum}\PYG{p}{(}\PYG{n}{grades}\PYG{p}{)}
+\PYG{n}{count} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{grades}\PYG{p}{)}
+\PYG{n}{average} \PYG{o}{=} \PYG{n}{total\PYGZus{}sum}\PYG{o}{/}\PYG{n}{count}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Die Durchschnittsnote ist }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{average}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

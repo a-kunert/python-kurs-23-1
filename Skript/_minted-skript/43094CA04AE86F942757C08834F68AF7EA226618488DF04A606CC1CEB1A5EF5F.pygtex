@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{my\PYGZus{}list} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{8}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{]}
+
+\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{my\PYGZus{}list}\PYG{p}{)}   \PYG{c+c1}{\PYGZsh{} = 4  (Gibt die Anzahl der Elemente an)}
+\PYG{n+nb}{sum}\PYG{p}{(}\PYG{n}{my\PYGZus{}list}\PYG{p}{)}   \PYG{c+c1}{\PYGZsh{} = 15 (Berechnet die Summe der Elemente)}
+\PYG{n}{my\PYGZus{}list}\PYG{o}{.}\PYG{n}{reverse}\PYG{p}{()} \PYG{c+c1}{\PYGZsh{} [1, 8, 4, 2] (Dreht die Reihenfolge um)}
+\PYG{n}{my\PYGZus{}list}\PYG{o}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} [2, 4, \PYGZhy{}1, 8, 1] (fügt den Wert \PYGZhy{}1 an Position 2 ein)}
+\PYG{n}{my\PYGZus{}list}\PYG{o}{.}\PYG{n}{pop}\PYG{p}{()} \PYG{c+c1}{\PYGZsh{} 1 (Gibt den letzten Eintrag der Liste zurück und entfernt ihn aus der Liste)}
+\end{Verbatim}

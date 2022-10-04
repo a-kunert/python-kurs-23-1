@@ -1,0 +1,575 @@
+\begin{frame}
+\begin{block}{Mutability}
+
+\vspace{2pt}
+Listen sind der erste Datentyp, den wir kennenlernen, der \emph{mutable} (veränderbar) ist. Die bisherigen Datentypen waren \emph{immutable}, d.h. man konnte sie zwar überschreiben, aber nicht verändern. 
+\end{block}
+
+\pause 
+\vspace{12pt}
+
+\metroset{block=fill}
+\begin{block}{Call by Reference vs. Call by Value}
+\vspace{2pt}
+Enthält die Variable \py{my_list} eine Liste, so speichert Python eigentlich gar nicht die Liste in dieser Variable, sondern nur die Speicheradresse der Liste. 
+Dieses vorgehen nennt man auch \emph{Call by Reference}. Bei den Datentypen \py{int} und \py{str} wird stattdessen tatsächlich der Wert der Variable abgespeichert. Dies nennt man \emph{Call by Value}.
+
+\end{block}
+\end{frame}
+
+\begin{fragile}[Übung]
+\begin{block}{Eine Liste kopieren}
+\vspace{2pt}
+Definiere die Variable \py{my_list} als die Liste \py{[1,2,3]}. Kopiere die Variable \py{my_list} in die Variable \py{my_list_copy}. Füge einen weiteren Eintrag zu \py{my_list} hinzu. Welchen Wert hat \py{my_list_copy}? 
+\end{block}
+\vspace{12pt}
+\begin{solutionblock}{Lösung}
+\begin{minted}{python}
+my_list = [1, 2, 3]
+my_list_copy = my_list
+my_list.append(4)
+print(my_list_copy) # 1 2 3 4 
+\end{minted}
+\end{solutionblock}
+\end{fragile}
+
+
+
+\begin{fragile}
+\begin{block}{Schleife über Liste}
+\vspace{2pt}
+Analog wie über Strings und Ranges kann man Schleifen auch über eine Liste laufen lassen.  
+\end{block}
+\vspace{12pt}
+\pause 
+
+\begin{exampleblock}{Beispiel}
+\vspace{2pt}
+\begin{overprint}
+\onslide<2|handout:0>
+\begin{minted}{python}
+countries = ["Bulgarien", "Griechenland", "Türkei", "Libanon"]
+
+for country in countries:
+  print(country)
+\end{minted}
+\onslide<3|handout:1>
+\begin{minted}{python}
+countries = ["Bulgarien", "Griechenland", "Türkei", "Libanon"]
+
+for country in countries:
+  print(country)
+  
+# Bulgarien
+# Griechenland
+# Türkei
+# Libanon
+\end{minted}
+\end{overprint}
+\end{exampleblock}
+\end{fragile}
+
+
+\begin{fragile}
+\begin{block}{Schleife über Liste mit Indizes}
+\vspace{2pt}
+Möchte man in einer Schleife nicht nur die Listeneinträge, sondern auch die Indizes verwenden, so muss man die Funktion \py{enumerate()} auf die Liste anwenden. 
+\end{block}
+\vspace{12pt}
+\pause 
+
+\begin{exampleblock}{Beispiel}
+\vspace{2pt}
+\begin{overprint}
+\onslide<2|handout:0>
+\begin{minted}{python}
+countries = ["Guatemala", "Nicaragua", "Honduras", "Belize"]
+
+for (index, country) in enumerate(countries):
+  print(f"Das {index + 1}. Land ist {country}")
+\end{minted}
+\onslide<3|handout:1>
+\begin{minted}{python}
+countries = ["Guatemala", "Nicaragua", "Honduras", "Belize"]
+
+for (index, country) in enumerate(countries):
+  print(f"Das {index + 1}. Land ist {country}")
+
+# Das 1. Land ist Guatemala
+# Das 2. Land ist Nicaragua
+# Das 3. Land ist Honduras
+# Das 4. Land ist Belize
+\end{minted}
+\end{overprint}
+\end{exampleblock}
+\end{fragile}
+
+
+\begin{frame}{Übung}
+
+\begin{block}{Liste durchsuchen}
+	\vspace{2pt}
+Prüfe, ob in einer Liste von Ländern das Land \py{"Italien"} vorkommt. Gib dazu auf der Konsole entweder 
+
+\console{Italien ist in der Liste}
+
+oder 
+
+\console{Italien ist nicht in der Liste}
+
+aus.  
+
+\end{block}
+\end{frame}
+
+
+\begin{frame}<beamer:0>[fragile]{Lösung}
+\begin{solutionblock}{Liste durchsuchen}
+\begin{minted}{python}
+# Wähle ein Beispiel für countries
+countries = ["Finnland", "Norwegen", "Schweden", "Dänemark"]
+
+for country in countries:
+  if country == "Italien":
+    print("Italien ist in der Liste")
+    break
+else: 
+  print("Italien ist nicht in der Liste")
+\end{minted}
+\end{solutionblock}
+\end{frame}
+
+\begin{fragile}
+
+\begin{block}{Ist ein Element in einer Liste enthalten?}
+\vspace{2pt}	
+Möchte man prüfen, ob ein Element in einer Liste enthalten ist, so kann man auch das Schlüsselwort \py{in} verwenden. 
+\end{block}
+
+\pause 
+\vspace{12pt}
+
+\begin{exampleblock}{Beispiel}
+\vspace{2pt}
+\begin{overprint}
+\onslide<2|handout:0>
+\begin{minted}{python}
+countries = ["Finnland", "Norwegen", "Schweden", "Dänemark"]
+
+var_1 = "Finnland" in countries
+var_2 = "Deutschland" in countries
+
+print(var_1)  
+print(var_2)
+\end{minted}
+\onslide<3|handout:1>
+\begin{minted}{python}
+countries = ["Finnland", "Norwegen", "Schweden", "Dänemark"]
+
+var_1 = "Finnland" in countries
+var_2 = "Deutschland" in countries
+
+print(var_1)  # True
+print(var_2)  # False
+\end{minted}
+\end{overprint}
+
+\end{exampleblock}
+\end{fragile}
+
+
+\begin{fragile}
+	
+\begin{block}{Eine Liste sortieren}
+\vspace{2pt}
+Um eine Liste zu sortieren, verwende die Methode \pybw{.sort()}. Dies verändert die Liste dauerhaft. \\
+\pause 
+Um eine sortierte Kopie einer Liste zu erstellen, verwende die Funktion \pybw{sorted()}.  \\
+\pause 
+Mit Hilfe des Parameters \pybw{reverse=True} lässt sich eine Liste absteigend ordnen. 
+\end{block}	
+
+\pause \vspace{12pt}
+
+\begin{exampleblock}{Beispiel für \texttt{sort}}
+\vspace{2pt}
+\begin{overprint}
+\onslide<4|handout:0>
+\begin{minted}{python}
+my_list = [1, 5, 2, 7]
+my_list.sort()
+print(my_list)  
+\end{minted}
+\onslide<5-|handout:1>
+\begin{minted}{python}
+my_list = [1, 5, 2, 7]
+my_list.sort()
+print(my_list)  # [1, 2, 5, 7]
+\end{minted}
+\end{overprint}
+
+\end{exampleblock}
+
+\vspace{12pt}
+
+\pause \pause 
+
+\begin{exampleblock}{Beispiel für \texttt{sorted}}
+\vspace{2pt}
+\begin{overprint}
+\onslide<6|handout:0>
+\begin{minted}{python}
+my_list = [1, 5, 2, 7]
+sorted_list = sorted(my_list)
+print(my_list)  
+print(sorted_list)  
+\end{minted}
+\onslide<7|handout:1>
+\begin{minted}{python}
+my_list = [1, 5, 2, 7]
+sorted_list = sorted(my_list)
+print(my_list)  # [1, 5, 2, 7]
+print(sorted_list)  # [1, 2, 5, 7]
+\end{minted}
+\end{overprint}
+\end{exampleblock}
+\end{fragile}
+
+\begin{fragile}
+\begin{exampleblock}{Beispiel für absteigende Sortierung}
+\vspace{2pt}
+\begin{overprint}
+\onslide<1|handout:0>
+\begin{minted}{python}
+my_list = [1, 5, 2, 7]
+my_list.sort(reverse=True)
+print(my_list)  
+
+my_list = [7, 12, 5, 18]
+sorted_list = sorted(my_list, reverse=True)
+print(sorted_list) 
+\end{minted}
+\onslide<2|handout:1>
+\begin{minted}{python}
+my_list = [1, 5, 2, 7]
+my_list.sort(reverse=True)
+print(my_list)  # [7, 5, 2, 1]
+
+my_list = [7, 12, 5, 18]
+sorted_list = sorted(my_list, reverse=True)
+print(sorted_list) # [18, 12, 7, 5] 
+\end{minted}
+\end{overprint}
+\end{exampleblock}
+\end{fragile}
+
+
+\begin{fragile}[Übung]
+	
+\begin{block}{Beste/Schlechteste Note}
+\vspace{2pt}
+Sei \py{grades} eine Liste der Noten deiner letzten Klausuren (z.B. \py{grades = [12, 9, 14, 11]}). 
+Gib dann auf der Konsole einmal die beste und einmal die schlechteste Note aus. 
+\end{block}	
+
+\vspace{12pt}
+
+\begin{solutionblock}{Lösung}
+\begin{minted}{python}
+grades = [12, 9, 14, 11]
+grades.sort()
+min_grade = grades[0]
+max_grade = grades[-1]
+print(f"Schlechteste Note: {min_grade}")
+print(f"Beste Note: {max_grade}")
+\end{minted}
+\end{solutionblock}
+\end{fragile}
+
+\begin{fragile}
+\begin{block}{Nützliche Funktionen/Methoden}
+\vspace{2pt}	
+Für Listen stellt Python viele nützliche Methoden bzw. Funktionen bereit. Wenn Du googlest, findest Du für viele \enquote{Alltagsfragen} eine Lösung. 
+
+Zum Beispiel hier: \texttt{https://docs.python.org/3/tutorial/datastructures.html}
+\end{block}
+
+\pause
+\vspace{12pt}
+
+
+\begin{exampleblock}{Beispiele}
+\begin{minted}{python}
+my_list = [2, 4, 8, 1]
+
+len(my_list)   # = 4  (Gibt die Anzahl der Elemente an)
+sum(my_list)   # = 15 (Berechnet die Summe der Elemente)
+my_list.reverse() # [1, 8, 4, 2] (Dreht die Reihenfolge um)
+my_list.insert(2,-1) # [2, 4, -1, 8, 1] (fügt den Wert -1 an Position 2 ein)
+my_list.pop() # 1 (Gibt den letzten Eintrag der Liste zurück und entfernt ihn aus der Liste)
+\end{minted}
+\end{exampleblock}
+\end{fragile}
+
+
+\begin{fragile}[Übung]
+
+\begin{block}{Durchschnittsnote}
+\vspace{2pt}
+Sei \py{grades} wieder eine Liste mit deinen letzten Noten.  Gib auf der Konsole die Durchschnittsnote aus. 
+\end{block}	
+
+\vspace{12pt}
+
+\begin{solutionblock}{Lösung}
+\begin{minted}{python}
+grades = [12, 9, 14, 11]
+total_sum = sum(grades)
+count = len(grades)
+average = total_sum/count
+print(f"Die Durchschnittsnote ist {average}")
+\end{minted}
+\end{solutionblock}
+	
+\end{fragile}
+
+\begin{frame}
+\begin{block}{Slicing}
+\vspace{2pt}
+Wenn man eine Liste hat, ist es oft nötig, einen Teil der Liste \enquote{auszuschneiden}.\\
+\pause
+Dafür hat Python die \emph{Slice-Notation} eingeführt. \\
+\pause 
+Diese funktioniert nach folgendem Schema: 
+
+\pause  \py{my_list[start:stop:step]}. 
+
+\pause 
+Die Einträge (start, stop, step) sind dabei jeweils optional. Wie immer wird der obere Wert (\pybw{stop}) gerade nicht erreicht.  
+\pause 
+
+
+Slicing lässt sich übrigens auch nach dem gleichen Schema auch auf Strings anwenden. 
+\end{block}	
+
+\pause
+\vspace{12pt}
+
+\begin{alertblock}{Wichtig}
+\vspace{2pt}
+Wenn man Slicing anwendet, erhält man eine Kopie der ausgewählten Elemente zurück. Die ursprüngliche Liste wird \emph{nicht} verändert. 
+\end{alertblock}
+\end{frame}
+
+
+\begin{fragile}
+\begin{exampleblock}{Beispiele}
+	\vspace{2pt}
+\begin{overprint}
+\onslide<1|handout:0>
+\begin{minted}{python}
+my_list = [2, 4, 6, 8, 10]
+
+my_list[1:3]    
+my_list[0:4]     
+my_list[1:1]     
+my_list[0:4:2]   
+my_list[:3]      
+my_list[2:]      
+my_list[:]      
+my_list[1:-2]    
+my_list[-3:-1]  
+my_list[::-1]    
+\end{minted}
+
+\onslide<2|handout:0>
+\begin{minted}{python}
+my_list = [2, 4, 6, 8, 10]
+
+my_list[1:3]     # [4, 6]
+my_list[0:4]     
+my_list[1:1]     
+my_list[0:4:2]   
+my_list[:3]      
+my_list[2:]     
+my_list[:]       
+my_list[1:-2]   
+my_list[-3:-1]  
+my_list[::-1]    
+\end{minted}
+
+\onslide<3|handout:0>
+\begin{minted}{python}
+my_list = [2, 4, 6, 8, 10]
+
+my_list[1:3]     # [4, 6]
+my_list[0:4]     # [2, 4, 6, 8]
+my_list[1:1]     
+my_list[0:4:2]   
+my_list[:3]      
+my_list[2:]      
+my_list[:]       
+my_list[1:-2]    
+my_list[-3:-1]  
+my_list[::-1]    
+\end{minted}
+
+\onslide<4|handout:0>
+\begin{minted}{python}
+my_list = [2, 4, 6, 8, 10]
+
+my_list[1:3]     # [4, 6]
+my_list[0:4]     # [2, 4, 6, 8]
+my_list[1:1]     # []
+my_list[0:4:2]   
+my_list[:3]      
+my_list[2:]     
+my_list[:]       
+my_list[1:-2]    
+my_list[-3:-1]   
+my_list[::-1]    
+\end{minted}
+
+
+\onslide<5|handout:0>
+\begin{minted}{python}
+my_list = [2, 4, 6, 8, 10]
+
+my_list[1:3]     # [4, 6]
+my_list[0:4]     # [2, 4, 6, 8]
+my_list[1:1]     # []
+my_list[0:4:2]   
+my_list[:3]      
+my_list[2:]      
+my_list[:]       
+my_list[1:-2]    
+my_list[-3:-1]   
+my_list[::-1]    
+\end{minted}
+
+\onslide<6|handout:0>
+\begin{minted}{python}
+my_list = [2, 4, 6, 8, 10]
+
+my_list[1:3]     # [4, 6]
+my_list[0:4]     # [2, 4, 6, 8]
+my_list[1:1]     # []
+my_list[0:4:2]   # [2, 6]
+my_list[:3]      
+my_list[2:]      
+my_list[:]       
+my_list[1:-2]    
+my_list[-3:-1]   
+my_list[::-1]    
+\end{minted}
+
+\onslide<7|handout:0>
+\begin{minted}{python}
+my_list = [2, 4, 6, 8, 10]
+
+my_list[1:3]     # [4, 6]
+my_list[0:4]     # [2, 4, 6, 8]
+my_list[1:1]     # []
+my_list[0:4:2]   # [2, 6]
+my_list[:3]      # [2, 4, 6]
+my_list[2:]      
+my_list[:]       
+my_list[1:-2]   
+my_list[-3:-1]   
+my_list[::-1]    
+\end{minted}
+
+\onslide<8|handout:0>
+\begin{minted}{python}
+my_list = [2, 4, 6, 8, 10]
+
+my_list[1:3]     # [4, 6]
+my_list[0:4]     # [2, 4, 6, 8]
+my_list[1:1]     # []
+my_list[0:4:2]   # [2, 6]
+my_list[:3]      # [2, 4, 6]
+my_list[2:]      # [6, 8, 10]
+my_list[:]       
+my_list[1:-2]    
+my_list[-3:-1]  
+my_list[::-1]    
+\end{minted}
+
+\onslide<9|handout:0>
+\begin{minted}{python}
+my_list = [2, 4, 6, 8, 10]
+
+my_list[1:3]     # [4, 6]
+my_list[0:4]     # [2, 4, 6, 8]
+my_list[1:1]     # []
+my_list[0:4:2]   # [2, 6]
+my_list[:3]      # [2, 4, 6]
+my_list[2:]      # [6, 8, 10]
+my_list[:]       # [2, 4, 6, 8, 10]
+my_list[1:-2]    
+my_list[-3:-1]   
+my_list[::-1]    
+\end{minted}
+
+\onslide<10|handout:0>
+\begin{minted}{python}
+my_list = [2, 4, 6, 8, 10]
+
+my_list[1:3]     # [4, 6]
+my_list[0:4]     # [2, 4, 6, 8]
+my_list[1:1]     # []
+my_list[0:4:2]   # [2, 6]
+my_list[:3]      # [2, 4, 6]
+my_list[2:]      # [6, 8, 10]
+my_list[:]       # [2, 4, 6, 8, 10]
+my_list[1:-2]    # [4, 6]
+my_list[-3:-1]    
+my_list[::-1]     
+\end{minted}
+
+\onslide<11|handout:0>
+\begin{minted}{python}
+my_list = [2, 4, 6, 8, 10]
+
+my_list[1:3]     # [4, 6]
+my_list[0:4]     # [2, 4, 6, 8]
+my_list[1:1]     # []
+my_list[0:4:2]   # [2, 6]
+my_list[:3]      # [2, 4, 6]
+my_list[2:]      # [6, 8, 10]
+my_list[:]       # [2, 4, 6, 8, 10]
+my_list[1:-2]    # [4, 6]
+my_list[-3:-1]   # [6, 8] 
+my_list[::-1]     
+\end{minted}
+
+\onslide<12|handout:1>
+\begin{minted}{python}
+my_list = [2, 4, 6, 8, 10]
+
+my_list[1:3]     # [4, 6]
+my_list[0:4]     # [2, 4, 6, 8]
+my_list[1:1]     # []
+my_list[0:4:2]   # [2, 6]
+my_list[:3]      # [2, 4, 6]
+my_list[2:]      # [6, 8, 10]
+my_list[:]       # [2, 4, 6, 8, 10]
+my_list[1:-2]    # [4, 6]
+my_list[-3:-1]   # [6, 8] 
+my_list[::-1]    # [10, 8, 6, 4, 2]  
+\end{minted}
+
+\end{overprint}
+\end{exampleblock}
+\end{fragile}
+
+
+
+
+
+
+
+
+
+
+

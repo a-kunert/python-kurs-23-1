@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{capitals} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+s+s2}{\PYGZdq{}Litauen\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Vilnius\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Lettland\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Riga\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Estland\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Tallin\PYGZdq{}}\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{for} \PYG{n}{key}\PYG{p}{,} \PYG{n}{value} \PYG{o+ow}{in} \PYG{n}{capitals}\PYG{o}{.}\PYG{n}{items}\PYG{p}{():}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Hauptstadt von }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{key}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{value}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Hauptstadt von Litauen: Vilnius}
+\PYG{c+c1}{\PYGZsh{} Hauptstadt von Lettland: Riga}
+\PYG{c+c1}{\PYGZsh{} Hauptstadt von Estland: Tallin}
+\end{Verbatim}

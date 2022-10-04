@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{name} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}Max\PYGZdq{}}
+\PYG{n}{age} \PYG{o}{=} \PYG{l+m+mi}{20}
+\PYG{n}{age} \PYG{o}{=} \PYG{n}{age} \PYG{o}{+} \PYG{l+m+mi}{1}
+\end{Verbatim}

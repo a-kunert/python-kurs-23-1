@@ -1,0 +1,306 @@
+\section{Comprehensions}
+
+\begin{frame}
+\begin{block}{Typische Manipulationen}
+\vspace{2pt}
+Sehr häufig möchte man eine Datenstruktur (d.h. eine Liste oder ein Dictionary) basierend auf den Werten manipulieren. Dabei werden vor allem zwei Aspekte immer wieder gebraucht: Maps und Filter. 
+\end{block}
+
+\end{frame}
+
+\begin{frame}
+\metroset{block=fill}
+\begin{block}{Map}
+\vspace{2pt}
+Ersetzt man jedes Element einer Liste durch ein aus dem ursprünglich berechnetem Element, so spricht man von einer \emph{Map} (bzw. einem Mapping). 
+\end{block}
+
+\pause 
+
+\vspace{12pt}
+
+\metroset{block=transparent}
+\begin{exampleblock}{Beispiel}
+\vspace{2pt}
+Gegeben ist die Liste \py{my_list = [2, 5, 3, 12, 7] }. Die Liste soll so manipuliert werden, dass alle Einträge durch ihren doppelten Wert ersetzt werden. 
+\end{exampleblock}
+
+\end{frame}
+
+\begin{fragile}
+\begin{overprint}
+
+\begin{block}{Traditionelle Lösung}
+\vspace{2pt}
+\begin{minted}{python}
+my_list = [2, 5, 3, 12, 7]
+result = []
+for k in my_list: 
+  result.append(2 * k)
+print(result)
+\end{minted}
+\end{block}
+
+\vspace{12pt}
+
+\pause
+
+\begin{block}{The Pythonian Way}
+\vspace{2pt}
+\begin{minted}{python}
+my_list = [2, 5, 3, 12, 7]
+result = [2 * k for k in my_list]
+print(result)
+\end{minted}
+\end{block}
+\end{overprint}
+\end{fragile}
+
+
+
+\begin{frame}
+\metroset{block=fill}
+\begin{block}{Filter}
+\vspace{2pt}
+Streicht man Elemente entsprechend ihres Wertes aus einer Liste, so spricht man von einem \emph{Filter}. 
+\end{block}
+
+\pause 
+
+\vspace{12pt}
+
+\metroset{block=transparent}
+\begin{exampleblock}{Beispiel}
+\vspace{2pt}
+Gegeben ist die Liste \py{my_list = [2, 5, 3, 12, 7] }. Aus der Liste sollen alle ungeraden Einträge gestrichen werden. 
+\end{exampleblock}
+
+\end{frame}
+
+\begin{fragile}
+\begin{overprint}
+
+\begin{block}{Traditionelle Lösung}
+\vspace{2pt}
+\begin{minted}{python}
+my_list = [2, 5, 3, 12, 7]
+result = []
+for k in my_list: 
+  if k % 2 == 0: 
+    result.append(k)
+print(result)
+\end{minted}
+\end{block}
+
+\vspace{12pt}
+
+\pause
+
+\begin{block}{The Pythonian Way}
+\vspace{2pt}
+\begin{minted}{python}
+my_list = [2, 5, 3, 12, 7]
+result = [k for k in my_list if k % 2 == 0]
+print(result)
+\end{minted}
+\end{block}
+\end{overprint}
+
+
+\end{fragile}
+
+\begin{fragile}
+\begin{block}{Kombination aus Map und Filter}
+\vspace{2pt}
+Selbstverständlich können Maps und Filter auch kombiniert werden. 
+\end{block}
+
+\vspace{12pt}
+
+\begin{exampleblock}{Beispiel}
+\vspace{2pt}
+Lösche alle ungeraden Zahlen und verdopple dann alle Zahlen: 
+
+\begin{minted}{python}
+my_list = [2, 5, 3, 12, 7]
+result = [2 * k for k in my_list if k % 2 == 0]
+print(result)
+\end{minted}
+\end{exampleblock}
+
+\end{fragile}
+
+
+\begin{frame}
+\metroset{block=fill}
+
+
+\begin{block}{Struktur List Comprehension}	
+\vspace{2pt}
+
+\texttt{result = }
+\pause {\Large\texttt{[}}
+\pause\textit{Wunscheintrag(k)} \,
+\pause \py{for} 
+\pause \py{k} 
+\pause \py{in} 
+\pause \texttt{my\_list} 
+\pause \py{if} 
+\pause \textit{Bedingung(k)}
+\pause \Large{\texttt{]}}
+
+\end{block}
+
+\end{frame}
+
+
+
+\begin{fragile}
+
+\begin{block}{Dictionary Comprehension}
+\vspace{2pt}
+Man kann das gleiche Verfahren auch auf Dictionaries anwenden. Dabei können jeweils key und value für die Maps und Filter verwendet werden. 
+\end{block}
+
+\vspace{12pt}
+
+\begin{exampleblock}{Beispiel}
+\vspace{2pt}
+\begin{minted}{python}
+my_dict = {"a": 2, "b": 3}
+result = {key: value for (key, value) in my_dict.items()}
+print(result)
+\end{minted}
+\end{exampleblock}
+
+\end{fragile}
+
+\begin{frame}
+\metroset{block=fill}
+\begin{block}{Struktur Dictionary Comprehension}	
+\vspace{2pt}
+
+\texttt{result = }
+\pause {\Large\texttt{\{}}
+\pause\textit{Wunsch-schlüssel(k,v)} 
+\pause \,:\,
+\pause  \textit{Wunsch-Wert(k,v)}  \\
+\phantom{result = Klammer  }
+\pause \py{for} 
+\pause \py{(k,v)} 
+\pause \py{in} 
+\pause \py{my_dict.items()} 
+\pause \py{if} 
+\pause \textit{Bedingung(k,v)}
+\pause \Large{\texttt{\}}}
+
+\end{block}
+
+\end{frame}
+
+
+
+\begin{fragile}[Übung]
+
+\begin{block}{List Comprehension}
+\vspace{2pt}
+Gegeben sei eine beliebige Liste von ganzen Zahlen. Streiche alle Zahlen, die ungerade oder negativ sind. Ersetze die übrigen Zahlen durch ihre Hälfte. 
+\end{block}
+
+
+\vspace{12pt}
+
+\begin{solutionblock}{Lösung}
+\begin{minted}{python}
+my_list = [2, -3, 40, 15, 7, 8]
+result = [k//2 for k in my_list if k % 2 == 0 and k >= 0]
+\end{minted}
+\end{solutionblock}
+
+\end{fragile}
+
+
+\begin{fragile}[Übung]
+
+\begin{block}{Dictionary Comprehension}
+\vspace{2pt}
+Gegeben sei das Dictionary 
+\py{{"Mathe": 9, "Sport": 13, "Physik": 4, "Bio": 12}}. 
+Lösche nun daraus alle Noten unter 5 Punkte sowie die Sportnote. Zusätzlich soll das Dictionary danach wie folgt aussehen: 
+\py{ {"In Mathe": "9 Punkte", "In Bio": "12 Punkte"} }. 
+
+\end{block}
+
+
+\vspace{12pt}
+
+\begin{solutionblock}{Lösung}
+\begin{minted}{python}
+grades = {"Mathe": 9, "Sport": 13, "Physik": 4, "Bio": 12}
+result = {
+    "In " + key: f"{value} Punkte"
+    for (key, value) in grades.items()
+    if value >= 5 and key != "Sport"
+}
+\end{minted}
+\end{solutionblock}
+
+\end{fragile}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

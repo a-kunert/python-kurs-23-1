@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{answer} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Was ist die Hauptstadt von Frankreich?\PYGZdq{}}\PYG{p}{)}
+\PYG{k}{if} \PYG{n}{answer} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}Paris\PYGZdq{}}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Das ist richtig!\PYGZdq{}}\PYG{p}{)}
+\PYG{k}{else}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Das war falsch! Die richtige Antwort ist Paris.\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

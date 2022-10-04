@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{grades} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+s+s2}{\PYGZdq{}Mathe\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{9}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Sport\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{13}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Physik\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Bio\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{12}\PYG{p}{\PYGZcb{}}
+\PYG{n}{result} \PYG{o}{=} \PYG{p}{\PYGZob{}}
+    \PYG{l+s+s2}{\PYGZdq{}In \PYGZdq{}} \PYG{o}{+} \PYG{n}{key}\PYG{p}{:} \PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{value}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ Punkte\PYGZdq{}}
+    \PYG{k}{for} \PYG{p}{(}\PYG{n}{key}\PYG{p}{,} \PYG{n}{value}\PYG{p}{)} \PYG{o+ow}{in} \PYG{n}{grades}\PYG{o}{.}\PYG{n}{items}\PYG{p}{()}
+    \PYG{k}{if} \PYG{n}{value} \PYG{o}{\PYGZgt{}=} \PYG{l+m+mi}{5} \PYG{o+ow}{and} \PYG{n}{key} \PYG{o}{!=} \PYG{l+s+s2}{\PYGZdq{}Sport\PYGZdq{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

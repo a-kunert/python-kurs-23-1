@@ -1,0 +1,404 @@
+\section{Den Schleifenfluss kontrollieren  \\ \footnotesize \texttt{break}, \texttt{continue} und \texttt{else}}
+
+
+\begin{fragile}
+	
+\metroset{block=fill}
+
+\begin{block}{Das \texttt{break}-Statement}
+Taucht innerhalb einer Schleife das Schlüsselwort \py{break} auf, so wird die weitere Abarbeitung der Schleife abgebrochen. Die Ausführung wird mit dem Code \emph{nach} dem Schleifenblock ausgeführt. 		
+\end{block}
+
+\metroset{block=transparent}
+
+\vspace{12pt} \pause 
+
+
+\begin{exampleblock}{Beispiel}
+\vspace{2pt}
+
+\begin{overprint}
+	\onslide<2|handout:0>
+\begin{minted}{python}
+for k in range(1,100):
+  print(k)
+  if k > 3:
+    break
+print("fertig")
+\end{minted}
+\onslide<3|handout:1>
+\begin{minted}{python}
+for k in range(1,100):
+  print(k)
+  if k > 3:
+    break
+print("fertig")
+# 1 2 3 4 
+# fertig
+\end{minted}
+\end{overprint}
+
+\end{exampleblock}
+
+	
+\end{fragile}
+
+
+
+\begin{fragile}
+	
+\metroset{block=fill}
+
+\begin{block}{Das \texttt{continue}-Statement}
+Taucht innerhalb einer Schleife das Schlüsselwort \py{continue} auf, so wird der aktuelle Schleifendurchgang abgebrochen. Die Ausführung wird mit der nächsten Schleifeniteration fortgesetzt. 
+\end{block}
+
+\metroset{block=transparent}
+
+\vspace{12pt} \pause 
+
+
+\begin{exampleblock}{Beispiel}
+\vspace{2pt}
+
+\begin{overprint}
+\onslide<2|handout:0>
+\begin{minted}{python}
+for k in range(1,11):
+  if k % 2 == 0:
+    continue
+  print(k)
+\end{minted}
+\onslide<3|handout:1>
+\begin{minted}{python}
+for k in range(1,11):
+  if k % 2 == 0:
+    continue
+  print(k)
+# 1 3 5 7 9 
+\end{minted}
+\end{overprint}
+\end{exampleblock}
+	
+	
+\end{fragile}
+
+
+\begin{fragile}
+	
+\metroset{block=fill}
+
+\begin{block}{Der \texttt{else}-Block einer Schleife}
+Analog zum \py{if}-Statement, kann auch eine Schleife einen \py{else}-Block haben. Dieser wird ausgeführt, wenn die Schleife \emph{regulär} (also nicht durch die Verwendung von \py{break}) beendet wird.  
+\end{block}
+
+\metroset{block=transparent}
+
+\vspace{12pt} \pause 
+
+
+\begin{exampleblock}{Beispiel}
+\begin{minted}{python}
+name = input("Dein Name: ")
+
+for letter in name: 
+  if letter == "a" or letter == "A":
+    print("Dein Name enthält ein A")
+    break
+else: 
+  print("Dein Name enthält kein A")
+\end{minted}
+\end{exampleblock}
+	
+	
+\end{fragile}
+
+
+
+\begin{fragile}[Übungen]
+
+\begin{block}{Zählen bis zur nächsten 10er-Zahl}
+	\vspace{2pt}
+Lies eine Zahl \pybw{x} ein und gib auf der Konsole die Zahlen von \pybw{x} bis zur nächsten 10er-Zahl aus. 
+\\
+Ist die Eingabe \pybw{x = 17}, so soll die Ausgabe wie folgt aussehen: 
+
+\console{17}\\
+\console{18}\\
+\console{19}\\
+\console{20}
+\end{block}
+	
+\vspace{12pt}
+\pause 
+
+\begin{block}{Zählen mit Lücken}
+	\vspace{2pt}
+	Schreibe ein Skript, dass die Zahlen von 1 bis 99 aufzählt, dabei allerdings die 10er-Zahlen weglässt. Verwende dabei ein \pybw{continue}-Statement.
+\end{block}
+\end{fragile}
+
+\begin{frame}<beamer:0>[fragile]{Lösungen}
+
+\begin{solutionblock}{Zählen bis zur nächsten 10er-Zahl}
+\begin{minted}{python}
+x = input("Gib eine Zahl an: ")
+x = int(x)
+
+for k in range(x, x + 11):
+  print(k)
+  if k % 10 == 0:
+    break
+\end{minted}
+\end{solutionblock}
+
+\vspace{12pt}
+
+\begin{solutionblock}{Zählen mit Lücken}
+\begin{minted}{python}
+for k in range(1, 100):
+  if k % 10 == 0:
+    continue
+  print(k)
+\end{minted}
+\end{solutionblock}
+
+\end{frame}
+
+\begin{fragile}[Übung]
+\begin{block}{Quizfrage mit Ausstiegsmöglichkeit}
+\vspace{2pt}
+Schreibe ein Programm, dass solange nach einer Hauptstadt Deiner Wahl fragt, bis die richtige Antwort eingegeben wird. Wird allerdings der Buchstabe \pybw{q} eingegeben, so bricht das Programm ab. 
+
+\vspace{12pt}
+
+\begin{solutionblock}{Quizfrage mit Ausstiegsmöglichkeit}
+\begin{minted}{python}
+answer = input("Was ist die Hauptstadt von Frankreich?")
+while answer != "Paris": 
+  print("Das war leider falsch, versuch es gleich nochmal")
+  answer = input("")
+  if answer == "q": 
+    break
+else: 
+  print("Das war richtig!")
+\end{minted}
+\end{solutionblock}
+\end{block}
+\end{fragile}
+
+
+
+
+\begin{fragile}[Harte Übung]
+\begin{block}{Primzahltest}
+\vspace{2pt}
+Lies eine ganze Zahl \py{x} ein und überprüfe, ob diese Zahl eine Primzahl ist. Die Ausgabe des Programms soll etwa wie folgt aussehen:  
+
+\console{Die Zahl 28061983 ist eine Primzahl.}
+\end{block}
+
+\vspace{12pt}
+\begin{solutionblock}{Lösung}
+\begin{minted}{python}
+x = input("Gib eine Zahl ein: ")
+x = int(x)
+
+for k in range(2, x):
+  if x % k == 0:
+    print(f"{x} ist keine Primzahl.")
+    break
+else:
+  print(f"{x} ist eine Primzahl.")
+\end{minted}
+\end{solutionblock}
+
+\end{fragile}
+
+
+
+\section{Listen \\ \footnotesize Viele Variablen gleichzeitig speichern}
+
+
+\begin{frame}
+\begin{block}{Problemstellung}
+\vspace{2pt}
+Lies mit Hilfe einer Schleife nach und nach Ländernamen ein. 
+Alle Länder sollen dabei gespeichert werden. Danach sollst Du die Möglichkeit haben, das soundsovielte Land anzeigen lassen zu können.   
+
+\vspace{8pt}
+
+Wie macht man das? 
+\end{block}
+\end{frame}
+
+\begin{fragile}{}
+\begin{block}{Lösung \footnotesize(fast)}
+\begin{minted}{python}
+# ...
+# Um das Eingaben der Länder kümmern wir uns noch 
+countries = ["Deutschland", "Frankreich", "Italien", "Spanien"] 
+
+index = input("Das wievielte Land möchtest Du nocheinmal anschauen?")
+index = int(index)
+
+print(f"Das { index }. Land ist { countries[index] }")
+\end{minted}
+\end{block}
+\end{fragile}
+
+
+\begin{fragile}
+
+\metroset{block=fill}
+\begin{block}{Struktur einer \emph{Liste}}
+\vspace{2pt}
+\large
+\texttt{my\_list = }\pause {\Large\texttt{[}}\pause 
+\texttt{element\_0}\pause,
+\pause 
+\texttt{element\_1}, \pause 
+ \dots   
+, \texttt{element\_n}\pause \Large{\texttt{]}}
+\end{block}
+
+\pause 
+
+Die Variable \py{my_list} trägt nicht nur einen Wert, sondern $n+1$ Werte. Ansonsten verhält sich \py{my_list} wie eine ganz \enquote{normale} Variable. 
+Als Einträge einer Liste sind beliebige Werte mit beliebigen Datentypen zugelassen. 
+
+
+\vspace{12pt}
+
+\pause
+
+\textbf{Frage:} Welchen Datentyp hat die Liste \py{[2, 2.3, "Hello"]} ? 
+	
+\end{fragile}
+
+\begin{frame}
+	
+\begin{block}{Auf Listenelemente zugreifen}
+	
+\vspace{2pt}
+
+Auf das \pybw{n}-te Element der Liste \py{my_list} kann man mittels \py{my_list[n]} zugreifen. 
+
+\pause 
+
+Mit \py{my_list[-1]}, \py{my_list[-2]}, etc. kann man auf das letzte, vorletzte, etc. Element 
+der Liste zugreifen. 
+
+\end{block}
+
+\pause 
+\vspace{12pt}
+
+\begin{alertblock}{Achtung}
+\vspace{2pt}
+Python fängt bei 0 an zu zählen. D.h. das erste Element in der Liste hat den Index 0. \\
+Beispiel: \py{my_list[1]} liefert das \textbf{2. Element} der Liste. 
+\end{alertblock}
+
+	
+\end{frame}	
+
+
+\begin{frame}
+\begin{block}{Schreibzugriff auf Listenelemente}
+\vspace{2pt}
+Nach dem gleichen Prinzip lassen sich einzelne Listeneinträge verändern. \\
+Beispiel: \py{my_list[3] = "Albanien"}. 
+\end{block}
+
+\pause 
+\vspace{12pt}
+
+
+
+\begin{alertblock}{Achtung}
+\vspace{2pt}
+Man kann nur schon existierende Listeneinträge verändern. 
+\end{alertblock}
+
+\pause 
+\vspace{12pt}
+
+\end{frame}
+
+
+\begin{frame}
+\begin{block}{Listeneinträge hinzufügen}
+	\vspace{2pt}
+	Mit der \emph{Methode} \pybw{.append()} kann ein Eintrag zur Liste hinzugefügt werden. \\ 
+	Bsp: \py{my_list.append("Russland")} fügt den String \py{"Russland"} zu der Liste hinzu. 
+\end{block}	
+
+\pause 
+\vspace{12pt}
+
+
+\begin{block}{Listeneinträge entfernen}
+	\pause 
+\vspace{2pt}
+Mit dem Keyword \pybw{del} kann man Einträge an einer bestimmten Position löschen. Dabei verschieben sich die darauffolgenden Einträge um \pybw{1} nach vorne. \\
+Beispiel: \py{del my_list[2]} löscht das dritte Element.  
+
+\pause 
+
+Mit der Methode \pybw{.remove()} kann man Einträge mit einem bestimmten Wert löschen. \\
+Beispiel: \py{my_list.remove("Italien")} entfernt den ersten Eintrag mit dem Wert \py{"Italien"}. Ist der Wert nicht vorhanden gibt es eine Fehlermeldung. 
+\end{block}
+\end{frame}
+
+\begin{fragile}[Übung]
+\begin{block}{Eine Liste erstellen}
+\vspace{2pt}
+Schreibe ein kleines Programm, dass Dich ca. 4x nach einem Land fragt, das Du besucht hast und Dir am Ende die Liste der besuchten Länder ausgibt. 	
+\end{block}
+\vspace{12pt}
+\begin{solutionblock}{Lösung}
+\begin{minted}{python}
+countries = []
+for k in range(1, 5):
+  country = input("Wo warst Du schonmal im Urlaub? ")
+  countries.append(country)
+print(countries)
+\end{minted}
+\end{solutionblock}
+\end{fragile}
+
+
+
+
+
+\begin{fragile}[Übung]
+\begin{block}{Das Eingangsproblem}
+\vspace{2pt}
+Schreibe ein kleines Programm, dass solange Namen von Ländern einliest, bis Du \textbf{q} drückst. Danach sollst Du die Möglichkeit haben, eine Zahl \pybw{k} einzugeben, so dass das  \pybw{k}-te Land angezeigt wird. 
+\end{block}	
+\end{fragile}
+
+\begin{frame}<beamer:0>[fragile]{Lösung}
+\begin{solutionblock}{Das Eingangsproblem}
+\begin{minted}{python}
+countries = []
+while True:
+  country = input("Gib ein Land ein: ")
+  if country == "q":
+    break
+  countries.append(country)
+
+index = input("Das wievielte Land möchtest Du nochmal anschauen?")
+index = int(index)
+print(f"Das { index }. Land ist { countries[index-1] }.")
+\end{minted}
+\end{solutionblock}
+\end{frame}
+
+
+
+
+
+
+

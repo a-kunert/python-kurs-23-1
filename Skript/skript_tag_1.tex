@@ -1,0 +1,583 @@
+\section{Zu Beginn \dots}
+
+\begin{frame}
+\begin{block}{Kurze Vorstellungsrunde}
+	\vspace{2pt}
+	Schaffst Du es \emph{in 60 Sekunden} folgende Fragen möglichst knackig und aussagekräftig zu beantworten?
+	\begin{itemize}
+		\item Wer bist Du? 
+		\item Windows, Mac oder Linux?
+		\item Welche Vorkenntnisse hast Du beim Programmieren?  
+		\item Warum hast Du Dich zum Python-Kurs angemeldet? 
+		\item Wann wäre der Kurs für Dich perfekt gelaufen? (Best Case Szenario)
+		\item Wann würdest Du den Kurs nicht weiter besuchen? (Worst Case Szenario)
+	\end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+	\begin{block}{Organisation des Kurses}
+		\pause 
+		\begin{itemize}[<+->]
+			\item Es soll 2 Nachholtermine geben. Zeiten dafür suchen wir im November. 
+			\item Pausen: 30 Minuten für den Nachmittagssnack. Bei Bedarf mehr Pausen. Bitte danach pünktlich kommen! 
+			\item Skript und alle Unterlagen findet man über MS Teams.
+			\item Gelegentlich gibt es ein Aufgabenblatt (Teams) $\rightarrow$ Ca. 10 Tage Bearbeitungszeit, Abgabe per Email oder durch Einladung zum Replit-Projekt  $\rightarrow$ individuelles Kurzfeedback
+			\item Lernleistung durch: Anwesenheit, Mitarbeit und Bearbeitung der Aufgabenblätter 
+			\item Wissenschaftliche Arbeit ist möglich
+			\item Kommunikation per E-Mail
+			\item Fragen sind immer und über alle Kanäle willkommen!
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}
+	\begin{block}{Didaktik des Kurses}
+		\begin{itemize}
+			\item Mischung aus Vortrag, Präsenzübungen und Live-Coding
+			\item Lösungen der Präsenzübungen gibt's im Handout in Teams
+			\item Achtung: Präsenzübungen können erstmal frustrierend sein!
+			\item Im Idealfall: Mehr Praxis statt Erklärungen
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\begin{block}{Ziele des Kurses}
+		\begin{itemize}
+			\item Einblick in die \enquote{Denkweise} eines Computers
+			\item Einige universelle Konzepte von Programmiersprachen kennenlernen
+			\item Schulung des analytischen Denkens
+			\item Verständnis von Python-Syntax
+			\item Programmierung eines rudimentären Quizspiels
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\begin{block}{Wo findet man Hilfe/Infos?}
+		\vspace{2pt}
+		\begin{itemize}
+			\item Google
+			\item \texttt{stackoverflow.com}
+			\item Youtube (z.B. Tutorials)
+			\item \texttt{docs.python.org/3}
+			\item Bücher (z.B. \textit{Python Crashkurs} v. \textsc{Eric Matthes})
+			\item \texttt{mailto: aaron.kunert@salemkolleg.de}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+\section{Was ist Python?}
+
+\begin{frame}
+
+\begin{block}{Wie funktioniert überhaupt die Programmierung in Python?}
+	
+	\begin{enumerate}
+		\item Man \textbf{schreibt} eine Abfolge von Befehlen/Anweisungen in eine Text-Datei (nicht Word!) 
+		\item Danach lässt man diese Datei vom Python-Interpreter \textbf{ausführen}. 
+	\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\metroset{block=fill}
+\uncover<+->{\begin{block}{Was wird benötigt?}
+		\vspace{2pt}
+		\uncover<+->{
+			\textbf{Am Anfang}
+			\begin{itemize}
+				\item Compiler/Interpreter
+				\item Texteditor (z.B. Mac: Xcode, Windows: Edit)
+			\end{itemize}
+		}
+		\uncover<+->{
+			\textbf{Später}
+			\begin{itemize}
+				\item Google
+				\item Integrierte Entwicklungsumgebung (IDE)
+				\item Versionskontrolle (VCS)
+				\item Virtueller Maschinen
+				\item Datenbanken
+				\item Grafikbearbeitung
+			\end{itemize}
+		}
+\end{block}}
+\uncover<+->{
+Editor und Compiler müssen nicht auf dem eigenem Computer installiert sein. Es gibt dafür auch cloudbasierte Lösungen. 
+}
+\end{frame}
+
+\begin{frame}
+	\begin{block}{Warum Python?}
+		\begin{itemize}
+			\item Einfaches Setup
+			\item Einstiegsfreundliche Syntax
+			\item Python ist eine Hochsprache
+			\item Python muss nicht kompiliert, sondern nur interpretiert werden
+			\item Große Community $\rightarrow$ großes \emph{Ecosystem}
+			\item Python ist extrem vielseitig
+			\item Python ist plattformunabhängig
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\begin{block}{Typische Einsatzbereiche}
+		\begin{itemize}
+			\item Automatisierung
+			\item Webscraping
+			\item Datenanalyse
+			\item Webentwicklung
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+
+
+
+\section{Wie Programmierer denken \\ \footnotesize{Wie lernt man analytisches Denken?}}
+
+\begin{frame}
+\begin{quote}{Steve Jobs}
+	Everyone in this country should learn to program a computer, because it teaches you to think.
+\end{quote}
+\end{frame}
+
+
+
+\begin{frame}
+\begin{block}{Phasen des Lernens einer Programmiersprache}
+\vspace{2pt}
+\uncover<+->{
+	\begin{enumerate}[<+->]
+		\item Annäherung:  Fokus auf dem Begreifen der Grundkonzepte
+		\item Syntax: Fokus auf der korrekten Anwendung der Syntax
+		\item Funktionalität: Fokus liegt darauf, Problemstellungen \emph{pragmatisch} zu lösen
+		\item Design: Fokus auf les-und wartbaren Code
+		\item Architektur: Fokus auf Strategie, Projekte nachhaltig und erweiterbar umzusetzen 
+	\end{enumerate}
+}
+\end{block}
+\end{frame}
+
+\begin{frame}
+
+\begin{block}{Problem Solving}
+\vspace{2pt}
+Sobald man die Syntax korrekt verwenden kann, steht das Lösen von Problemen beim Programmieren im Fokus.
+
+\pause 
+
+Dabei ist die Kunst nur wenige, klare begrenzte Bausteine (die Befehle der Sprache) \emph{kreativ} so zusammenzusetzen, damit das gegebene Problem gelöst wird. 
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Problemlösungsstrategien}
+	\pause 
+	\begin{itemize}[<+->]
+		\item \textbf{Trial} and Error
+		\item Formuliere laut und möglichst präzise, was eigentlich die Problemstellung ist
+		\item Zerlege das Problem in kleinere Probleme oder mach Dir Zwischenziele
+		\item Gibt es schon eine ähnliches Problem, was Du gelöst hast und von wo aus Du starten kannst?
+		\item Erkläre anderen das Problem und was Du schon bisher geschafft hast
+		\item Ändere Dein Denken: Scheitern ist nicht das Ende des Weges, sondern der Anfang
+		\item To be continued
+	\end{itemize}
+\end{block}
+\end{frame}
+
+
+
+\section{Die Konsole \\ \footnotesize{Das Sprachrohr zum Computer}}
+
+
+\begin{frame}
+
+\metroset{block=fill}
+\begin{block}{Definition: Konsole}
+	\vspace{2pt}
+	Die Konsole ist ein simples Programm, das nur aus einem Eingabefeld besteht, und mit dem man mit einem anderen (in der Regel komplexeren Programm) mittels spezifischer Befehle kommunizieren kann. 
+\end{block}
+
+\vspace{10pt}
+
+\pause 
+
+\metroset{block=transparent}
+
+\begin{exampleblock}{Beispiele}
+	\begin{itemize}
+		\item Windows-Eingabeaufforderung (Kommunikation mit Windows)
+		\item Mac-Terminal (Kommunikation mit MacOs)
+		\item Browser-Konsole (Kommunikation mit der Webseite mittels JavaScript)
+		\item Die Python-Konsole
+	\end{itemize}
+\end{exampleblock}
+
+\pause 
+
+	Für Programmierer*innen ist die Konsole der wichtigste Kommunikationsweg zu ihrem Computerprogramm. 
+\end{frame}
+
+
+\begin{frame}{Übung}
+\begin{block}{Überprüfe, ob Python bei Dir installiert ist}
+	\begin{enumerate}
+		\item Google wie man die Konsole bzw. das Terminal zum Betriebssystem öffnet 
+		\item Öffne die Konsole
+		\item Prüfe, ob Python installiert ist, indem Du einen der folgenden Befehle ausprobierst 
+		\begin{itemize}
+			\item \bash{python --version}
+			\item \bash{python3 --version}
+		\end{itemize}
+		\item Interpretiere die Antwort
+	\end{enumerate}	
+\end{block}
+\end{frame}
+
+
+
+
+\section{Programmieren in der Cloud \\ \footnotesize{Schnell und unkompliziert einsteigen}}
+
+\begin{frame}
+\begin{block}{Browserbasierte IDE verwenden}
+	\vspace{2pt}
+\begin{enumerate}
+\item Gehe auf https://replit.com
+\item Erstelle ein Konto (Sign up)
+\item Klicke auf \enquote{Create repl}
+\item Wähle als Template \enquote{Python} aus
+\end{enumerate}
+\end{block}
+\end{frame}
+
+
+\section{Erste Schritte im REPL \\ \footnotesize (Read-Evaluate-Print-Loop)}
+
+
+\begin{frame}
+\begin{block}{Probier mal folgende Kommandos aus}	
+	\begin{itemize}
+		\item \py{3 + 4}
+		\item \py{2 - 7}
+		\item \py{"Hello" + "World"}
+	\end{itemize}
+\end{block}	
+\end{frame}
+
+
+
+\begin{frame}{Übung}
+\uncover<+->{\begin{block}{Was machen die folgenden \textit{Operatoren}?}
+	\begin{itemize}
+		\item \pybw{+}
+		\item \pybw{-}
+		\item \pybw{*}
+		\item \pybw{/}
+		\item \pybw{**}
+	\end{itemize}
+\end{block}}
+\uncover<+->{\begin{block}{Und diese?}
+\begin{itemize}
+		\item \%
+		\item \pybw{//}
+		\item \pybw{==}
+		\item \pybw{<=}
+		\item \pybw{<}
+\end{itemize}
+\end{block}}
+\end{frame}
+
+\begin{frame}<beamer:0>[fragile]
+\frametitle{Lösungen}
+\begin{solutionblock}{Operatoren I}
+Die Operatoren 	\pybw{+} und \pybw{-} sind klar. Die Operatoren \pybw{*} und \pybw{/} bezeichnen Multiplikation und Division. 
+Der Operator \pybw{**} berechnet die Potenz (hochnehmen). 
+\end{solutionblock}
+
+\vspace{12pt}
+
+\begin{solutionblock}{Operatoren II}
+	Der Operator \% ist der Modulo-Operator (vgl.  \href{https://de.wikipedia.org/wiki/Division_mit_Rest#Modulo}{Wikipedia}). Der Operator \pybw{//} arbeitet analog zur Divison, rundet das Ergebnis jedoch auf die nächste ganze Zahl ab. Die Operatoren \pybw{==} (Gleichheit), \pybw{<=} (Kleinergleich), \pybw{<} (kleiner als) sind Vergleichsoperatoren und geben entweder \pybw{True} oder \pybw{False} zurück
+\end{solutionblock}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}{Übung}
+	\begin{block}{Wie rechnet Python?}
+		\begin{itemize}
+			\item Wird Punkt-vor-Strich berücksichtigt?
+			\item Kann man mit Klammern die Reihenfolge beeinflussen?
+			\item Was ist der Unterschied zwischen \py{10/5} und \py{10//5} ?
+			\item Was bedeutet das Kommando \py{_}? 
+			\item Wie kann man Zwischenergebnisse in Variablen speichern?
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}<beamer:0>[fragile]
+\frametitle{Lösung}
+\begin{solutionblock}{Rechenregeln}
+	\begin{itemize}
+		\item Python rechnet Punkt-vor-Strich.
+		\item Python berücksichtigt Klammern.
+		\item Das Ergebnis von \py{/} ist stets eine Fließkommazahl, das Ergebnis von \py{//} ist stets eine ganze Zahl. 
+		\item Das Kommando \py{_}, referenziert das vorherige Ergebnis. 
+		\item Zwischenergebnise lassen sich mittels des Zuweisungsoperators \py{=} in einer Variable speichern. 
+	\end{itemize}
+\end{solutionblock}
+\end{frame}
+
+\section{Variablen}
+
+\begin{frame}
+\uncover<+->{\begin{block}{}
+		Jeder Wert in Python kann in einer Variable gespeichert werden: 
+		
+		\py{my_variable = 3}
+\end{block}}
+
+\uncover<+->{\begin{block}{}
+		Die Zuweisung darf auch das Ergebnis einer Berechnung sein: 
+		
+		\py{my_new_variable = 3 + 5}
+\end{block}}
+\uncover<+->{\begin{block}{}
+		Die Zuweisung darf auch weitere Variablen enthalten: 
+		
+		\py{my_brand_new_variable = my_variable + my_new_variable }
+\end{block}}
+
+\uncover<+->{\begin{block}{}
+	Man darf auch Kettenzuweisungen machen: 
+	
+	\py{a = b = c = 100 }
+\end{block}}
+\end{frame}
+
+
+\begin{frame}
+\uncover<+->{\begin{block}{Gültige Variablennamen}
+\begin{itemize}[<+->]
+	\item Erlaubt sind Buchstaben (nur ASCII), Ziffern und Unterstriche
+	\item Der Name darf nicht mit einer Ziffer starten
+	\item Beliebige Länge 
+	\item Wer's schon kennt als \emph{regulärer Ausdruck}:  \mintinline{php}{[_a-zA-Z][_0-9a-zA-Z]*}
+	\item Schlüsselwörter sind nicht erlaubt
+\end{itemize} 
+\end{block}}
+\vspace{12pt}
+\uncover<+->{\begin{block}{Liste der Schlüsselwörter}
+	\texttt{
+	\begin{columns}[T,onlytextwidth]
+		\column{0.2\textwidth}
+		False\\ 	await\\ 	else\\ 	import\\ 	pass\\ assert \\	del\\ 	
+		\column{0.2\textwidth}
+		None \\	break \\	except \\ 	in \\	raise \\ global \\	not \\	 
+		\column{0.2\textwidth}
+		True \\	class \\ 	finally \\ 	is \\	return \\ with \\ async 
+		\column{0.2\textwidth}
+		and \\	continue \\ 	for \\	lambda \\	try \\ 	elif  \\	if  \\
+		\column{0.2\textwidth}
+		as \\ 	def \\ 	from  \\	nonlocal \\	while \\ 	or \\ 	yield
+	\end{columns}
+}
+\end{block}}
+\end{frame}
+
+
+\begin{frame}
+\uncover<+->{\begin{exampleblock}{Style-Guide Variablennamen}
+	\begin{itemize}
+		\item Englische Wörter
+		\item Nur Kleinbuchstaben
+		\item Möglichst aussdrucksstarke Namen verwenden
+		\item Keine Angst vor langen Namen 
+		\item Namen, die aus mehreren Worten bestehen, mit Unterstrich trennen (\textit{snake-case})
+	\end{itemize}
+	
+	\uncover<+->{z.B. \py{students_in_this_room}, \py{number_of_unpaid_bills}}
+\end{exampleblock}}
+
+\end{frame}
+
+\begin{frame}{Übung}
+	
+	\begin{block}{Probier's aus!}
+		\begin{itemize}
+			\item Welchen Wert hat eine Variable, wenn man sie nicht vorher definiert hat? 
+			\item Was passiert, wenn man eine Variable definiert, die schonmal verwendet wurde?
+			\item Wie kann man eine Variable mit Wert \py{3} um \py{1} vergrößern?
+		\end{itemize}	
+	\end{block}
+\vspace{12pt}
+\begin{solutionblock}{Lösung}
+	\begin{itemize}
+		\item Verwendet man eine undefinierte Variable, wird ein Fehler geworfen
+		\item Ja, man kann eine Variable einfach neu definieren
+		\item Hat beispielsweise \pybw{my_variable} den Wert 3, so lässt sich der Wert wie folgt vergrößern: 
+		\pybw{my_variable = my_variable + 1} 
+	\end{itemize}
+\end{solutionblock}
+\end{frame}
+	
+
+\section{Datentypen}
+
+\begin{frame}
+	\begin{block}{}
+		Jeder Wert in Python hat einen \textit{Datentyp}. Unter anderem gibt es folgende \textit{primitive} Typen in Python.
+		\begin{itemize}
+			\item \py{int}  Integer (ganze Zahlen)
+			\item \py{float} Float (Dezimalzahlen)
+			\item \py{bool} Boolean (Wahrheitswerte)
+			\item \py{str}  String (Zeichenketten)
+			\item \pybw{NoneType} (Typ des leeren Werts \py{None})
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+
+\begin{frame}
+	\metroset{block=fill}
+	
+	\uncover<+->{\begin{block}{Integer}
+		Ganze Zahlen wie z.B. \py{1}, \py{-1}, \py{0}. Nicht aber 
+		\py{2.0} oder \py{0.0}. 	
+	\end{block}}
+	\vspace{12pt}
+	\uncover<+->{\begin{block}{Float}
+		Fließkommazahlen, z.B. \py{3.1415925}. Achtung: Bei Float-Berechnungen können schnell \enquote{Überraschungen} auftreten: Was ergibt z.B. \mintinline{python}{1.2 - 1.0} ? 
+	\end{block}}
+	\vspace{12pt}
+	\uncover<+->{\begin{block}{Boolean}
+		Booleans sind eine Sonderform von \py{int} und können nur die Werte \py{True} (entspricht 1) und \py{False} (entspricht 0) annehmen. Sie entstehen in der Regel, wenn man Fragen im Programm stellt (z.B. \py{3 < 4} oder \py{1 == 2}).   	
+	\end{block}}
+\end{frame}
+
+
+
+\begin{frame}
+	\metroset{block=fill}
+	\uncover<+->{\begin{block}{String}
+		Strings sind beliebige Zeichenketten und müssen in (ein-, zwei- oder dreifache) Anführungszeichen eingeschlossen werden. Die Ausdrücke \pybw{'hello'}, \pybw{"Hello"} und \pybw{"""Hello"""} sind (fast) äquivalent. 
+	\end{block}}
+	\vspace{12pt}
+	\metroset{block=transparent}
+	\uncover<+->{\begin{block}{Mehrzeilige Strings}
+			\vspace{2pt}
+		Ein \textit{Stringliteral} kann nur innerhalb einer Zeile definiert werden. Soll ein String mehrere Zeilen umfassen, müssen dreifache Anführungszeichen verwendet werden.  
+	\end{block}}
+
+	\end{frame}
+
+	\begin{frame}
+		\uncover<+->{\begin{block}{Steuerzeichen}
+				\vspace{2pt}
+			Gewisse Kombinationen mit Backslash sind reservierte Steuerzeichen. So bezeichnet beispielsweise \py{\n} einen Zeilenumbruch und \py{\t} ein Tabulatorzeichen. \\
+			Beispiel: \py{"This text\nfills two lines"}
+		\end{block}}
+			\vspace{12pt}
+		\uncover<+->{\begin{block}{Escaping}
+			\vspace{2pt}
+			Möchte man ein Steuerzeichen nicht ausführen, sondern buchstäblich nehmen. Muss man sie mit einem Backslash \textit{escapen} bzw. maskieren. \\
+			Beispiel: \py{"This text fits in\\n one line"}
+		\end{block}}
+		\vspace{12pt}
+		\uncover<+->{\begin{block}{Raw-Strings}
+				\vspace{2pt}
+				Möchte man alle Steuerzeichen eines Strings ignorieren, kann man ihn als \textit{Raw-String} definieren. \\
+				Beispiel: \py{r"This \n String \t has no control characters"}
+		\end{block}}
+		
+	\end{frame}
+
+	
+	\begin{frame}
+		\metroset{block=fill}
+		\uncover<+->{\begin{block}{Typecasting (Umwandlung von Typen)}
+			\vspace{2pt}
+			\uncover<+->{\textbf{Implizit}\\
+			Bei manchen Operationen nimmt Python automatisch eine Typumwandlung vor. \\ Beispiel: \py{1 + 2.0} ergibt \py{3.0}	
+		} \\ \\
+		\uncover<+->{\textbf{Explizit \\}
+			Die Funktionen \py{int()}, \py{float()}, \py{str()} und \py{bool()} führen jeweils eine Typumwandlung durch (sofern möglich). Beispiele: 
+			\begin{itemize}
+				\item \py{int(2.0)} ergibt \py{2} 
+				\item \py{float(2)} ergibt \py{2.0} 
+				\item \py{int("3")} ergibt \py{3}
+			\end{itemize} 
+		}
+		\end{block}}
+		
+		\vspace{12pt}
+		\metroset{block=transparent}
+		\uncover<+->{\begin{block}{Typ einer Variablen ermitteln}
+			\vspace{2pt}
+			Mit der Funktion \py{type()} lässt sich der Typ bestimmen, z.B. \py{type(3.2)}.  	
+		\end{block}}
+		
+	\end{frame}
+	
+	
+	\begin{frame}{Übung}
+		\begin{block}{Versuche die Fragen erst ohne Python zu beantworten, überprüfe Deine Vermutung}
+			\begin{itemize}
+				\item Welchen Datentyp hat das Ergebnis von \py{3 - 1.0} ?
+				\item Was ist das Ergebnis von \py{"2" + 1} ? 
+				\item Was ist das Ergebnis von \py{"2"} + \py{"2"}? 
+				\item Sind die beiden Werte \py{0} und \py{"0"} gleich? 
+				\item Sind die beiden Werte \py{2} und \py{True} gleich? 
+				\item Sind die beiden Werte \py{bool(2)} und \py{True} gleich? 
+				\item Sind die beiden Werte \py{1} und \py{True} gleich? 
+			\end{itemize}
+		\end{block}
+	\end{frame}
+
+
+\begin{frame}<beamer:0>[fragile]
+\frametitle{Lösungen}
+\begin{solutionblock}{Typaufgaben}
+	\begin{itemize}
+		\item Der Datentyp des Ergebnisses ist \pybw{float}
+		\item Fehlermeldung
+		\item Das Ergebnis ist \py{"22"}
+		\item Nein
+		\item Nein 
+		\item Ja
+		\item Ja
+	\end{itemize}
+\end{solutionblock}
+\end{frame}
+
+	\begin{frame}{Übung}
+	
+	\begin{block}{Erkläre mit Deinen eigenen Worten}
+		\begin{itemize}
+			\item Nach welcher Regel wandelt \py{int()} eine Fließkommazahl in eine ganze Zahl um? 
+			\item Nach welchen Regeln wandelt \py{bool()} Zahlen und Strings in einen Wahrheitswert um? 
+		\end{itemize}
+	\end{block}
+	
+	
+\end{frame}
+
+
+
+
+
+
+
+

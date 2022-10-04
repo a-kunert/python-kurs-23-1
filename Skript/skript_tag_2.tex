@@ -1,0 +1,613 @@
+\section{Operatoren}
+
+\begin{frame}
+\begin{block}{Die wichtigsten Operatoren}
+	\begin{itemize}
+		\item \pybw{+} (Addition oder Zusammenkleben von Strings)
+		\item \pybw{-} (Subtraktion)
+		\item \pybw{*} (Multiplikation)
+		\item \pybw{/} (Division, ergibt immer ein Wert vom Typ \pybw{float})
+		\item \pybw{**} (Potenzierung)
+		\item \% (\textit{modulo-Operator}: Rest bei ganzzahliger Division)
+		\item \pybw{//} (Division und Abrunden, ergibt immer ein Wert vom Typ \pybw{int})
+		\item \pybw{==} (Vergleichsoperator, ergibt immer ein Wert vom Typ \pybw{bool})
+		\item \pybw{!=} (Ungleichheitsoperator, ergibt das Gegenteil von \pybw{==})
+	\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Operator-Präzedenz}
+\uncover<+->{
+	\begin{enumerate}[<+->]
+		\item Klammern
+		\item \pybw{**}
+		\item \pybw{*}, \pybw{/}, \pybw{//}, \%
+		\item \pybw{+},\pybw{-}
+	\end{enumerate}	
+}
+\uncover<+->{
+	Operatoren gleichen Rangs werden innerhalb eines Ausdrucks von links nach rechts abgearbeitet. 
+}
+
+\uncover<+->{
+	\vspace{10pt}
+	\textbf{Ausnahmen:}\\
+	Potenzierung (\py{**}) und Zuweisung (\py{=}) werden von rechts nach links verarbeitet. 
+}
+\end{block}
+\end{frame}
+
+\begin{fragile}[]
+\begin{block}{Kombinierte Zuweisung}
+\vspace{2pt}
+Oft möchte man eine gegebene Variable neu zuweisen: 
+\begin{minted}{python}
+counter = 1
+counter = counter + 1 	# counter = 2
+\end{minted}
+\pause
+Dies lässt sich auch kurz schreiben als 
+\begin{minted}{python}
+counter = 1
+counter += 1 	# counter = 2
+\end{minted}
+\pause
+Analog sind die Operatoren \py{-=}, \py{*=}, \py{/=}, etc. definiert. 
+\end{block}
+\end{fragile}
+
+\section{Von der REPL zum Quellcode}
+\begin{frame}
+\begin{block}{Script Mode}
+	\vspace{2pt}
+	Sobald man mehrere zusammenhängende Zeilen hat, wird die Eingabekonsole (REPL) sehr unübersichtlich. Daher gibt es auch die Möglichkeit, alle Programmzeilen zunächst aufzuschreiben und diese dann gebündelt von Python ausführen zu lassen. Im Gegensatz zum REPL bzw. interactive Mode von Python wird dies \emph{Script Mode} genannt.    
+\end{block}
+\end{frame}
+
+\begin{fragile}[]
+\begin{exampleblock}{Beispiel}
+\begin{minted}{python}
+name = "Max"
+age = 20
+age = age + 1
+\end{minted}
+\end{exampleblock}
+
+\vspace{12pt}
+
+\pause
+\begin{block}{Ausführung}
+\vspace{2pt}
+Um diesen Code auszuführen, muss man bei Replit auf den Run-Button klicken oder alternativ den Shortcut Strg+Enter (Windows) bzw. Cmd+Enter (Mac) verwenden.  
+\end{block}
+
+\vspace{12pt}
+
+\pause
+
+\begin{alertblock}{Achtung}
+\vspace{2pt}
+Im Gegensatz zum REPL werden Ergebnisse von Rechnungen nicht mehr automatisch auf der Konsole ausgegeben. 
+\end{alertblock}
+
+\end{fragile}
+
+
+
+\section{Input/Output \\ \footnotesize Kommunikation über die Konsole}
+
+
+\begin{frame}
+
+\begin{block}{Die Konsole}
+\vspace{2pt}
+Grafische Benutzeroberflächen sind zu Beginn relativ kompliziert, daher verwenden wir zunächst die \emph{Python-Konsole} für die Kommunikation mit unserem Programm. 
+\end{block}
+
+\end{frame}
+
+\begin{fragile}[]
+	
+	\begin{block}{Output}
+		\vspace{2pt}
+		Um einen String auf der \emph{Konsole} auszugeben, verwende die Funktion \py{print()}. 
+		
+		
+		Zum Beispiel: \py{print("Hello there")}. 
+		\pause
+		
+		\vspace{12pt}
+		
+		Es können auch Variablen eingesetzt werden: 
+		\begin{minted}{python}
+		message = "Hello there"
+		print(message) # Hello there
+		\end{minted}
+		
+	\end{block}
+	
+\end{fragile}
+
+\begin{fragile}[]
+	
+	\begin{block}{String Interpolation}
+		\vspace{2pt}
+		Um Variablenwerte innerhalb eines Strings auszugeben, verwenden wir die String-Interpolation-Syntax:
+		\begin{minted}{python}
+		my_value = 5
+		print(f"The variable my_value has the value {my_value}")
+		# The variable my_value has the value 5
+		\end{minted}
+		
+		\pause
+		
+		\vspace{12pt}
+		
+		Das geht auch als \textit{inline expression}: 
+		\begin{minted}{python}
+		print(f"The sum of 1 and 2 is {1+2}")
+		# The sum of 1 and 2 is 3
+		\end{minted}
+		
+	\end{block}
+	
+\end{fragile}
+
+\begin{fragile}
+	\begin{block}{Input}
+		\vspace{2pt}
+		Um einen String vom User einzulesen, verwende die Funktion \py{input()}:
+		
+		\begin{minted}{python}
+		age = input("How old are you?")
+		print(f"I am {age} years old")
+		\end{minted}
+	\end{block}
+	\pause 
+	\begin{alertblock}{Achtung}
+		\vspace{2pt}
+		Das Ergebnis von \py{input} hat stets den Datentyp \py{string} auch wenn Zahlen eingelesen werden. Gegebenenfalls muss das Ergebnis mittels \py{int()} oder \py{float()} in den gewünschten Typ umgewandelt werden. 	
+	\end{alertblock}
+	
+\end{fragile}
+
+
+\begin{fragile}[]
+	\begin{exampleblock}{Beispiel: Input und Output kombiniert}
+		\begin{minted}{python}
+		name = input("What is your name?")
+		age = input("What is your age?")
+		print(f"Hello {name}, you are {age} years old") 
+		\end{minted}
+	\end{exampleblock}
+\end{fragile}
+
+\begin{frame}{Übung}
+\begin{block}{Adressabfrage}
+\vspace{2pt}
+Schreibe ein kurzes Skript, dass Dich nach Deinem Namen, Alter und Adresse fragt. Wenn es alles eingelesen hat, soll es diese Infos in folgender Form auf der Konsole ausgeben: 	
+
+\console{Hallo Max, schön dass Du da bist. Du bist 21 Jahre alt und wohnst in der Bismarckstraße 12 in Glücksstadt.}
+\end{block}
+\end{frame}
+
+\begin{frame}<beamer:0>[fragile]
+\frametitle{Lösung}
+\begin{solutionblock}{Adressabfrage}
+\begin{minted}{python}
+name = input("Dein Name: ")
+age = input("Dein Alter: ")
+street = input("Deine Addresse: ")
+city = input("Deine Stadt: ") 
+
+print(f"Hallo {Name}, schön, dass Du da bist. Du bist {age} Jahre alt")
+print(f"und wohnst in der {street} in {city}.")
+\end{minted}
+\end{solutionblock}
+\end{frame}
+
+
+
+\begin{fragile}[Übung]
+\begin{block}{Blick in die Zukunft}
+	\vspace{2pt}
+Schreibe ein kurzes Skript, dass Dich nach Deinem Alter fragt. Daraufhin soll es auf der Konsole ausgeben, wie alt Du in 15 Jahren sein wirst. 
+\end{block}
+\vspace{12pt}
+\begin{solutionblock}<beamer:0>{Lösung}
+\begin{minted}{python}
+age = input("Wie alt bist Du? ")
+age = int(age) + 15
+print(f"In 15 Jahren wirst Du {age} sein.")
+\end{minted}
+\end{solutionblock}
+\end{fragile}
+
+\section{Kommentare}
+
+\begin{fragile}
+
+
+\begin{block}{Kommentare}
+\vspace{2pt}
+Alle Zeichen einer Zeile, die hinter einem \texttt{\#} (Hashtag) kommen, werden von Python ignoriert.
+So lassen sich Kommentare im Quellcode platzieren. 
+\end{block}
+
+\vspace{12pt}
+
+\pause
+\begin{exampleblock}{Beispiel}
+\begin{minted}{python}
+print("This line will be printed")
+# print("This line won't") 
+\end{minted}
+\end{exampleblock}
+
+\end{fragile}
+
+
+
+\section{Conditionals \\ \footnotesize Ein Programm verzweigen}
+
+\begin{frame}
+	\begin{block}{Problemstellung}
+		\vspace{2pt}
+		Lies eine Zahl \py{x} ein. In Abhängigkeit von \py{x} soll Folgendes ausgegeben werden: 
+		
+		\console{Die Zahl x ist größer als 0} 
+		
+		bzw. 
+		
+		\console{Die Zahl x ist kleiner 0}  
+		\vspace{8pt}
+		
+		
+		Wie macht man das?
+		\end{block}
+\end{frame}
+
+\begin{fragile}
+	
+\begin{block}{Lösung \footnotesize(fast)}
+\begin{minted}{python}
+x = input("Gib eine Zahl x an")
+x = int(x)
+
+if x > 0:
+  print("x ist größer 0")
+else:
+  print("x ist kleiner 0")
+\end{minted}
+\end{block}
+	
+\end{fragile}
+
+
+\begin{frame}
+\metroset{block=fill}
+
+
+	\renewcommand{\baselinestretch}{1.5}
+\begin{block}{Struktur \texttt{if-else} Statement}	
+	\vspace{2pt}
+	\uncover<+->{
+	\uncover<+->{\texttt{if}} \uncover<+->{\textit{Bedingung}}\uncover<+->{\texttt{:}}\\
+	\uncover<+->{\spacechar\spacechar }\uncover<+->{\textit{Codezeile A1}}	\\
+	\uncover<+->{\spacechar\spacechar \textit{Codezeile A2}	\\
+	\spacechar\spacechar \phantom{Code}\vdots}\\
+	\uncover<+->{\texttt{else:}}\\
+	\uncover<+->{\spacechar\spacechar \textit{Codezeile B1}	\\
+				 \spacechar\spacechar \textit{Codezeile B2}	\\
+				 \spacechar\spacechar \phantom{Code}\vdots}\\
+	\uncover<+->{\textit{Codezeile C1}\\
+	\phantom{Code}\vdots
+}
+}
+\end{block}
+\renewcommand{\baselinestretch}{1}
+%\vspace{10pt}
+
+\end{frame}
+\begin{frame}
+\begin{block}{Wie funktioniert's?}
+	\vspace{2pt}
+Ist die \texttt{if}-Bedingung \py{True}, so wird der \texttt{if}-\textit{Block} ausgeführt. Ist sie \py{False} wird der \texttt{else}-\textit{Block} ausgeführt. 
+\end{block}
+\pause
+
+\vspace{10pt}
+\metroset{block=fill}
+	\begin{block}{Definition: Block}
+		\vspace{2pt}
+		Aufeinanderfolgende Codezeilen, die alle die gleiche Einrückung besitzen, nennt man \emph{Block}. 
+		D.h. Leerzeichen am Zeilenanfang haben in Python eine syntaktische Bedeutung.  
+	\end{block}
+
+
+\pause 
+\vspace{10pt}
+
+\metroset{block=transparent}
+\begin{block}{Good to know}
+	\begin{itemize}
+		\item Der \pybw{else}-Block ist optional.
+		\item Falls die Bedingung nicht vom Typ \py{bool} ist, so wird sie implizit umgewandelt.  
+	\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Übung}
+
+\begin{block}{Antwort überprüfen}
+	\vspace{2pt}
+	Schreib ein Programm, dass folgende Frage auf der Konsole ausgibt und die Antwort einliest. 
+	
+	\console{Was ist die Hauptstadt von Frankreich?}
+	
+	Darauf hin soll entsprechend der Antwort folgendes Feedback auf der Konsole erscheinen: 
+	
+	\console{Das war richtig!} 
+	
+	bzw. 
+
+	\console{Das war falsch! Die richtige Antwort ist Paris.}
+	
+\end{block}
+\end{frame}
+
+\begin{frame}<beamer:0>[fragile]
+\frametitle{Lösung}
+\begin{solutionblock}{Antwort überprüfen}
+\begin{minted}{python}
+answer = input("Was ist die Hauptstadt von Frankreich?")
+if answer == "Paris"
+  print("Das ist richtig!")
+else 
+  print("Das war falsch! Die richtige Antwort ist Paris.")
+\end{minted}
+\end{solutionblock}
+\end{frame}
+
+
+\begin{frame}{Übungen}
+
+	\begin{block}{Volljährigkeit prüfen/Zutrittskontrolle}
+		\vspace{2pt}
+		Schreibe ein Skript, dass nach dem Alter eines Users fragt und überprüft, ob der User schon volljährig ist. Dementsprechend soll auf der Konsole folgendes Feedback erscheinen:  
+		
+		\console{Willkommen}
+		
+		 bzw.
+		 
+		  \console{Du darfst hier nicht rein} 
+		  
+	\end{block}
+\pause 
+\vspace{12pt}
+	\begin{block}{Teilbarkeit bestimmen}
+		\vspace{2pt}
+		Schreibe ein Skript, dass eine ganze Zahl einliest. Daraufhin soll auf der Konsole ausgegeben werden, ob die Zahl durch \pybw{7} teilbar ist. Beispiel: Ist die Eingabe 12, so ist die Ausgabe:   
+
+		\console{Die Zahl 12 ist nicht durch 7 teilbar.}
+	\end{block}
+
+\end{frame}
+
+\begin{frame}<beamer:0>[fragile]
+\frametitle{Lösungen}
+\begin{solutionblock}{Zutrittskontrolle}
+\begin{minted}{python}
+age = input("Wie alt bist Du? ")
+age = int(age)
+
+if age >= 18:
+  print("Willkommen!")
+else:
+  print("Du darfst hier nicht rein!")
+\end{minted}
+\end{solutionblock}
+\vspace{12pt}
+\begin{solutionblock}{Teilbarkeit bestimmen}
+	\begin{minted}{python}
+	x = input("Gib eine Zahl ein: ")
+	x = int(x)
+	
+	if x % 7 == 0:
+	print(f"Die Zahl {x} ist durch 7 teilbar")
+	else:
+	print(f"Die Zahl {x} ist nicht durch 7 teilbar")
+	\end{minted}
+\end{solutionblock}
+\end{frame}
+
+
+\begin{frame}
+
+\metroset{block=fill}
+\uncover<+->{\begin{block}{Logische Operatoren}
+	\vspace{2pt}
+Booleans können mittels folgender Operatoren miteinander verknüpft werden: 
+\uncover<+->{
+\begin{description}
+	\item[\pybw{and}] Ist genau dann \py{True}, wenn beide Operanden \py{True} sind.
+	\item[\pybw{or}] Ist genau dann \py{True}, wenn mindestens ein Operand \py{True} ist.
+	\item[\pybw{not}] Kehrt den nachfolgenden Wahrheitswert um.  
+\end{description}
+} 
+\end{block}}
+\vspace{10pt}
+\metroset{block=transparent}
+\uncover<+->{\begin{exampleblock}{Beispiel}
+\begin{itemize}
+	\item \pybw{2 > 0 and 3 > 4} ist \py{False}
+	\item \pybw{1 > 0 or 6 > 1} ist \py{True}
+	\item \pybw{not 2 < 1} ist \py{True}
+\end{itemize}
+\end{exampleblock}
+}
+\end{frame}
+
+
+\begin{frame}{Übung}
+\uncover<+->{
+\begin{block}{Was ergeben die folgenden Ausdrücke?}
+	\begin{itemize}
+		\item \py{not 2 < 3 and 4 < 7}
+		\item \py{4 not == 8}
+		\item \py{3 != 4 and not 4 == 8}
+		\item \py{7 <= 7.0 and not 7 != 7.0}
+		\item \py{7 > 5 or 4 < 5 and not 9 > 6}
+		\item \py{not 3 < 6 > 8}
+		\item \py{not 3}
+	\end{itemize}
+\end{block}
+}
+\uncover<+->{
+\begin{alertblock}{Präzedenz beachten!}
+	\begin{enumerate}
+		\item \pybw{==}, \pybw{!=}, \pybw{<=}, \pybw{<}, \pybw{>}, \pybw{>=}
+		\item \pybw{not}
+		\item \pybw{and}
+		\item \pybw{or}
+	\end{enumerate}
+\end{alertblock}
+}
+
+\end{frame}
+
+\begin{fragile}
+
+\begin{block}{Das \pybw{elif}-Statement}
+	\vspace{2pt}
+Mit der reinen \pybw{if-else}-Syntax können nur \emph{binäre} Verzweigungen dargestellt werden. Um mehrer, gleichrangige Verzweigungsäste zu realisieren kann man das \pybw{elif}-Conditional verwenden. 
+\end{block}
+\pause
+\begin{exampleblock}{Beispiel}
+\begin{minted}{python}
+if x < 0: 
+    print("x is < 0")
+elif x == 0: 
+    print("x is 0")
+elif x == 1: 
+    print("x is 1")
+else: 
+    print("x is not negative but neither 0 nor 1")         
+\end{minted}
+\end{exampleblock}
+\pause
+Die Anzahl der \pybw{elif}-Blöcke ist beliebig. Der \pybw{else}-Block ist wie immer optional. 
+
+\end{fragile}
+
+\begin{fragile}{Übung}
+	\begin{block}{Worin unterscheiden sich die beiden Abschnitte?}
+		\vspace{5pt}
+		Abschnitt 1: 
+		\begin{minted}{python}
+		if x % 2 == 0: 
+		   # some Code here
+		if x % 3 == 0: 
+		   # some Code here
+		else: 
+		   # some Code here  
+		\end{minted}
+		Abschnitt 2: 
+		\begin{minted}{python}
+		if x % 2 == 0: 
+		# some Code here
+		elif x % 3 == 0: 
+		# some Code here
+		else: 
+		# some Code here  
+		\end{minted}
+	\end{block}
+\end{fragile}
+
+
+\begin{frame}{Komplexere Übung}
+%\begin{block}{Berechne Deinen Urlaubsort}
+%\vspace{2pt}
+%\end{block}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{urlaubsort.png}
+\end{center}
+Lies eine Zahl zwischen 1 und 9 ein und gib auf der Konsole \emph{deinen nächsten Urlaubsort} aus. 
+\end{frame}
+
+
+\begin{frame}<beamer:0>[fragile]
+\frametitle{Lösung}
+\begin{solutionblock}{Urlaubsort}
+\begin{minted}{python}
+number = input("Gib eine Zahl zwischen 1 und 9 ein: ")
+number = int(number)
+
+number = number * 3
+number = number + 3
+number = number * 3
+
+cross_sum = number // 10 + number % 10
+print("Dort verbringst Du Deinen Urlaub: ")
+if cross_sum == 1:
+  print("Italien")
+elif cross_sum == 2:
+  print("Spanien")
+# ... more elif statements ... 
+elif cross_sum == 9:
+  print("Zu Hause")
+else:
+  print("USA")
+\end{minted}
+\end{solutionblock}
+\end{frame}
+
+
+
+\begin{fragile}{}
+\begin{block}{Der \emph{Ternary Operator}}
+\vspace{2pt}
+Oftmals möchte man eine Variable in Abhängigkeit eines Wahrheitswertes definieren. Für diesen einfachen Fall, ist das \pybw{if-else}-Konstrukt sehr umständlich. Stattdessen kann man für die Kürze den \emph{ternary operator} verwenden. 
+\end{block}
+\vspace{12pt}
+\pause
+\begin{exampleblock}{Beispiel}
+	\vspace{2pt}
+	\begin{minted}{python}
+	if x < 0: 
+	  sign = "negative"	
+	else: 
+	  sign = "positive"
+	\end{minted}
+\end{exampleblock}
+\pause 
+\begin{block}{Stattdessen mit Ternary Operator}
+	\vspace{2pt}
+	\py{sign = "negative" if x < 0 else "positive"}
+\end{block}
+\end{fragile}
+
+\begin{fragile}[Übung]
+
+\begin{block}{Ternary Operator}
+	\vspace{2pt}
+Lies eine ganze Zahl ein und gib ihren Betrag auf der Konsole aus. Schaffst Du es, das Ganze mit weniger als 5 Zeilen Code zu programmieren? 
+\end{block}
+
+\vspace{12pt}
+
+\begin{solutionblock}<beamer:0>{Lösung}
+\begin{minted}{python}
+x = input("Gib eine Zahl ein: ")
+x = float(x)
+abs_value = x if x >= 0 else -x
+print(f"Der Betrag von {x} ist {abs_value}")
+\end{minted}
+\end{solutionblock}
+
+\end{fragile}
+
+
+
+

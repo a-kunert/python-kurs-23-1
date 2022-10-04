@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}The sum of 1 and 2 is }\PYG{l+s+si}{\PYGZob{}}\PYG{l+m+mi}{1}\PYG{o}{+}\PYG{l+m+mi}{2}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} The sum of 1 and 2 is 3}
+\end{Verbatim}

@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{last} \PYG{o}{=} \PYG{l+m+mi}{1}  \PYG{c+c1}{\PYGZsh{} letzte Zahl}
+\PYG{n}{current} \PYG{o}{=} \PYG{l+m+mi}{1}  \PYG{c+c1}{\PYGZsh{} aktuelle Zahl}
+
+\PYG{k}{for} \PYG{n}{k} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{31}\PYG{p}{):}
+  \PYG{n}{old\PYGZus{}current} \PYG{o}{=} \PYG{n}{current}  \PYG{c+c1}{\PYGZsh{} Zahl zwischenspeichern}
+  \PYG{n}{current} \PYG{o}{=} \PYG{n}{current} \PYG{o}{+} \PYG{n}{last}
+  \PYG{n}{last} \PYG{o}{=} \PYG{n}{old\PYGZus{}current}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Die }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{k}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZhy{}te Fibonacci\PYGZhy{}Zahl ist }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{current}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

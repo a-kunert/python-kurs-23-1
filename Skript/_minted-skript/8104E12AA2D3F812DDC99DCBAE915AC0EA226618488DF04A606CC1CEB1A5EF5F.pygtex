@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{grades} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+s+s2}{\PYGZdq{}Mathe\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{8}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Bio\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{11}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Sport\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{13}\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{grades\PYGZus{}sum} \PYG{o}{=} \PYG{n}{grades}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}Mathe\PYGZdq{}}\PYG{p}{]} \PYG{o}{+} \PYG{n}{grades}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}Bio\PYGZdq{}}\PYG{p}{]} \PYG{o}{+} \PYG{n}{grades}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}Sport\PYGZdq{}}\PYG{p}{]}
+\PYG{n}{average} \PYG{o}{=} \PYG{n}{grades\PYGZus{}sum}\PYG{o}{/}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{grades}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Der Durchschnitt ist }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{average}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ Punkte\PYGZdq{}}\PYG{p}{)}
+
+\PYG{n}{grades}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}Mathe\PYGZdq{}}\PYG{p}{]} \PYG{o}{+=} \PYG{l+m+mi}{1}
+
+\PYG{n}{eng\PYGZus{}grade} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Welche Note hast Du in Englisch? \PYGZdq{}}\PYG{p}{)}
+\PYG{n}{eng\PYGZus{}grade} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{eng\PYGZus{}grade}\PYG{p}{)}
+\PYG{n}{grades}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}Englisch\PYGZdq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n}{eng\PYGZus{}grade}
+
+\PYG{n}{grades\PYGZus{}sum} \PYG{o}{+=} \PYG{n}{grades}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}Englisch\PYGZdq{}}\PYG{p}{]}
+\PYG{n}{average} \PYG{o}{=} \PYG{n}{grades\PYGZus{}sum}\PYG{o}{/}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{grades}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Der Durchschnitt ist }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{average}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ Punkte\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

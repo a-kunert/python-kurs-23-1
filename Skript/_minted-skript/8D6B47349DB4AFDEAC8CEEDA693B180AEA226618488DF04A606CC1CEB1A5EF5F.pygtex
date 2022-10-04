@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{global\PYGZus{}variable} \PYG{o}{=} \PYG{l+m+mi}{1}
+
+\PYG{k}{def} \PYG{n+nf}{my\PYGZus{}function}\PYG{p}{():}
+  \PYG{n}{global\PYGZus{}variable} \PYG{o}{=} \PYG{l+m+mi}{5}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{global\PYGZus{}variable}\PYG{p}{)}
+
+
+\PYG{n}{my\PYGZus{}function}\PYG{p}{()}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{global\PYGZus{}variable}\PYG{p}{)}
+\end{Verbatim}

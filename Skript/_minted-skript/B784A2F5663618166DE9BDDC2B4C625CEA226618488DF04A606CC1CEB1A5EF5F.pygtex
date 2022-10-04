@@ -1,0 +1,20 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{number} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Gib eine Zahl zwischen 1 und 9 ein: \PYGZdq{}}\PYG{p}{)}
+\PYG{n}{number} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{number}\PYG{p}{)}
+
+\PYG{n}{number} \PYG{o}{=} \PYG{n}{number} \PYG{o}{*} \PYG{l+m+mi}{3}
+\PYG{n}{number} \PYG{o}{=} \PYG{n}{number} \PYG{o}{+} \PYG{l+m+mi}{3}
+\PYG{n}{number} \PYG{o}{=} \PYG{n}{number} \PYG{o}{*} \PYG{l+m+mi}{3}
+
+\PYG{n}{cross\PYGZus{}sum} \PYG{o}{=} \PYG{n}{number} \PYG{o}{//} \PYG{l+m+mi}{10} \PYG{o}{+} \PYG{n}{number} \PYG{o}{\PYGZpc{}} \PYG{l+m+mi}{10}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Dort verbringst Du Deinen Urlaub: \PYGZdq{}}\PYG{p}{)}
+\PYG{k}{if} \PYG{n}{cross\PYGZus{}sum} \PYG{o}{==} \PYG{l+m+mi}{1}\PYG{p}{:}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Italien\PYGZdq{}}\PYG{p}{)}
+\PYG{k}{elif} \PYG{n}{cross\PYGZus{}sum} \PYG{o}{==} \PYG{l+m+mi}{2}\PYG{p}{:}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Spanien\PYGZdq{}}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} ... more elif statements ...}
+\PYG{k}{elif} \PYG{n}{cross\PYGZus{}sum} \PYG{o}{==} \PYG{l+m+mi}{9}\PYG{p}{:}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Zu Hause\PYGZdq{}}\PYG{p}{)}
+\PYG{k}{else}\PYG{p}{:}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}USA\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{capitals} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+s+s2}{\PYGZdq{}Litauen\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Vilnius\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Lettland\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Riga\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Estland\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Tallin\PYGZdq{}}\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{for} \PYG{n}{item} \PYG{o+ow}{in} \PYG{n}{capitals}\PYG{p}{:}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{item}\PYG{p}{)}
+\end{Verbatim}

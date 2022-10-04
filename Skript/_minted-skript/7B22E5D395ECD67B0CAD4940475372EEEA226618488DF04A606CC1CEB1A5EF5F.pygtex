@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{my\PYGZus{}list} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{40}\PYG{p}{,} \PYG{l+m+mi}{15}\PYG{p}{,} \PYG{l+m+mi}{7}\PYG{p}{,} \PYG{l+m+mi}{8}\PYG{p}{]}
+\PYG{n}{result} \PYG{o}{=} \PYG{p}{[}\PYG{n}{k}\PYG{o}{//}\PYG{l+m+mi}{2} \PYG{k}{for} \PYG{n}{k} \PYG{o+ow}{in} \PYG{n}{my\PYGZus{}list} \PYG{k}{if} \PYG{n}{k} \PYG{o}{\PYGZpc{}} \PYG{l+m+mi}{2} \PYG{o}{==} \PYG{l+m+mi}{0} \PYG{o+ow}{and} \PYG{n}{k} \PYG{o}{\PYGZgt{}=} \PYG{l+m+mi}{0}\PYG{p}{]}
+\end{Verbatim}

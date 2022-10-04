@@ -1,0 +1,130 @@
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+{\renewcommand{\arraystretch}{2}%
+  \rowcolors{1}{}{grey}
+  \begin{longtable}{|>{\setmenukeyswin}c |>{\setmenukeysmac}c |X|}
+  \hline
+  \headerrowcolor
+  \multicolumn{1}{|c|}{\sffamily{\textbf{Windows}} \faWindows\textsc{ /} \sffamily{\textbf{Linux}} \faLinux} & 
+      \multicolumn{1}{c|}{\sffamily{\textbf{Mac}} \faApple} & 
+      \multicolumn{1}{c|}{\sffamily{\textbf{Befehl}} \faComment} \\
+  \hline
+  \endfirsthead
+
+ % \multicolumn{3}{l}{\footnotesize \faChevronCircleLeft\ }\\[1em]
+  \hline
+  \headerrowcolor
+  \multicolumn{1}{|c|}{\sffamily{\textbf{Windows}} \faWindows\textsc{ /} \sffamily{\textbf{Linux}} \faLinux} & 
+      \multicolumn{1}{c|}{\sffamily{\textbf{Mac}} \faApple} & 
+      \multicolumn{1}{c|}{\sffamily{\textbf{Befehl}} \faComment} \\
+  \endhead
+ % \multicolumn{3}{r}{\footnotesize  \faChevronCircleRight} 
+  \endfoot
+  \hline
+  \endlastfoot
+  
+  
+\subheaderrowcolor \multicolumn{3}{|l|}{Allgemein} \\
+\hline
+\keys{\ctrl + \Altwin + S} & \keys{\cmd + ,} & Einstellungen \\
+\hline
+\keys{\ctrl + S} & \keys{\cmd + S} & Aktuelle Datei speichern \\
+\hline
+\keys{\ctrl + A} & \keys{\cmd + A} & Alles markieren \\
+\hline
+\keys{\ctrl + C} & \keys{\cmd + C} & Auswahl/Zeile in die Zwischenablage kopieren \\
+\hline
+\keys{\ctrl + X} & \keys{\cmd + X} & Auswahl/Zeile ausschneiden \\
+\hline
+\keys{\ctrl + V} & \keys{\cmd + V} & Einfügen (aus der Zwischeablage) \\
+\hline
+\keys{\ctrl + Z} & \keys{\cmd + Z} & Aktion rückgängig machen (undo)\\
+\hline
+\keys{\ctrl + \shift + Z} & \keys{\cmd + \shift + Z} & Aktion wiederherstellen (redo)\\
+\hline
+
+  
+\subheaderrowcolor \multicolumn{3}{|l|}{Code editieren} \\
+\keys{\tab} & \keys{\tab} & Autocomplete expandieren \\
+\hline
+\keys{\ctrl + D} & \keys{\cmd + D} & Zeile/Auswahl duplizieren \\
+\hline
+\keys{\ctrl + Y} & \keys{\cmd + \backspace} & Zeile/Auswahl löschen \\
+\hline
+\keys{\Alt + \arrowkeyup} & \keys{\Alt + \arrowkeyup} & Zeile/Auswahl nach oben verschieben \\
+\hline
+\keys{\Alt + \arrowkeyup} & \keys{\Alt + \arrowkeyup} & Zeile/Auswahl nach unten verschieben \\
+\hline
+\keys{\ctrl + \Alt + L} & \keys{\cmd + \Alt + L} & Datei/Auswahl formatieren \\
+\hline 
+\keys{\Alt} + Mausklick  &  \keys{\Alt} + Mausklick  & Multiple Cursor \\
+\hline
+\keys{\shift + F6}  &  \keys{\shift + F6} & Variable umbennen \\
+\keys{\tab} & \keys{\tab} & Zeile/Auswahl einrücken \\
+\hline
+\keys{\tab + \shift} & \keys{\tab + \shift} & Einrückung von Zeile/Auswahl vermindern \\
+\hline
+\keys{\ctrl + -} & \keys{\cmd + -} & Auswahl kommentieren/entkommentieren \\
+\hline
+\keys{\Alt + \return} & \keys{\Alt + \return} & Aktionsmenü (falls verfügbar) \\
+\hline
+
+
+\subheaderrowcolor \multicolumn{3}{|l|}{Code ausführen} \\
+\keys{\Altwin + \shift + R} & \keys{\cmd + \Alt + R} & Aktuelle Datei/Position ausführen \\
+\hline
+\keys{\Altwin + R} & \keys{\Alt + R} & Letzte Konfiguration ausführen \\
+\hline
+
+\subheaderrowcolor \multicolumn{3}{|l|}{Suche} \\
+\hline
+\keys{\ctrl + F} & \keys{\cmd + F} & In Datei suchen \\
+\hline
+\keys{\ctrl + R} & \keys{\cmd + R} & Suchen und ersetzen \\
+\hline
+\keys{\ctrl + \shift + F} & \keys{\cmd + \shift + F} & In Verzeichnis suchen \\
+\hline
+\keys{\ctrl + \shift + R} & \keys{\cmd + \shift + R} & In Verzeichnis suchen und ersetzen \\
+\hline
+
+
+\subheaderrowcolor \multicolumn{3}{|l|}{Navigation} \\
+\hline
+\keys{\ctrlwin + \shift + O}  & \keys{\cmd + \shift + O}  & Gehe zu Datei \\
+\hline
+\keys{\ctrl + B} & \keys{\cmd + B} & Zur Definition navigieren \\
+\hline
+\keys{\ctrl + \tab} & \keys{\ctrl + \tab} & Rückwärtsnavigation durch verwendete Dateien \\
+\hline
+\keys{\ctrl + \shift + \tab} & \keys{\ctrl + \shift + \tab} & Vorwärtsnavigation durch verwendete Dateien \\
+\hline 
+\keys{\ctrl + P} & \keys{\cmd + P} & Struktur der aktuellen Datei anzeigen \\
+\hline
+  
+\subheaderrowcolor \multicolumn{3}{|l|}{Fenster} \\
+\hline
+\keys{\Alt + 1} & \keys{\cmd +1} & Dateibaum ein-/ausblenden \\
+\hline
+\keys{\Alt + 9}  & \keys{\cmd + 9}  & VCS-Baum öffnen \\
+\hline
+\keys{\ctrl + F12} & \keys{\Alt + F12} & Konsole öffnen \\
+\hline
+\keys{\ctrl + K}  & \keys{\cmd + K}  & Commit-Dialog öffnen \\
+\hline
+
+\subheaderrowcolor \multicolumn{3}{|l|}{Weiter nützliche Shortcuts} \\
+ &  &  \\
+\hline
+ &  &  \\
+\hline
+ &  &  \\
+\hline
+ &  &  \\
+\hline
+ &  &  \\
+\hline
+ &  &  \\
+\hline
+
+\end{longtable}}\quad

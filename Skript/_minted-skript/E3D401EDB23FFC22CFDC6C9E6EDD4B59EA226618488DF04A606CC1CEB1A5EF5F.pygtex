@@ -1,0 +1,20 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{average} \PYG{o}{=} \PYG{n+nb}{sum}\PYG{p}{(}\PYG{n}{temperatures}\PYG{p}{)} \PYG{o}{/} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{temperatures}\PYG{p}{)}
+\PYG{k}{if} \PYG{n}{average} \PYG{o}{\PYGZgt{}=} \PYG{l+m+mi}{5}\PYG{p}{:}
+  \PYG{n}{average} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}Mild\PYGZdq{}}
+\PYG{k}{else}\PYG{p}{:}
+  \PYG{n}{average} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}Zu kalt\PYGZdq{}}
+
+
+
+
+
+
+
+
+
+
+
+
+\PYG{c+c1}{\PYGZsh{}}
+\end{Verbatim}

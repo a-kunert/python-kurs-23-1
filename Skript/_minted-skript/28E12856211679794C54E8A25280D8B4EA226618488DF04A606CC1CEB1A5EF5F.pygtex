@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{def} \PYG{n+nf}{multiply}\PYG{p}{(}\PYG{n}{number1}\PYG{p}{,}\PYG{n}{number2}\PYG{p}{):}
+  \PYG{k}{return} \PYG{n}{number1} \PYG{o}{*} \PYG{n}{number2}
+\end{Verbatim}

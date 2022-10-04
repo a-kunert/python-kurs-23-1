@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{countries} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}Finnland\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Norwegen\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Schweden\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Dänemark\PYGZdq{}}\PYG{p}{]}
+
+\PYG{n}{var\PYGZus{}1} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}Finnland\PYGZdq{}} \PYG{o+ow}{in} \PYG{n}{countries}
+\PYG{n}{var\PYGZus{}2} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}Deutschland\PYGZdq{}} \PYG{o+ow}{in} \PYG{n}{countries}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{var\PYGZus{}1}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{var\PYGZus{}2}\PYG{p}{)}
+\end{Verbatim}

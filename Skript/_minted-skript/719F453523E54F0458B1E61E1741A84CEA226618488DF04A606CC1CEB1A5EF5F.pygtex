@@ -1,0 +1,20 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{average} \PYG{o}{=} \PYG{n+nb}{sum}\PYG{p}{(}\PYG{n}{temperatures}\PYG{p}{)} \PYG{o}{/} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{temperatures}\PYG{p}{)}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\PYG{c+c1}{\PYGZsh{}}
+\end{Verbatim}

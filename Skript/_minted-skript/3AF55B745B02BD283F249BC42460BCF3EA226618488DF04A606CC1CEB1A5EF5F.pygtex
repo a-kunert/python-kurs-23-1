@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{def} \PYG{n+nf}{check\PYGZus{}answer}\PYG{p}{(}\PYG{n}{active\PYGZus{}country}\PYG{p}{,} \PYG{n}{answer\PYGZus{}options}\PYG{p}{):}
+  \PYG{n}{answer} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{Antwort: \PYGZdq{}}\PYG{p}{)}
+  \PYG{n}{index} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{answer}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}
+  \PYG{k}{if} \PYG{n}{answer\PYGZus{}options}\PYG{p}{[}\PYG{n}{index}\PYG{p}{]} \PYG{o}{==} \PYG{n}{active\PYGZus{}country}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}capital\PYGZdq{}}\PYG{p}{]:}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Das war korrekt.\PYGZdq{}}\PYG{p}{)}
+  \PYG{k}{else}\PYG{p}{:}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Das war leider falsch.\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

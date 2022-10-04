@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{l+m+mi}{7} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{5} \PYG{o+ow}{or} \PYG{l+m+mi}{4} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{5} \PYG{o+ow}{and} \PYG{o+ow}{not} \PYG{l+m+mi}{9} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{6}
+\end{Verbatim}

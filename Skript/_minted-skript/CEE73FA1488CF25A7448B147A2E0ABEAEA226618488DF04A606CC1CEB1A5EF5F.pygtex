@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k+kn}{import} \PYG{n+nn}{requests}
+\PYG{k+kn}{import} \PYG{n+nn}{json}
+\PYG{o}{...}
+
+\PYG{n}{payload} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{l+s+s2}{\PYGZdq{}fields\PYGZdq{}}\PYG{p}{:} \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}capital\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}population\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}continents\PYGZdq{}}\PYG{p}{]\PYGZcb{}}
+\PYG{n}{response} \PYG{o}{=} \PYG{n}{requests}\PYG{o}{.}\PYG{n}{get}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}https://restcountries.com/v3.1/name/france\PYGZdq{}}\PYG{p}{,} \PYG{n}{params}\PYG{o}{=}\PYG{n}{payload}\PYG{p}{)}
+\PYG{n}{data} \PYG{o}{=} \PYG{n}{response}\PYG{o}{.}\PYG{n}{json}\PYG{p}{()}
+
+\PYG{k}{with} \PYG{n+nb}{open}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}france.json\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}w\PYGZdq{}}\PYG{p}{)} \PYG{k}{as} \PYG{n}{my\PYGZus{}file}\PYG{p}{:}
+  \PYG{n}{json}\PYG{o}{.}\PYG{n}{dump}\PYG{p}{(}\PYG{n}{data}\PYG{p}{,} \PYG{n}{my\PYGZus{}file}\PYG{p}{)}
+\end{Verbatim}

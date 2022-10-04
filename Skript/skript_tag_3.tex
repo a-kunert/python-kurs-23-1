@@ -1,0 +1,349 @@
+\section{Die For-Schleife \\ \footnotesize Einen Programmabschnitt x-mal ausführen}
+
+
+
+
+\begin{frame}
+
+\begin{block}{Problemstellung}
+\vspace{2pt}
+Lies eine ganze Zahl \py{x} ein. Gib dann folgende Zeilen auf der Konsole aus 
+
+\texttt{1}\\
+\texttt{2}\\
+\texttt{3}\\
+\texttt{4}\\
+\vdots \\
+\texttt{x}
+
+\vspace{12pt}
+Wie macht man das? 
+
+\end{block}
+\end{frame}
+
+\begin{fragile}{}
+	\begin{block}{Lösung \footnotesize (fast)}
+		\begin{minted}{python}
+			x = input("Gib eine Zahl ein")
+			x = int(x)
+			
+			for k in range(1, x):	
+			  print(k)
+		\end{minted}
+	\end{block}
+\end{fragile}
+
+\begin{frame}
+
+	\renewcommand{\baselinestretch}{1.5}
+	\metroset{block=fill}
+	\begin{block}{Struktur der \texttt{for...in} Schleife}
+		\vspace{2pt}
+		\pause \py{for} \pause \textit{Variable} \pause \py{in} \pause \py{range}(\textit{start}, \textit{end})\pause\texttt{:} \pause \\
+		\spacechar\spacechar Codezeile 1 \pause \\ 
+\spacechar\spacechar Codezeile 2 \pause \\
+\spacechar\spacechar \phantom{Code} \vdots \pause  \\
+\textit{Code, der nicht mehr Teil der Schleife ist}
+	\end{block}
+
+\vspace{12pt}
+\pause 
+
+\metroset{block=transparent}
+	\renewcommand{\baselinestretch}{1}
+	\begin{block}{Wie funktioniert's?}
+		\vspace{2pt}
+	Die Schleifenvariable wird zunächst gleich dem unteren Wert in \py{range} gesetzt. Dann wird der \pybw{for}-Block wiederholt ausgeführt. Bei jedem Durchgang wird die Schleifenvariable um \pybw{1} vergrößert und zwar so lange, wie der Wert der Schleifenvariable kleiner als der obere Wert in \py{range} ist. 	
+	\end{block}
+\end{frame}
+
+\begin{fragile}
+\begin{exampleblock}{Beispiel}
+\vspace{2pt}
+	
+	\begin{overprint}
+		\onslide<1|handout:0>
+\begin{minted}{python}
+for x in range(1,5)
+  print(2*x)
+\end{minted}
+\onslide<2|handout:1>
+\begin{minted}{python}
+for x in range(1,5)
+  print(2*x)
+
+# prints 
+# 2
+# 4
+# 6
+# 8
+\end{minted}
+\end{overprint}
+\end{exampleblock}
+\end{fragile}
+
+
+\begin{frame}
+\begin{block}{Good to know}
+	\pause
+	\begin{itemize}[<+->]
+		\item Achtung: Die Schleifenvariable erreicht nie das obere Ende der \py{range}-Funktion, sondern bleibt immer \pybw{1} drunter. 
+		\item Die \py{range}-Funktion ist nicht auf 1er-Schrittweite beschränkt. Mit folgendem Ausdruck werden die Zahlen von \py{0} bis \py{9} z.B. in 3er-Schritten durchlaufen: \py{range(0, 10, 3)}. 
+		\item \texttt{For}-Schleifen sind flexibel und können alles mögliche durchlaufen, z.B. auch die einzelnen Buchstaben eines Strings (dazu später mehr).
+	\end{itemize}
+\end{block}
+\end{frame}
+
+
+\begin{fragile}[Übung zum Einstieg]
+	
+\begin{block}{Eingangsbeispiel}
+\vspace{2pt}
+Schreibe ein Skript, das alle Zahlen von 1 bis 100 auf der Konsole ausgibt. 
+
+\vspace{12pt}
+\begin{solutionblock}{Lösung}
+\begin{minted}{python}
+for k in range(1, 101)
+  print(k)
+\end{minted}
+\end{solutionblock}
+\end{block}
+\end{fragile}
+
+
+
+\begin{fragile}[Übungen]
+
+\begin{block}{Zählen}
+\vspace{2pt}
+Zähle auf der Konsole in 7-er Schritten bis 70.
+
+\console{7} \\
+\console{14} \\
+\phantom{|} \vdots\\
+\console{70}
+\end{block}
+
+
+\pause 
+
+\vspace{12pt}
+
+\begin{block}{Einmaleins: Die 7er-Reihe}
+	\vspace{2pt}
+	Schreibe ein kleines Skript, was die 7er-Reihe (bis 70) wie folgt auf der Konsole ausgibt: 
+	
+	\console{1 mal 7 ist 7}\\	
+	\console{2 mal 7 ist 14}\\
+	\phantom{4 mal} \vdots  
+\end{block}
+\end{fragile}
+
+
+\begin{frame}<beamer:0>[fragile]{Lösungen}
+
+
+\begin{solutionblock}{Zählen}
+\begin{minted}{python}
+for k in range(1, 11):
+  print(7*k)
+\end{minted}
+\end{solutionblock}
+
+\vspace{12pt}
+
+\begin{solutionblock}{Einmaleins}
+\begin{minted}{python}
+for k in range(1, 11):
+  print(f"{k} mal 7 ist {7 * k}")
+\end{minted}
+\end{solutionblock}
+
+\end{frame}
+
+\begin{fragile}[Komplexe Übungen]
+
+\begin{block}{Zählen in krummen Abständen}	
+\vspace{2pt}
+Zähle auf der Konsole bis 20, allerdings sollen nur Zahlen ausgegeben werden, die durch 3 oder durch 5 teilbar sind:
+
+\console{3} \\
+\console{5} \\
+\console{6} \\
+\console{9} \\
+\console{10}\\
+\phantom{|}\vdots\\
+\console{20}
+\end{block}
+
+\vspace{12pt}
+\pause
+
+\begin{block}{Anzahl bestimmen}
+\vspace{2pt}
+Bestimme die Anzahl der Zahlen zwischen 1 und 20, die durch 3 oder durch 5 teilbar sind. 
+\end{block}
+\end{fragile}
+
+\begin{frame}<beamer:0>[fragile]{Lösungen}
+
+
+\begin{solutionblock}{Zählen in krummen Abständen}
+\begin{minted}{python}
+for k in range(1, 21):
+  if k % 3 == 0 or k % 5 == 0: 
+    print(k)
+\end{minted}
+\end{solutionblock}
+
+\vspace{12pt}
+
+\begin{solutionblock}{Anzahl bestimmen}
+\begin{minted}{python}
+counter = 0
+for k in range(1, 21):
+  if k % 3 == 0 or k % 5 == 0:
+    counter = counter + 1 
+print(f"Es gibt {counter} gesuchte Zahlen")
+\end{minted}
+\end{solutionblock}
+
+\end{frame}
+
+
+\begin{fragile}[Schwierigere Übungen]
+	
+\begin{block}{Das Gauss-Problem}
+\vspace{2pt}	
+Berechne die Summe der Zahlen 1 bis 100. 
+\end{block}
+\vspace{12pt}
+\begin{solutionblock}{Lösung}
+\begin{minted}{python}
+result = 0
+for k in range(1, 101):
+  result = result + k
+print(f"Das Ergebnis ist {result}.")
+\end{minted}
+\end{solutionblock}
+
+	
+	
+\end{fragile}
+
+
+\begin{fragile}[Übung]
+\begin{block}{Schleife über einen String}
+\vspace{2pt}
+Lies Deinen Namen auf der Konsole ein und gib die Buchstaben einzeln auf der Konsole auf. 
+\end{block}
+\vspace{12pt}
+\begin{solutionblock}{Lösung}
+\begin{minted}{python}
+name = input("Gib Deinen Namen ein: ")
+
+for letter in name:
+  print(letter)
+\end{minted}
+\end{solutionblock}
+\end{fragile}
+
+
+
+
+\begin{fragile}[Übung]
+\begin{block}{Needle-Haystack-Problem}
+\vspace{2pt}
+Lies Deinen Namen auf der Konsole ein und überprüfe, ob er den Buchstaben \emph{a} (groß/klein) enthält. 
+\end{block}
+\vspace{12pt}
+\begin{solutionblock}{Lösung}
+\begin{minted}{python}
+name = input("Gib ein Wort ein: ")
+
+# Flag (Schalter) initialisieren
+name_contains_letter_a = False
+
+for letter in name:
+  if letter == "a" or letter == "A":
+    name_contains_letter_a = True
+
+if name_contains_letter_a:
+  print("Der Name enthält ein 'a'.")
+else:
+  print("Der Name enthält kein 'a'.")
+\end{minted}
+\end{solutionblock}
+\end{fragile}
+
+
+
+\begin{fragile}[Übung mit Trick]
+\begin{block}{Quersumme}
+	\vspace{2pt}
+	Lies eine ganze Zahl \py{x} ein und bestimme ihre Quersumme. 
+	
+	\textbf{Tipp:} Wandle die Zahl zunächst in einen String um \\
+\end{block}
+
+\vspace{12pt}
+
+\begin{solutionblock}{Lösung}
+\begin{minted}{python}
+number = input("Gib eine Zahl ein: ")
+result = 0
+# Wir lassen die Zahl als String, damit wir eine Schleife über die Ziffern legen können
+for digit in number:
+  result = result + int(digit)  # Achtung: digit ist ja eigentlich ein String
+
+print(f"Die Quersumme von {number} ist {result}")
+\end{minted}
+\end{solutionblock}
+
+\end{fragile}
+
+
+\begin{fragile}[Brutale Übung]
+	
+	
+\begin{block}{Fibonacci-Zahlen}
+\vspace{2pt}
+Die Zahlenfolge $1,1,2,3,5,8,13\ldots$ nennt man \emph{Fibonacci}-Folge. Dabei ensteht ein Element der Folge, durch die Addition des vorherigen und vorvorherigen Elements. 
+
+\vspace{1pt}
+
+Berechne die 30. Fibonacci-Zahl.  
+\end{block}
+\vspace{12pt}
+\begin{solutionblock}{Lösung}
+\begin{minted}{python}
+last = 1  # letzte Zahl
+current = 1  # aktuelle Zahl
+
+for k in range(2, 31):
+  old_current = current  # Zahl zwischenspeichern
+  current = current + last
+  last = old_current
+
+print(f"Die {k}-te Fibonacci-Zahl ist {current}")
+\end{minted}
+\end{solutionblock}
+	
+\end{fragile}
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+

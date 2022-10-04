@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{age} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Wie alt bist Du? \PYGZdq{}}\PYG{p}{)}
+\PYG{n}{age} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{age}\PYG{p}{)} \PYG{o}{+} \PYG{l+m+mi}{15}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}In 15 Jahren wirst Du }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{age}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ sein.\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

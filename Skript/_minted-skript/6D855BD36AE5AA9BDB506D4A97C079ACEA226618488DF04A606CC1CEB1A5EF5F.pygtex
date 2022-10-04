@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{countries} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}Bulgarien\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Griechenland\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Türkei\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Libanon\PYGZdq{}}\PYG{p}{]}
+
+\PYG{k}{for} \PYG{n}{country} \PYG{o+ow}{in} \PYG{n}{countries}\PYG{p}{:}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{country}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Bulgarien}
+\PYG{c+c1}{\PYGZsh{} Griechenland}
+\PYG{c+c1}{\PYGZsh{} Türkei}
+\PYG{c+c1}{\PYGZsh{} Libanon}
+\end{Verbatim}

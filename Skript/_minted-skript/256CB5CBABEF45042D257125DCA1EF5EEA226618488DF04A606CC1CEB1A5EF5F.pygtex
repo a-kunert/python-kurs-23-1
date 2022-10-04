@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{if} \PYG{n}{x} \PYG{o}{\PYGZlt{}} \PYG{l+m+mi}{0}\PYG{p}{:}
+  \PYG{n}{sign} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}negative\PYGZdq{}}	
+\PYG{k}{else}\PYG{p}{:}
+  \PYG{n}{sign} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}positive\PYGZdq{}}
+\end{Verbatim}

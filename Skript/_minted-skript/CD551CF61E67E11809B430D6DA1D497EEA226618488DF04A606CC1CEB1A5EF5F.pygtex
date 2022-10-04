@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{name} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Gib Deinen Namen ein: \PYGZdq{}}\PYG{p}{)}
+
+\PYG{k}{for} \PYG{n}{letter} \PYG{o+ow}{in} \PYG{n}{name}\PYG{p}{:}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{letter}\PYG{p}{)}
+\end{Verbatim}

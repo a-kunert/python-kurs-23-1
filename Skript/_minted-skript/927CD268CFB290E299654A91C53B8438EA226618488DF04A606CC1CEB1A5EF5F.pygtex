@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k+kn}{import} \PYG{n+nn}{random}
+
+\PYG{n}{number\PYGZus{}to\PYGZus{}guess} \PYG{o}{=} \PYG{n}{random}\PYG{o}{.}\PYG{n}{randint}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1000}\PYG{p}{)}
+\PYG{n}{guess} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Rate meine Zahl: \PYGZdq{}}\PYG{p}{)}
+\PYG{n}{guess} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{guess}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} ... usw.}
+\end{Verbatim}

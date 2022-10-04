@@ -1,0 +1,653 @@
+\section{Projekt: Geografie-Quiz}
+
+
+\begin{frame}
+\begin{block}{Das \emph{minimal viable product} (MVP)}
+\vspace{2pt}
+Anforderungen: 
+\pause 
+\begin{itemize}[<+->]
+	\item Es werden Länder aus einem JSON gelesen.
+	\item Zu einem Land aus der Liste wird die Hauptstadt abgefragt.
+	\item Es erscheinen 4 Lösungsmöglichkeiten (Multiple Choice).
+	\item Durch Eingabe einer Zahl zwischen 1 bis 4 kann getippt werden. 
+	\item Nach Eingabe erscheint ein kurzes Feedback (Richtig/Falsch).  
+\end{itemize}
+\end{block}
+\end{frame}
+	
+\begin{fragile}
+	
+\begin{exampleblock}{Beispielausgabe}
+\vspace{8pt}
+
+\begin{overprint}
+\onslide<1|handout:1>
+
+\console{Was ist die Hauptstadt von Frankreich?}
+
+\console{(1) Bratislava}\\
+\console{(2) Berlin} \\
+\console{(3) Paris} \\
+\console{(4) Stockholm} \\ \\
+ 
+\console{Antwort:} 
+\onslide<2|handout:2>
+
+\console{Was ist die Hauptstadt von Frankreich?}
+
+\console{(1) Bratislava}\\
+\console{(2) Berlin} \\
+\console{(3) Paris} \\
+\console{(4) Stockholm} \\ \\
+ 
+\console{Antwort: 3} 
+\onslide<3|handout:3>
+
+\console{Was ist die Hauptstadt von Frankreich?}
+
+\console{(1) Bratislava}\\
+\console{(2) Berlin} \\
+\console{(3) Paris} \\
+\console{(4) Stockholm} \\ \\
+ 
+\console{Antwort: 3} \\ \\
+
+\console{Das war korrekt!}
+\end{overprint}
+\end{exampleblock}
+	
+\end{fragile}
+
+%\begin{fragile}
+%
+%\begin{block}{Stand vom letzten Mal}
+%\begin{minted}[linenos]{python}
+%import json
+%import random
+%
+%# Einlesen der Länderliste
+%with open("countries.json") as my_file:
+%  countries = json.load(my_file)
+%country = countries[0]
+%
+%# Liste von Hauptstädten
+%capitals = []
+%for current_country in countries:
+%  capitals.append(current_country["capital"])
+%
+%
+%random.shuffle(capitals)
+%answer_options = capitals[0:3]
+%answer_options.append(country["capital"])
+%random.shuffle(answer_options)
+%print("\n\n")
+%print(f"Was ist die Hauptstadt von {country['name']}?\n")
+%for index, option in enumerate(answer_options):
+%  print(f"({index + 1}) {option}")
+%\end{minted}
+%\end{block}
+	
+%\end{fragile}
+
+\begin{frame}{Übung}
+
+\begin{block}{Multiple Choice Frage}
+\vspace{2pt}
+Lies die Datei \py{"countries.json" } ein. Nimm das erste Land aus der Liste (Afghanistan) und stelle die Frage nach der Hauptstadt mit 4 Antwortmöglichkeiten wie oben auf der Konsole dar. 
+
+\small{\textbf{Tip}: Aufgabe 4 vom letzten Übungsblatt kann helfen}
+\end{block}
+\end{frame}
+
+
+\begin{frame}<beamer:0>[fragile]{Lösung}
+\begin{solutionblock}{Multiple Choice Frage}
+\begin{minted}{python}
+import random
+import json
+with open("countries.json") as file: 
+    countries = json.load(file)
+
+capitals = []
+for country in countries: 
+    capitals.append(country["capital"])
+
+capital = capitals[0]
+random.shuffle(capitals)
+answer_options = capitals[0:3]
+answer_options.append(capital)
+random.shuffle(answer_options)
+country = countries[0]
+
+print(f"Was ist die Hauptstadt von { country['name'] }?\n")
+for index,option in enumerate(answer_options): 
+    print(f"({ index + 1 }) { option }")
+
+\end{minted}
+\end{solutionblock}
+\end{frame}
+
+
+
+\begin{frame}
+\begin{block}{Welche Verbesserungen sind dringend nötig?}
+	\vspace{2pt}
+\pause 
+Schritte nach Priorität: 
+\pause 
+	\begin{enumerate}[<+->]
+		\item Antwort einlesen und Feedback geben (Antwort war richtig/falsch)
+		\item Statt Afghanistan soll ein zufälliges Land abgefragt werden
+		\item Sicherstellen, dass die Antwort-Optionen stets paarweise unterschiedlich sind
+	\end{enumerate}	
+\end{block}
+\end{frame}
+
+
+\begin{frame}{Übungen}
+	
+	\begin{block}{Antwort einlesen}
+		\vspace{2pt}
+		Frage eine Antwort ab. 	
+	\end{block}
+\vspace{12pt}
+	
+	\begin{block}{Antwort prüfen}
+		\vspace{2pt}
+		Entscheide, ob die Antwort richtig oder falsch ist, und gib das Ergebnis auf der Konsole aus. 
+	\end{block}
+\vspace{12pt}
+	
+	\begin{block}{Land zufällig auswählen}
+		\vspace{2pt}
+		Sorge dafür, dass das abgefragte Land zufällig ausgewählt wird. 
+	\end{block}
+	
+	
+\end{frame}
+
+\begin{frame}<beamer:0>[fragile]{Lösungen}
+	
+\begin{solutionblock}{Antwort einlesen}
+\begin{minted}{python}
+...
+for index, option in enumerate(answer_options):
+  print(f"({index + 1}) {option}")
+answer = input("Antwort: ")
+\end{minted}
+\end{solutionblock}
+
+\vspace{12pt}
+
+\begin{solutionblock}{Antwort prüfen}
+\begin{minted}{python}
+...
+answer = input("\nAntwort: ")
+index = int(answer) - 1
+if answer_options[index] == country["capital"]:
+  print("Das war korrekt.")
+else:
+  print("Das war leider falsch.")
+\end{minted}
+\end{solutionblock}
+
+
+\end{frame}
+
+\begin{frame}<beamer:0>[fragile]{Lösungen}
+	
+\begin{solutionblock}{Land zufällig auswählen}
+\begin{minted}{python}
+...
+with open("countries.json") as my_file:
+  countries = json.load(my_file)
+random.shuffle(countries)
+country = countries[0]
+...
+\end{minted}
+\end{solutionblock}
+\end{frame}
+
+
+\begin{frame}
+\begin{alertblock}{Möglicher Bug}
+\vspace{2pt}
+Um die Lösungsmöglichkeiten zu generieren, werden 3 Haupstädte zufällig ausgewählt und dann die korrekte Hauptstadt hinzugefügt. 
+Theoeretisch ist es möglich, dass die korrekte Hauptstadt schon bei den 3 zufälligen Haupstädten dabei war. 
+\end{alertblock}
+\pause
+\vspace{12pt} 
+\begin{exampleblock}{Ist nur ein kleines Problem}
+\vspace{2pt}
+Das ist nur ein kosmetisches Problem. Die Funktionalität geht davon nicht kaputt. 
+\end{exampleblock}
+\end{frame}
+
+
+\begin{fragile}
+\begin{block}{Mögliche Lösung}
+\vspace{2pt}
+Mittels \pybw{.remove()} kann man die korrekte Hauptstadt aus der Liste \pybw{capitals} entfernen. 
+\end{block}
+
+\pause 
+\vspace{12pt}
+\begin{block}{Bessere Lösung}
+\vspace{2pt}
+\begin{minted}{python}
+...
+for current_country in countries:
+  if current_country["capital"] != country["capital"]:
+    capitals.append(current_country["capital"])
+...
+\end{minted}
+\end{block}
+
+\pause 
+\vspace{12pt}
+
+
+Warum ist die zweite Lösung besser?
+
+
+\end{fragile}
+
+\begin{frame}{Übung}
+
+\begin{block}{Feature Request}
+\vspace{2pt}
+Es sollen (zunächst) nur Hauptstädte aus Europa abgefragt werden.
+\end{block}
+	
+\end{frame}
+
+
+
+\begin{frame}<beamer:0>[fragile]{Lösung}
+	
+\begin{solutionblock}{Feature Request: Nur europäische Hauptstädte}
+\begin{minted}{python}
+...
+with open("countries.json") as my_file:
+  countries = json.load(my_file)
+
+filtered_countries = []
+for country in countries: 
+  if country["continent"] == "Europa": 
+    filtered_countries.append(country)
+
+countries = filtered_countries
+
+random.shuffle(countries)
+...
+\end{minted}
+\end{solutionblock}
+\end{frame}
+
+\section{Refactoring \\ \footnotesize{Wie man immer mehr Feature Requests unterbringt}}
+
+\begin{frame}
+	
+\begin{block}{Mehrere Fragen}
+\vspace{2pt}
+Ein Quiz mit nur einer Frage ist schon sehr lame. Daher sollen ab jetzt nacheinander 10 Fragen gestellt werden. 	
+\end{block}
+
+\pause 
+\vspace{12pt}
+
+\begin{alertblock}{Problem}
+\vspace{2pt}
+Das ganze wird langsam unübersichtlich.	
+\end{alertblock}
+
+\pause
+\vspace{12pt}
+\begin{exampleblock}{Lösung}
+	\vspace{2pt}
+Refactoring
+\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}
+\metroset{block=fill}
+\begin{block}{Definition}
+\vspace{2pt}
+Als \emph{Refactoring} von Code wird das Aufräumen bzw. Umstrukturieren von Code genannt, um ihn übersichtlicher und leichter erweiterbar zu machen. 
+Die Funktionalität des Codes wird dabei nicht verändert. 
+\pause
+
+Typische Maßnahmen sind: 
+\pause 
+\begin{itemize}[<+->]
+	\item Hinzufügen von Kommentaren
+	\item Struktur durch Leerzeilen
+	\item Umbennung von Variablen/Funktionen
+	\item Zerlegung des Codes in kleinere Schritte
+	\item Extraktion von gleichen Werten in eine Variable
+	\item Extraktion von Arbeitsschritten in Funktionen
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+
+\begin{frame}
+	
+\begin{block}{Arbeitsschritte in unserem Projekt}
+\vspace{2pt}
+\pause 
+\begin{enumerate}[<+->]
+	\item Einlesen aller Länder
+	\item Länder filtern (nur Europa)
+	\item Ein Land (\pybw{country}) zufällig wählen
+	\item Liste der Lösungsmöglichkeiten anlegen (in Abhängigkeit von \pybw{country})
+	\item Frage stellen
+	\item Antwort auswerten/Feedback geben
+\end{enumerate}
+\end{block}
+	
+\end{frame}
+
+\begin{frame}
+	\begin{block}{Mögliche Maßnahmen}
+		\vspace{2pt}
+	\pause 
+	\begin{itemize}[<+->]
+	\item Umbenennung von \pybw{country} in \pybw{active_country}.
+	\item Extraktion des Einlesens und Filterns in Funktionen.
+    \item Extraktion der Erstellung der Lösungsmöglichkeiten in eine Funktion
+    \item Extraktion der Anzeige der Frage in eine Funktion
+    \item Extraktion der Auswertung der Antwort in eine Funktion 
+	\end{itemize}	
+	\end{block}
+\end{frame}
+
+
+\begin{fragile}
+
+\begin{block}{Einlesen}
+\vspace{2pt}
+\begin{minted}{python}
+def get_countries():
+  with open("countries.json") as my_file:
+    return json.load(my_file)
+\end{minted}
+\end{block}
+
+\vspace{12pt}
+\pause 
+
+\begin{block}{Filtern}
+\vspace{2pt}
+\begin{minted}{python}
+def filter_countries(countries, continent):
+  result = []
+  for country in countries:
+    if country["continent"] == continent:
+      result.append(country)
+  return result
+\end{minted}
+\end{block}
+
+\end{fragile}
+
+\begin{fragile}
+	
+\begin{block}{Erstellung der Antwort-Optionen}
+\vspace{2pt}
+\begin{minted}{python}
+def get_answer_options(active_country, countries):
+  capitals = []
+  for country in countries:
+    if country["capital"] != active_country["capital"]:
+      capitals.append(country["capital"])
+  random.shuffle(capitals)
+  answer_options = capitals[0:3]
+  answer_options.append(active_country["capital"])
+  random.shuffle(answer_options)
+  return answer_options
+\end{minted}
+\end{block}
+
+\end{fragile}
+
+\begin{fragile}
+\begin{block}{Anzeige der Frage}
+\vspace{2pt}
+\begin{minted}{python}
+def display_question(active_country, answer_options):
+  print("\n\n")
+  print(f"Was ist die Hauptstadt von {active_country['name']}?\n")
+  for index, option in enumerate(answer_options):
+    print(f"({index + 1}) {option}")
+\end{minted}
+\end{block}
+
+\vspace{12pt}
+\pause 
+
+\begin{block}{Auswertung der Antwort}
+	\vspace{2pt}
+	\begin{minted}{python}
+def check_answer(active_country, answer_options):
+  answer = input("\nAntwort: ")
+  index = int(answer) - 1
+  if answer_options[index] == active_country["capital"]:
+    print("Das war korrekt.")
+  else:
+    print("Das war leider falsch.")
+\end{minted}
+\end{block}
+
+\end{fragile}
+
+
+\begin{fragile}
+\begin{block}{Programmablauf}
+\vspace{2pt}
+\begin{minted}{python}
+...	
+def get_countries():
+...
+def filter_countries(countries, continent):
+...
+def get_answer_options(active_country, countries):
+...
+def display_question(active_country, answer_options):
+...
+def check_answer(active_country, answer_options):
+...
+countries = get_countries()
+countries = filter_countries(countries, "Europa")
+random.shuffle(countries)
+active_country = countries[0]
+answer_options = get_answer_options(active_country, countries)
+display_question(active_country, answer_options)
+check_answer(active_country, answer_options)	
+\end{minted}
+\end{block}
+\end{fragile}
+
+
+\begin{frame}{Übung}
+\begin{block}{Mehrere Fragen}
+\vspace{2pt}
+Schreibe das Programm so um, dass nicht nur eine Frage, sondern 10 (verschiedene) Fragen gestellt werden. 
+\end{block}
+\end{frame}
+
+
+
+\begin{frame}<beamer:0>[fragile]{Lösung}
+	
+\begin{solutionblock}{}
+\begin{minted}{python}
+...
+random.shuffle(countries)
+for index in range(0,10):
+  active_country = countries[index]
+  answer_options = get_answer_options(active_country, countries)
+  display_question(active_country, answer_options)
+  check_answer(active_country, answer_options)
+\end{minted}
+\end{solutionblock}
+\end{frame}
+
+
+\begin{fragile}
+\begin{block}{Ein bisschen Kosmetik}
+\vspace{2pt}
+Je nach Größe der Konsole sieht man noch Teile der alten Frage, oder aber man sieht das Feedback nicht mehr richtig. 
+Dies lässt sich durch eine schlaue Verteilung von Leerzeilen und einem Bestätigungsdialog lösen: 
+
+\begin{minted}{python}
+...
+  print("\n"*100)
+  print(f"Was ist die Hauptstadt von {country['name']}?\n")
+...
+...
+  score = score + check_answer(active_country, answer_options)
+  input("\nWeiter mit beliebiger Taste")
+\end{minted}
+
+\end{block}
+\end{fragile}
+
+
+\begin{frame}{Übung}
+\begin{block}{Feature Request: Korrektur}
+\vspace{2pt}
+Statt nur dem Hinweis \texttt{"Das war leider falsch"} soll nun auch noch zusätzlich die richtige Antwort ausgegeben werden. 
+\vspace{2pt}
+
+Beispiel: 
+
+\texttt{Das war leider falsch. Die richtige Antwort wäre "{}Athen"{} gewesen.} 
+\end{block}
+\end{frame}
+
+
+\begin{frame}<beamer:0>[fragile]{Lösung}
+
+\begin{solutionblock}{}
+\begin{minted}{python}
+...
+def check_answer(active_country, answer_options):
+  answer = input("\nAntwort: ")
+  index = int(answer) - 1
+  correct_answer = active_country["capital"]
+  if answer_options[index] == correct_answer:
+    print("Das war korrekt.")
+    return 1
+  else:
+    print(f"Das war leider falsch. Die richtige Antwort wäre \"{correct_answer}\" gewesen.")
+    return 0
+...
+\end{minted}
+\end{solutionblock}
+\end{frame}
+
+\begin{frame}{Übung}
+\begin{block}{Feature Request: Punktzahl}
+\vspace{2pt}
+Am Ende des Spiels soll angezeigt werden, wie viele Antworten richtig waren. 
+\end{block}
+
+\pause 
+\vspace{12pt}
+\begin{exampleblock}{Hinweis}
+\vspace{2pt}
+Führe eine globale Variable \pybw{score} ein und verwende entsprechende Rückgabewerte in der Funktion \pybw{check_answer}.	
+\end{exampleblock}
+
+
+
+\end{frame}
+
+\begin{frame}<beamer:0>[fragile]{Lösung}
+	
+\begin{solutionblock}{}
+\begin{minted}{python}
+score = 0
+...
+def check_answer(active_country, answer_options):
+  answer = input("\nAntwort: ")
+  index = int(answer) - 1
+  if answer_options[index] == active_country["capital"]:
+    print("Das war korrekt.")
+    return 1
+  else:
+    print("Das war leider falsch.")
+    return 0
+...
+for index in range(0,10): 
+  ...
+  score = score + check_answer(active_country, answer_options)
+  ...
+print(f"\n\nDu hast {score}/10 Fragen richtig")
+\end{minted}
+\end{solutionblock}
+\end{frame}
+
+
+
+
+
+
+\begin{frame}{Übung}
+\begin{block}{Feature Request: Mehr Kontinente}
+\vspace{2pt}
+Wie muss man den Code umschreiben, damit Länder aus Europa \emph{und} Asien abgefragt werden.
+\end{block}
+
+
+\pause
+
+\vspace{12pt}
+
+\begin{exampleblock}{Hinweis}
+	\vspace{2pt}
+Schreibe die Funktion \pybw{filter_countries} so um, dass sie statt einem String \pybw{continent} eine Liste \pybw{continents} erwartet. 
+\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}<beamer:0>[fragile]{Lösung}
+	
+\begin{solutionblock}{}
+\begin{minted}{python}
+...
+def filter_countries(countries, continents):
+  result = []
+  for country in countries:
+    if country["continent"] in continents:
+      result.append(country)
+  return result
+...
+countries = get_countries()
+countries = filter_countries(countries, ["Europa", "Asien"])
+...
+\end{minted}
+\end{solutionblock}
+\end{frame}
+
+
+\begin{frame}
+\begin{block}{Weitere Verbesserungsideen}
+	\pause 
+\begin{itemize}[<+->]
+  \item Besseres Fehlerhandling (was ist, wenn die Antwort nicht zwischen 1 und 4 ist?)
+  \item Anzahl der Fragen variabel machen. 
+  \item Schwierigkeitsgrad variabel (d.h. Anzahl der Antwortmöglichkeiten) variabel machen
+  \item Spiel vorzeitig beendbar machen. 
+  \item Menü zu Beginn, wo man die Kontinente angeben kann (Mehrfachauswahl)
+  \item Neuer Fragentyp: Anzahl der Einwohner. Hier kann man das Mutliple-Choice anders aufbauen, oder durch explizite Antworten ersetzen. 
+  \item Falsch beantwortete Fragen in einer Trainingsrunde wiederholen.  
+  \item Den Punktestand unter einem Username abspeichern.
+  \item Punktzahl von der Reaktionszeit abhängig machen. 
+\end{itemize}
+\end{block}
+\end{frame}

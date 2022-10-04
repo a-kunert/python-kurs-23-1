@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{grades} \PYG{o}{=} \PYG{p}{\PYGZob{}} \PYG{l+s+s2}{\PYGZdq{}Mathe\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{8}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Bio\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{11}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Sport\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{13}\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{grade\PYGZus{}subjects} \PYG{o}{=} \PYG{n}{grades}\PYG{o}{.}\PYG{n}{keys}\PYG{p}{()}
+\PYG{n}{grade\PYGZus{}subjects} \PYG{o}{=} \PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{grade\PYGZus{}subjects}\PYG{p}{)}
+
+\PYG{n}{grade\PYGZus{}numbers} \PYG{o}{=} \PYG{n}{grades}\PYG{o}{.}\PYG{n}{values}\PYG{p}{()}
+\PYG{n}{grade\PYGZus{}numbers} \PYG{o}{=} \PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{grade\PYGZus{}numbers}\PYG{p}{)}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{grade\PYGZus{}subjects}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} [\PYGZdq{}Mathe\PYGZdq{}, \PYGZdq{}Bio\PYGZdq{}, \PYGZdq{}Sport\PYGZdq{}]}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{grade\PYGZus{}numbers}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} [8, 11, 13]}
+\end{Verbatim}

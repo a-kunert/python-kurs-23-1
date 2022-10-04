@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{def} \PYG{n+nf}{weighted\PYGZus{}average}\PYG{p}{(}\PYG{n}{grades}\PYG{p}{):}
+  \PYG{n}{weighted\PYGZus{}sum} \PYG{o}{=} \PYG{l+m+mi}{0}
+  \PYG{n}{weighted\PYGZus{}length} \PYG{o}{=} \PYG{l+m+mi}{0}
+  \PYG{k}{for} \PYG{n}{grade} \PYG{o+ow}{in} \PYG{n}{grades}\PYG{p}{:}
+    \PYG{k}{if} \PYG{n}{grade}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}is\PYGZus{}major\PYGZdq{}}\PYG{p}{]:}
+      \PYG{n}{weighted\PYGZus{}sum} \PYG{o}{+=} \PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{grade}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}grade\PYGZdq{}}\PYG{p}{]}
+      \PYG{n}{weighted\PYGZus{}length} \PYG{o}{+=} \PYG{l+m+mi}{2}
+    \PYG{k}{else}\PYG{p}{:}
+      \PYG{n}{weighted\PYGZus{}sum} \PYG{o}{+=} \PYG{n}{grade}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}grade\PYGZdq{}}\PYG{p}{]}
+      \PYG{n}{weighted\PYGZus{}length} \PYG{o}{+=} \PYG{l+m+mi}{1}
+  \PYG{n}{result} \PYG{o}{=} \PYG{n}{weighted\PYGZus{}sum}\PYG{o}{/}\PYG{n}{weighted\PYGZus{}length}
+  \PYG{k}{return} \PYG{n}{result}
+\end{Verbatim}

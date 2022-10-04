@@ -1,0 +1,211 @@
+\section{Die While-Schleife \\ \footnotesize Wie die For-Schleife nur abstrakter und open-end}
+
+\begin{frame}
+\begin{block}{Problemstellung}
+	\vspace{2pt}
+	Lies immer wieder eine Zahl von der Konsole ein. Höre auf, wenn diese Zahl 7 ist. 
+	
+	Wie macht man das? 
+\end{block}
+\end{frame}
+
+\begin{fragile}
+	
+\begin{block}{Lösung}
+		\vspace{2pt}
+		
+	\begin{minted}{python}
+		x = 0
+		
+		while x != 7: 
+		  x = input("Gib eine Zahl an: ")
+		  x = int(x)
+		  
+		print("Fertig!")
+	\end{minted}
+	
+\end{block}
+\end{fragile}
+
+\begin{frame}
+
+\renewcommand{\baselinestretch}{1.5}
+\metroset{block=fill}
+\begin{block}{Struktur der \texttt{while}-Schleife}
+	\vspace{2pt}
+	\pause \py{while} \pause \textit{Bedingung}\pause\texttt{:} \pause \\
+	\spacechar\spacechar Codezeile 1 \pause \\ 
+	\spacechar\spacechar Codezeile 2 \pause \\
+	\spacechar\spacechar \phantom{Code} \vdots \pause  \\
+	\textit{Code, der nicht mehr Teil der Schleife ist}
+\end{block}
+\vspace{12pt}
+\pause 
+\metroset{block=transparent}
+\renewcommand{\baselinestretch}{1}
+\begin{block}{Wie funktioniert's?}
+	\vspace{2pt}
+	Die Schleife wird solange ausgeführt, solange die \emph{Bedingung} \py{True} ergibt. Nach jedem Durchgang wird der Ausdruck der \emph{Bedingung} neu ausgewertet. 
+	Ist die Bedingung \py{False} wird der Code unterhalb des Schleifenblocks ausgeführt. 
+\end{block}
+
+\end{frame}
+
+\begin{frame}
+\begin{alertblock}{Achtung Endlosschleife}
+	\vspace{2pt}
+	Man sollte immer darauf achten, dass die Bedingung in der \pybw{while}-Schleife auch wirklich irgendwannmal \py{False} wird. Ansonsten bleibt das Programm in einer \emph{Endlosschleife} gefangen. 
+\end{alertblock}
+\end{frame}
+
+\begin{fragile}[Übung]
+
+\begin{block}{Ersetze eine \pybw{for}-Schleife durch eine \pybw{while}-Schleife}
+\vspace{2pt}
+Schreibe ein Skript, das alle Zahlen von 1 bis 100 auf der Konsole ausgibt. Verwende eine While-Schleife.
+\vspace{12pt}
+\begin{solutionblock}{Lösung}
+\begin{minted}{python}
+k = 1
+while k <= 100:
+  print(k)
+  k += 1
+\end{minted}
+\end{solutionblock}
+\end{block}
+\end{fragile}
+
+
+\begin{fragile}[Übung]
+\begin{block}{Quizfrage}
+\vspace{2pt}
+Schreibe ein Programm, dass solange nach einer Hauptstadt Deiner Wahl fragt, bis die richtige Antwort eingegeben wird. 
+\end{block}
+
+\pause 
+\vspace{12pt}
+
+\begin{exampleblock}{Beispiel}
+\vspace{2pt}
+
+
+\console{Was ist die Hauptstadt von Frankreich?}
+
+Darauf hin soll entsprechend der Antwort folgendes Feedback auf der Konsole erscheinen: 
+
+\console{Das war richtig!} 
+
+bzw. 
+
+\console{Das war falsch! Versuch's gleich nochmal}
+\end{exampleblock}
+	
+\end{fragile}
+
+
+\begin{frame}<beamer:0>[fragile]
+\frametitle{Lösung}
+\begin{solutionblock}{Quizfrage}
+\begin{minted}{python}
+answer = input("Was ist die Hauptstadt von Frankreich?")
+while answer != "Paris": 
+  print("Das war leider falsch, versuch es gleich nochmal")
+  answer = input("")
+print("Das war richtig!")
+\end{minted}
+\end{solutionblock}
+\end{frame}
+
+
+\begin{frame}{Übung}
+
+\begin{block}{Ratespiel}
+\vspace{2pt}
+Definiere eine positive ganze Zahl \py{number_to_guess}. Der User kann nun wiederholt eine Zahl eingeben. Das Spiel endet, wenn die eingegebene Zahl mit \py{number_to_guess} übereinstimmt. 
+Andernfalls wird auf der Konsole beispielsweise ausgegeben: 
+
+\console{Sorry, Deine eingegebene Zahl war zu klein, versuche es nochmal: }
+
+\pause
+\textbf{Zusatz 1:} \\
+Am Ende soll die Anzahl der Versuche angegeben werden.
+
+
+\pause
+\textbf{Zusatz 2:} \\
+Google, wie Python die Zahl \py{number_to_guess} zufällig erzeugen kann (das verbessert das Gameplay).  
+
+\end{block}
+\end{frame}
+
+
+
+\begin{frame}<beamer:0>[fragile]
+\frametitle{Lösung}
+\begin{solutionblock}{Ratespiel ohne Zusätze}
+\begin{minted}{python}
+number_to_guess = 512
+guess = input("Rate meine Zahl: ")
+guess = int(guess)
+
+while guess != number_to_guess:
+  if guess < number_to_guess:
+    print("Deine Zahl war zu klein")
+  else:
+    print("Deine Zahl war zu groß")
+  guess = input("Versuch's nochmal: ")
+  guess = int(guess)
+
+print("Du hast gewonnen")
+\end{minted}
+\end{solutionblock}
+\end{frame}
+
+
+\begin{frame}<beamer:0>[fragile]
+\frametitle{Lösung}
+\begin{solutionblock}{Ratespiel mit Zusatz 1}
+\begin{minted}{python}
+number_to_guess = 512
+guess = input("Rate meine Zahl: ")
+guess = int(guess)
+counter = 1
+
+while guess != number_to_guess:
+  if guess < number_to_guess:
+    print("Deine Zahl war zu klein")
+  else:
+    print("Deine Zahl war zu groß")
+  guess = input("Versuch's nochmal: ")
+  guess = int(guess)
+  counter = counter + 1
+  
+print(f"Du hast nach {counter} Versuchen gewonnen")	
+\end{minted}
+\end{solutionblock}
+\end{frame}
+
+
+
+
+
+
+\begin{frame}<beamer:0>[fragile]
+\frametitle{Lösung}
+\begin{solutionblock}{Ratespiel mit Zusatz 2}
+\begin{minted}{python}
+import random 
+
+number_to_guess = random.randint(1, 1000)
+guess = input("Rate meine Zahl: ")
+guess = int(guess)
+# ... usw. 
+\end{minted}
+\end{solutionblock}
+\end{frame}
+
+
+
+
+
+

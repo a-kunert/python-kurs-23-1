@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{name} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Dein Name: \PYGZdq{}}\PYG{p}{)}
+\PYG{n}{age} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Dein Alter: \PYGZdq{}}\PYG{p}{)}
+\PYG{n}{street} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Deine Addresse: \PYGZdq{}}\PYG{p}{)}
+\PYG{n}{city} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Deine Stadt: \PYGZdq{}}\PYG{p}{)}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Hallo }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{Name}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{, schön, dass Du da bist. Du bist }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{age}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ Jahre alt\PYGZdq{}}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}und wohnst in der }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{street}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ in }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{city}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{.\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

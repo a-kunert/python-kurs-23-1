@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{x} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Gib eine Zahl an: \PYGZdq{}}\PYG{p}{)}
+\PYG{n}{x} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}
+
+\PYG{k}{for} \PYG{n}{k} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{x} \PYG{o}{+} \PYG{l+m+mi}{11}\PYG{p}{):}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{k}\PYG{p}{)}
+  \PYG{k}{if} \PYG{n}{k} \PYG{o}{\PYGZpc{}} \PYG{l+m+mi}{10} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
+    \PYG{k}{break}
+\end{Verbatim}
