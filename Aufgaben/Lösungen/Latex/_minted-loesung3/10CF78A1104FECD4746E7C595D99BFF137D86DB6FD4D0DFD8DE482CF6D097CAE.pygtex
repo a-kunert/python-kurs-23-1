@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{random}
+
+
+\PYG{k}{def} \PYG{n+nf}{get\PYGZus{}answer\PYGZus{}options}\PYG{p}{(}\PYG{n}{options}\PYG{p}{):}
+    \PYG{n}{answer} \PYG{o}{=} \PYG{n}{options}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+    \PYG{c+c1}{\PYGZsh{} Take the remaining options ([1:]) and shuffle them}
+    \PYG{n}{shuffled\PYGZus{}options} \PYG{o}{=} \PYG{n}{options}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{:]}
+    \PYG{n}{random}\PYG{o}{.}\PYG{n}{shuffle}\PYG{p}{(}\PYG{n}{shuffled\PYGZus{}options}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} Take the first 3 of the shuffled options}
+    \PYG{n}{result} \PYG{o}{=} \PYG{n}{shuffled\PYGZus{}options}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{p}{]}
+    \PYG{c+c1}{\PYGZsh{} Append the correct solution}
+    \PYG{n}{result}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{answer}\PYG{p}{)}
+    \PYG{c+c1}{\PYGZsh{} Shuffle again, so that the correct solution is not}
+    \PYG{c+c1}{\PYGZsh{} always at the end}
+    \PYG{n}{random}\PYG{o}{.}\PYG{n}{shuffle}\PYG{p}{(}\PYG{n}{result}\PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{result}
+\end{Verbatim}

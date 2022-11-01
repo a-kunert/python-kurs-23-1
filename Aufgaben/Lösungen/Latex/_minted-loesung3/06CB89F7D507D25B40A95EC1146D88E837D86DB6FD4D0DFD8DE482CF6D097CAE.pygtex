@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{first\PYGZus{}list} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{23}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{9}\PYG{p}{,} \PYG{l+m+mi}{8}\PYG{p}{]}
+\PYG{n}{second\PYGZus{}list} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{8}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{17}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{7}\PYG{p}{,} \PYG{l+m+mi}{9}\PYG{p}{,} \PYG{l+m+mi}{12}\PYG{p}{]}
+\PYG{c+c1}{\PYGZsh{} Initialisiere das Ergebnis als leere Liste}
+\PYG{n}{result} \PYG{o}{=} \PYG{p}{[]}
+
+\PYG{k}{for} \PYG{n}{value} \PYG{o+ow}{in} \PYG{n}{first\PYGZus{}list}\PYG{p}{:}
+  \PYG{k}{if} \PYG{n}{value} \PYG{o+ow}{in} \PYG{n}{second\PYGZus{}list}\PYG{p}{:}
+    \PYG{n}{result}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{value}\PYG{p}{)}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Folgende Werte kommen in beiden Listen vor: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{result}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

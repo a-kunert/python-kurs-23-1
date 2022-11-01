@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{counter} \PYG{o}{=} \PYG{l+m+mi}{1}
+\PYG{n}{n} \PYG{o}{=} \PYG{l+m+mi}{1000000000}
+
+\PYG{k}{while} \PYG{n}{n} \PYG{o}{!=} \PYG{l+m+mi}{1}\PYG{p}{:}
+    \PYG{n}{counter} \PYG{o}{+=} \PYG{l+m+mi}{1}
+    \PYG{k}{if} \PYG{n}{n} \PYG{o}{\PYGZpc{}} \PYG{l+m+mi}{2} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
+        \PYG{n}{n} \PYG{o}{=} \PYG{n}{n}\PYG{o}{//}\PYG{l+m+mi}{2}
+    \PYG{k}{else}\PYG{p}{:}
+        \PYG{n}{n} \PYG{o}{=} \PYG{l+m+mi}{3}\PYG{o}{*}\PYG{n}{n} \PYG{o}{+} \PYG{l+m+mi}{1}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Die Folge ist nach }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{counter}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ Folgengliedern zu Ende\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

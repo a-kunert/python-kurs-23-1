@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{merge\PYGZus{}dictionaries}\PYG{p}{(}\PYG{n}{dict\PYGZus{}1}\PYG{p}{,} \PYG{n}{dict\PYGZus{}2}\PYG{p}{):}
+    \PYG{n}{result} \PYG{o}{=} \PYG{n+nb}{dict}\PYG{p}{(}\PYG{n}{dict\PYGZus{}1}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} copy the first dictionary}
+    \PYG{k}{for} \PYG{n}{key}\PYG{p}{,} \PYG{n}{value} \PYG{o+ow}{in} \PYG{n}{dict\PYGZus{}2}\PYG{o}{.}\PYG{n}{items}\PYG{p}{():}
+        \PYG{n}{result}\PYG{p}{[}\PYG{n}{key}\PYG{p}{]} \PYG{o}{=} \PYG{n}{value}
+    \PYG{k}{return} \PYG{n}{result}
+\end{Verbatim}

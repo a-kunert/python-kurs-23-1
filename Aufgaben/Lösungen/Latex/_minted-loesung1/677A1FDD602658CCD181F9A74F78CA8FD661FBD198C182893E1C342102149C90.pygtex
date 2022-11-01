@@ -1,0 +1,23 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{x} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Gib die 1. Zahl ein: \PYGZdq{}}\PYG{p}{)}
+\PYG{n}{y} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Gib die 2. Zahl ein: \PYGZdq{}}\PYG{p}{)}
+\PYG{n}{z} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Gib die 3. Zahl ein: \PYGZdq{}}\PYG{p}{)}
+
+\PYG{n}{x} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}
+\PYG{n}{y} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{y}\PYG{p}{)}
+\PYG{n}{z} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{z}\PYG{p}{)}
+
+
+\PYG{k}{if} \PYG{n}{x} \PYG{o}{\PYGZgt{}=} \PYG{n}{y}\PYG{p}{:}
+    \PYG{k}{if} \PYG{n}{z} \PYG{o}{\PYGZgt{}=} \PYG{n}{x}\PYG{p}{:}
+        \PYG{n}{result} \PYG{o}{=} \PYG{n}{z}
+    \PYG{k}{else}\PYG{p}{:}
+        \PYG{n}{result} \PYG{o}{=} \PYG{n}{x}
+\PYG{k}{else}\PYG{p}{:}
+    \PYG{k}{if} \PYG{n}{z} \PYG{o}{\PYGZgt{}=} \PYG{n}{y}\PYG{p}{:}
+        \PYG{n}{result} \PYG{o}{=} \PYG{n}{z}
+    \PYG{k}{else}\PYG{p}{:}
+        \PYG{n}{result} \PYG{o}{=} \PYG{n}{y}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Die größte der drei Zahlen ist }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{result}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

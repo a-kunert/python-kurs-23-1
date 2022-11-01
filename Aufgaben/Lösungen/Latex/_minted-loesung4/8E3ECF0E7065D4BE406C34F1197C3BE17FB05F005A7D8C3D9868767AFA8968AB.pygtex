@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{find\PYGZus{}max}\PYG{p}{(}\PYG{n}{dictionary}\PYG{p}{):}
+  \PYG{c+c1}{\PYGZsh{} Finde das Maximum}
+  \PYG{n}{values} \PYG{o}{=} \PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{dictionary}\PYG{o}{.}\PYG{n}{values}\PYG{p}{())}
+  \PYG{c+c1}{\PYGZsh{} Bevor man mehr weiß,}
+  \PYG{c+c1}{\PYGZsh{} ist der erste Wert das mögliche Maximum}
+  \PYG{n}{maximum} \PYG{o}{=} \PYG{n}{values}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+  \PYG{k}{for} \PYG{n}{value} \PYG{o+ow}{in} \PYG{n}{values}\PYG{p}{:}
+    \PYG{c+c1}{\PYGZsh{} Ist ein Wert größer als das bisher größte}
+    \PYG{c+c1}{\PYGZsh{} gefunde Element, wird dies das neue Maximum.}
+    \PYG{k}{if} \PYG{n}{value} \PYG{o}{\PYGZgt{}} \PYG{n}{maximum}\PYG{p}{:}
+      \PYG{n}{maximum} \PYG{o}{=} \PYG{n}{value}
+  \PYG{c+c1}{\PYGZsh{} Wenn man das Maximum kennt,}
+  \PYG{c+c1}{\PYGZsh{} finde alle Schlüssel, wo das Maximum}
+  \PYG{c+c1}{\PYGZsh{} angenommen wird.}
+  \PYG{n}{result} \PYG{o}{=} \PYG{p}{[]}
+  \PYG{k}{for} \PYG{n}{key}\PYG{p}{,} \PYG{n}{value} \PYG{o+ow}{in} \PYG{n}{dictionary}\PYG{o}{.}\PYG{n}{items}\PYG{p}{():}
+    \PYG{k}{if} \PYG{n}{value} \PYG{o}{==} \PYG{n}{maximum}\PYG{p}{:}
+      \PYG{n}{result}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{key}\PYG{p}{)}
+  \PYG{k}{return} \PYG{n}{result}
+\end{Verbatim}

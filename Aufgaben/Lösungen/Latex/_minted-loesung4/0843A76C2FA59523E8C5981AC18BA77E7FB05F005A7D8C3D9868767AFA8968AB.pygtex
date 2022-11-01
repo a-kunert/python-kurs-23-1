@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{merge\PYGZus{}dict}\PYG{p}{(}\PYG{n}{first\PYGZus{}dict}\PYG{p}{,} \PYG{n}{second\PYGZus{}dict}\PYG{p}{):}
+  \PYG{n}{result} \PYG{o}{=} \PYG{p}{\PYGZob{}\PYGZcb{}}
+  \PYG{k}{for} \PYG{n}{key}\PYG{p}{,} \PYG{n}{value} \PYG{o+ow}{in} \PYG{n}{first\PYGZus{}dict}\PYG{o}{.}\PYG{n}{items}\PYG{p}{():}
+    \PYG{n}{result}\PYG{p}{[}\PYG{n}{key}\PYG{p}{]} \PYG{o}{=} \PYG{n}{value}
+  \PYG{k}{for} \PYG{n}{key}\PYG{p}{,} \PYG{n}{value} \PYG{o+ow}{in} \PYG{n}{second\PYGZus{}dict}\PYG{o}{.}\PYG{n}{items}\PYG{p}{():}
+    \PYG{n}{result}\PYG{p}{[}\PYG{n}{key}\PYG{p}{]} \PYG{o}{=} \PYG{n}{value}
+  \PYG{k}{return} \PYG{n}{result}
+\end{Verbatim}

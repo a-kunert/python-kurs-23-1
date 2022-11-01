@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{random}
+
+
+\PYG{k}{def} \PYG{n+nf}{shuffle\PYGZus{}list}\PYG{p}{(}\PYG{n+nb}{input}\PYG{p}{):}
+  \PYG{n}{first} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+  \PYG{n}{others} \PYG{o}{=} \PYG{p}{[]}
+  \PYG{k}{for} \PYG{n}{item} \PYG{o+ow}{in} \PYG{n+nb}{input}\PYG{p}{:}
+    \PYG{k}{if} \PYG{n}{item} \PYG{o}{!=} \PYG{n}{first}\PYG{p}{:}
+      \PYG{n}{others}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{item}\PYG{p}{)}
+  \PYG{n}{random}\PYG{o}{.}\PYG{n}{shuffle}\PYG{p}{(}\PYG{n}{others}\PYG{p}{)}
+  \PYG{n}{result} \PYG{o}{=} \PYG{n}{others}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{p}{]}
+  \PYG{n}{result}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{first}\PYG{p}{)}
+  \PYG{n}{random}\PYG{o}{.}\PYG{n}{shuffle}\PYG{p}{(}\PYG{n}{result}\PYG{p}{)}
+  \PYG{k}{return} \PYG{n}{result}
+\end{Verbatim}

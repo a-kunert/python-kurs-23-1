@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{countries\PYGZus{}to\PYGZus{}capitals}\PYG{p}{(}\PYG{n}{countries}\PYG{p}{):}
+  \PYG{n}{result} \PYG{o}{=} \PYG{p}{[]}
+  \PYG{k}{for} \PYG{n}{country} \PYG{o+ow}{in} \PYG{n}{countries}\PYG{p}{:}
+  \PYG{n}{result}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{country}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}capital\PYGZdq{}}\PYG{p}{])}
+  \PYG{k}{return} \PYG{n}{result}
+\end{Verbatim}

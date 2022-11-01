@@ -1,0 +1,123 @@
+\documentclass[a4paper]{article} 
+\usepackage{minted}
+\usemintedstyle{friendly}
+\input{head}
+
+\sheetsubmission{}
+\sheetnumber{2}
+\sheetdate{11.11.2021}
+
+
+\begin{document}
+
+%-------------------------------
+%	TITLE SECTION
+%-------------------------------
+
+\input{header}
+
+%-------------------------------
+%	CONTENTS
+%-------------------------------
+
+\section{}
+\begin{minted}{python}
+day = 0
+incidence = 219
+
+above_300 = False
+above_500 = False
+above_1000 = False
+above_10000 = False
+
+# The loop simulates the incidence for every day
+# Once it hits one of the given thresholds a message is printed
+# To stop printing after the threshold is reached the flags above_xxx are used
+
+while incidence <= 100000:
+    day += 1
+    incidence = int(incidence*1.0458)
+    if incidence > 300 and not above_300:
+        print(f"Über 300 an Tag {day}")
+        above_300 = True
+    if incidence > 500 and not above_500:
+        print(f"Über 500 an Tag {day}")
+        above_500 = True
+    if incidence > 1000 and not above_1000:
+        print(f"Über 1000 an Tag {day}")
+        above_1000 = True
+    if incidence > 10000 and not above_10000:
+        print(f"Über 10000 an Tag {day}")
+        above_10000 = True
+    if incidence > 100000:
+        print(f"Über 100000 an Tag {day}")
+
+\end{minted}
+
+\section{}
+\begin{minted}{python}
+example_list = [2, 7, 5, -1, 4, 12, 3, -19, 16]
+
+# We add all items up, every second item is multiplied by 2 (i.e. weighting)
+weighted_sum = 0
+length = 0
+
+for (index, number) in enumerate(example_list):
+    if index % 2 == 0:
+        # Remember: The first item in the list has index 0
+        weighted_sum += number
+        length += 1
+    else:
+        weighted_sum += 2*number
+        length += 2
+
+result = weighted_sum / length
+print(f"Der gewichtete Durchschnitt ist {result}")
+\end{minted}
+
+\newpage
+\section{} 
+\begin{minted}{python}
+my_name = "Aaron"
+friends_name = "Tom"
+
+example = ["Max", "Lara", "Kathrin", "Aaron", "Tom", "Sebastian"]     # should return True
+example_2 = ["Max", "Lara", "Kathrin", "Tom", "Aaron", "Sebastian"]   # should return True
+example_3 = ["Max", "Lara", "Kathrin", "Tom", "Sebastian", "Aaron"]   # should return False
+
+my_list = example
+
+length = len(my_list)
+
+for (index, name) in enumerate(my_list):
+    # if we are at the beginning of the list, there is nothing to check
+    if index == 0:
+        continue
+    # Check if you are at the current position and your friend at the previous position
+    if name == my_name and my_list[index - 1] == friends_name:
+        print("Ja, die beiden Namen kommen hintereinander")
+        break
+    # Check if your friend is at the current position and you are at the previous position
+    if name == friends_name and my_list[index - 1] == my_name:
+        print("Ja, die beiden Namen kommen hintereinander")
+        break
+else:
+    print("Nein, die beiden Namen kommen nicht hintereinander")
+\end{minted}
+
+\section{}
+\begin{minted}{python}
+counter = 1
+n = 1000000000
+
+while n != 1:
+    counter += 1
+    if n % 2 == 0:
+        n = n//2
+    else:
+        n = 3*n + 1
+
+print(f"Die Folge ist nach {counter} Folgengliedern zu Ende")
+\end{minted}
+
+\end{document}

@@ -6,4 +6,7 @@
 *.synctex.gz
 *.toc
 *.vrb
+.DS_Store
+/.idea
+/venv
 

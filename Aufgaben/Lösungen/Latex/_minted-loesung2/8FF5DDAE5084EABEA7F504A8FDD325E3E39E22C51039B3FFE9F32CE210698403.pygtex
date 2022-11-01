@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{for} \PYG{n}{k} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{101}\PYG{p}{):}
+  \PYG{n}{name} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}}
+  \PYG{c+c1}{\PYGZsh{} Durch den folgenden Weg spart man sich ein Conditional}
+  \PYG{c+c1}{\PYGZsh{} für den Fall, dass k durch 15 teilbar ist.}
+  \PYG{k}{if} \PYG{n}{k} \PYG{o}{\PYGZpc{}} \PYG{l+m+mi}{3} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
+    \PYG{n}{name} \PYG{o}{=} \PYG{n}{name} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}Fizz\PYGZdq{}}
+  \PYG{k}{if} \PYG{n}{k} \PYG{o}{\PYGZpc{}} \PYG{l+m+mi}{5} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
+    \PYG{n}{name} \PYG{o}{=} \PYG{n}{name} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{}Buzz\PYGZdq{}}
+  \PYG{c+c1}{\PYGZsh{} Ah man muss auch noch prüfen, ob man ein Wort oder die Zahl ausgibt}
+  \PYG{c+c1}{\PYGZsh{} Daher klappt es leider doch nicht mit nur 2 Conditionals}
+  \PYG{k}{if} \PYG{n}{name}\PYG{p}{:}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{name}\PYG{p}{)}
+  \PYG{k}{else}\PYG{p}{:}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{k}\PYG{p}{)}
+\end{Verbatim}

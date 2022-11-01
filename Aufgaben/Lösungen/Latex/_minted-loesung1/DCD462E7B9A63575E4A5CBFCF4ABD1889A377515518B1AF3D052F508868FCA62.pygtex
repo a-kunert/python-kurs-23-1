@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} after 4th year}
+\PYG{n}{balance} \PYG{o}{+=} \PYG{n}{savings\PYGZus{}rate}
+\PYG{n}{balance} \PYG{o}{*=} \PYG{l+m+mf}{1.03}
+\PYG{n}{balance} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{balance}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Der Kontostand nach vier Jahren beträgt: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{balance}\PYG{o}{/}\PYG{l+m+mi}{100}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

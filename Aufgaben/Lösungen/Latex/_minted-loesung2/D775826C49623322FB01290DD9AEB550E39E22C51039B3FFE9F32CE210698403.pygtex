@@ -1,0 +1,27 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{my\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}Aaron\PYGZdq{}}
+\PYG{n}{friends\PYGZus{}name} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}Tom\PYGZdq{}}
+
+\PYG{n}{example} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}Max\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Lara\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Kathrin\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Aaron\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Tom\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Sebastian\PYGZdq{}}\PYG{p}{]}     \PYG{c+c1}{\PYGZsh{} should return True}
+\PYG{n}{example\PYGZus{}2} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}Max\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Lara\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Kathrin\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Tom\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Aaron\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Sebastian\PYGZdq{}}\PYG{p}{]}   \PYG{c+c1}{\PYGZsh{} should return True}
+\PYG{n}{example\PYGZus{}3} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}Max\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Lara\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Kathrin\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Tom\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Sebastian\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Aaron\PYGZdq{}}\PYG{p}{]}   \PYG{c+c1}{\PYGZsh{} should return False}
+
+\PYG{n}{my\PYGZus{}list} \PYG{o}{=} \PYG{n}{example}
+
+\PYG{n}{length} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{my\PYGZus{}list}\PYG{p}{)}
+
+\PYG{k}{for} \PYG{p}{(}\PYG{n}{index}\PYG{p}{,} \PYG{n}{name}\PYG{p}{)} \PYG{o+ow}{in} \PYG{n+nb}{enumerate}\PYG{p}{(}\PYG{n}{my\PYGZus{}list}\PYG{p}{):}
+    \PYG{c+c1}{\PYGZsh{} if we are at the beginning of the list, there is nothing to check}
+    \PYG{k}{if} \PYG{n}{index} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
+        \PYG{k}{continue}
+    \PYG{c+c1}{\PYGZsh{} Check if you are at the current position and your friend at the previous position}
+    \PYG{k}{if} \PYG{n}{name} \PYG{o}{==} \PYG{n}{my\PYGZus{}name} \PYG{o+ow}{and} \PYG{n}{my\PYGZus{}list}\PYG{p}{[}\PYG{n}{index} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{==} \PYG{n}{friends\PYGZus{}name}\PYG{p}{:}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Ja, die beiden Namen kommen hintereinander\PYGZdq{}}\PYG{p}{)}
+        \PYG{k}{break}
+    \PYG{c+c1}{\PYGZsh{} Check if your friend is at the current position and you are at the previous position}
+    \PYG{k}{if} \PYG{n}{name} \PYG{o}{==} \PYG{n}{friends\PYGZus{}name} \PYG{o+ow}{and} \PYG{n}{my\PYGZus{}list}\PYG{p}{[}\PYG{n}{index} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{==} \PYG{n}{my\PYGZus{}name}\PYG{p}{:}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Ja, die beiden Namen kommen hintereinander\PYGZdq{}}\PYG{p}{)}
+        \PYG{k}{break}
+\PYG{k}{else}\PYG{p}{:}
+    \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Nein, die beiden Namen kommen nicht hintereinander\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

@@ -1,0 +1,42 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Part (a)}
+\PYG{n}{length} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Länge in Meter: \PYGZdq{}}\PYG{p}{)}
+\PYG{n}{length} \PYG{o}{=} \PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{length}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Die Länge in Kilometern beträgt }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{length}\PYG{o}{/}\PYG{l+m+mi}{1000}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{km\PYGZdq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Part (b)}
+\PYG{n}{temp} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Temperatur in Grad Celsius: \PYGZdq{}}\PYG{p}{)}
+\PYG{n}{temp} \PYG{o}{=} \PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{temp}\PYG{p}{)}
+\PYG{n}{temp} \PYG{o}{=} \PYG{n}{temp} \PYG{o}{+} \PYG{l+m+mf}{273.15}
+\PYG{n}{temp} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{temp} \PYG{o}{*} \PYG{l+m+mi}{100}\PYG{p}{)}\PYG{o}{/}\PYG{l+m+mi}{100}  \PYG{c+c1}{\PYGZsh{} my creative way to round to 2 figures}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Die Temperatur in Grad Kelvin beträgt }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{temp}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Part (c)}
+\PYG{n}{length} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Länge in Zentimeter: \PYGZdq{}}\PYG{p}{)}
+\PYG{n}{length} \PYG{o}{=} \PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{length}\PYG{p}{)}
+\PYG{n}{length} \PYG{o}{=} \PYG{n}{length}\PYG{o}{/}\PYG{l+m+mf}{2.54}
+\PYG{n}{length} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{length}\PYG{o}{*}\PYG{l+m+mi}{100}\PYG{p}{)}\PYG{o}{/}\PYG{l+m+mi}{100}  \PYG{c+c1}{\PYGZsh{} my creative way to round to 2 figures}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Die Länge in Zoll beträgt }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{length}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Part (d)}
+\PYG{n}{temp} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Temperatur in Grad Celsius: \PYGZdq{}}\PYG{p}{)}
+\PYG{n}{temp} \PYG{o}{=} \PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{temp}\PYG{p}{)}
+\PYG{n}{temp} \PYG{o}{=} \PYG{l+m+mi}{9}\PYG{o}{/}\PYG{l+m+mi}{5} \PYG{o}{*} \PYG{n}{temp} \PYG{o}{+} \PYG{l+m+mi}{32}  \PYG{c+c1}{\PYGZsh{} you find this conversion rule on Wikipedia}
+\PYG{n}{temp} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{temp} \PYG{o}{*} \PYG{l+m+mi}{100}\PYG{p}{)}\PYG{o}{/}\PYG{l+m+mi}{100}  \PYG{c+c1}{\PYGZsh{} my creative way to round to 2 figures}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Die Temperatur in Grad Fahrenheit beträgt }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{temp}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+
+\PYG{c+c1}{\PYGZsh{} Part (e)}
+\PYG{n}{FOOT\PYGZus{}IN\PYGZus{}METER} \PYG{o}{=} \PYG{l+m+mf}{0.3048}  \PYG{c+c1}{\PYGZsh{} By convention uppercase names are used for constants}
+\PYG{n}{INCH\PYGZus{}IN\PYGZus{}METER} \PYG{o}{=} \PYG{l+m+mf}{0.0254}
+\PYG{n}{length} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Länge in Metern: \PYGZdq{}}\PYG{p}{)}
+\PYG{n}{length} \PYG{o}{=} \PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{length}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} compute the whole feet contained in the length using integer division:}
+\PYG{n}{feet} \PYG{o}{=} \PYG{n}{length} \PYG{o}{//} \PYG{n}{FOOT\PYGZus{}IN\PYGZus{}METER}
+\PYG{n}{feet} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{feet}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} compute the remainder after deducting an integer number of feet}
+\PYG{n}{remainder} \PYG{o}{=} \PYG{n}{length} \PYG{o}{\PYGZpc{}} \PYG{n}{FOOT\PYGZus{}IN\PYGZus{}METER}
+\PYG{n}{inches} \PYG{o}{=} \PYG{n}{remainder} \PYG{o}{/} \PYG{n}{INCH\PYGZus{}IN\PYGZus{}METER}  \PYG{c+c1}{\PYGZsh{} convert the remainder to inches}
+\PYG{n}{inches} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{inches} \PYG{o}{*} \PYG{l+m+mi}{100}\PYG{p}{)}\PYG{o}{/}\PYG{l+m+mi}{100}  \PYG{c+c1}{\PYGZsh{} round creatively}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{length}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{ Meter entsprechedn }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{feet}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{ ft. }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{inches}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s1}{\PYGZdq{}\PYGZsq{}}\PYG{p}{)}
+\end{Verbatim}

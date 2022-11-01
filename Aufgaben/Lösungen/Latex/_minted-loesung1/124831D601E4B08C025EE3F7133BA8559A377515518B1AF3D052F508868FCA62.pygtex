@@ -1,0 +1,34 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{initial\PYGZus{}balance} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Anfänglicher Kontostand: \PYGZdq{}}\PYG{p}{)}
+\PYG{n}{savings\PYGZus{}rate} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Sparrate: \PYGZdq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} cast strings to floats}
+\PYG{n}{initial\PYGZus{}balance} \PYG{o}{=} \PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{initial\PYGZus{}balance}\PYG{p}{)}
+\PYG{n}{savings\PYGZus{}rate} \PYG{o}{=} \PYG{n+nb}{float}\PYG{p}{(}\PYG{n}{savings\PYGZus{}rate}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} transform everything to integer cents instead of float euros}
+\PYG{n}{initial\PYGZus{}balance} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{initial\PYGZus{}balance} \PYG{o}{*} \PYG{l+m+mi}{100}\PYG{p}{)}
+\PYG{n}{savings\PYGZus{}rate} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{savings\PYGZus{}rate} \PYG{o}{*} \PYG{l+m+mi}{100}\PYG{p}{)}
+
+\PYG{n}{balance} \PYG{o}{=} \PYG{n}{initial\PYGZus{}balance}
+
+\PYG{c+c1}{\PYGZsh{} after 1st year}
+\PYG{n}{balance} \PYG{o}{+=} \PYG{n}{savings\PYGZus{}rate}  \PYG{c+c1}{\PYGZsh{} savings rate is added at start of year}
+\PYG{n}{interest} \PYG{o}{=} \PYG{l+m+mf}{0.03} \PYG{o}{*} \PYG{n}{balance}
+\PYG{n}{balance} \PYG{o}{+=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{interest}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} Alternatively you can also compute the new balance by: balance = int(1.03 * balance)}
+\PYG{c+c1}{\PYGZsh{} division by 100 gives results in eur}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Der Kontostand nach einem Jahr beträgt: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{balance}\PYG{o}{/}\PYG{l+m+mi}{100}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} after 2nd year}
+\PYG{n}{balance} \PYG{o}{+=} \PYG{n}{savings\PYGZus{}rate}
+\PYG{n}{balance} \PYG{o}{*=} \PYG{l+m+mf}{1.03}
+\PYG{n}{balance} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{balance}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Der Kontostand nach zwei Jahren beträgt: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{balance}\PYG{o}{/}\PYG{l+m+mi}{100}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} after 3rd year}
+\PYG{n}{balance} \PYG{o}{+=} \PYG{n}{savings\PYGZus{}rate}
+\PYG{n}{balance} \PYG{o}{*=} \PYG{l+m+mf}{1.03}
+\PYG{n}{balance} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{balance}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Der Kontostand nach drei Jahren beträgt: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{balance}\PYG{o}{/}\PYG{l+m+mi}{100}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

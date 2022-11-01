@@ -1,0 +1,65 @@
+\documentclass[a4paper]{article} 
+\usepackage{minted}
+\usemintedstyle{friendly}
+\input{head}
+
+\sheetsubmission{}
+\sheetnumber{3}
+\sheetdate{25.11.2021}
+
+
+\begin{document}
+
+%-------------------------------
+%	TITLE SECTION
+%-------------------------------
+
+\input{header}
+
+%-------------------------------
+%	CONTENTS
+%-------------------------------
+
+\section{}
+\begin{minted}{python}
+def merge_dictionaries(dict_1, dict_2):
+    result = dict(dict_1)  # copy the first dictionary
+    for key, value in dict_2.items():
+        result[key] = value
+    return result
+\end{minted}
+
+\section{}
+\begin{minted}{python}
+def reverse_string(word):
+    return word[::-1]
+\end{minted}
+
+\section{} 
+\begin{minted}{python}
+def is_palindrome(word):
+    word = word.lower()
+    return word == word[::-1]
+\end{minted}
+
+\section{}
+\begin{minted}{python}
+import random
+
+
+def get_answer_options(options):
+    answer = options[0]
+    # Take the remaining options ([1:]) and shuffle them
+    shuffled_options = options[1:]
+    random.shuffle(shuffled_options)
+    # Take the first 3 of the shuffled options
+    result = shuffled_options[0:3]
+    # Append the correct solution
+    result.append(answer)
+    # Shuffle again, so that the correct solution is not
+    # always at the end
+    random.shuffle(result)
+    return result
+\end{minted}
+
+\end{document}

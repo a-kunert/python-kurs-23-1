@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} double quotes have to be escaped with a backslash}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}In Pyhton können Strings mittels \PYGZsq{} oder }\PYG{l+s+se}{\PYGZbs{}\PYGZdq{}}\PYG{l+s+s2}{ oder }\PYG{l+s+se}{\PYGZbs{}\PYGZdq{}\PYGZbs{}\PYGZdq{}\PYGZbs{}\PYGZdq{}}\PYG{l+s+s2}{ definiert werden.\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

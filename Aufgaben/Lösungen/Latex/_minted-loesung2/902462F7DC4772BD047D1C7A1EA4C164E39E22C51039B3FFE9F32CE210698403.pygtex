@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{word} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Gib ein Wort an: \PYGZdq{}}\PYG{p}{)}
+\PYG{n}{counter} \PYG{o}{=} \PYG{l+m+mi}{0}
+
+\PYG{k}{for} \PYG{n}{letter} \PYG{o+ow}{in} \PYG{n}{word}\PYG{p}{:}
+  \PYG{k}{if} \PYG{n}{letter} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}a\PYGZdq{}} \PYG{o+ow}{or} \PYG{n}{letter} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}A\PYGZdq{}}\PYG{p}{:}
+    \PYG{n}{counter} \PYG{o}{+=} \PYG{l+m+mi}{1}  \PYG{c+c1}{\PYGZsh{} shorthand for counter = counter + 1}
+  \PYG{k}{if} \PYG{n}{letter} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}e\PYGZdq{}} \PYG{o+ow}{or} \PYG{n}{letter} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}E\PYGZdq{}}\PYG{p}{:}
+    \PYG{n}{counter} \PYG{o}{+=} \PYG{l+m+mi}{1}
+  \PYG{k}{if} \PYG{n}{letter} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}i\PYGZdq{}} \PYG{o+ow}{or} \PYG{n}{letter} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}I\PYGZdq{}}\PYG{p}{:}
+    \PYG{n}{counter} \PYG{o}{+=} \PYG{l+m+mi}{1}
+  \PYG{k}{if} \PYG{n}{letter} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}o\PYGZdq{}} \PYG{o+ow}{or} \PYG{n}{letter} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}O\PYGZdq{}}\PYG{p}{:}
+    \PYG{n}{counter} \PYG{o}{+=} \PYG{l+m+mi}{1}
+  \PYG{k}{if} \PYG{n}{letter} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}u\PYGZdq{}} \PYG{o+ow}{or} \PYG{n}{letter} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}U\PYGZdq{}}\PYG{p}{:}
+    \PYG{n}{counter} \PYG{o}{+=} \PYG{l+m+mi}{1}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Das Word }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{word}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ enthält }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{counter}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ Vokale\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

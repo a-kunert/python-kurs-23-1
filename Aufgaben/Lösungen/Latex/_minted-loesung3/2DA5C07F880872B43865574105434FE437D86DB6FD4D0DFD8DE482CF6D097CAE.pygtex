@@ -1,0 +1,40 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{password} \PYG{o}{=} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Welches Passwort möchtest Du verwenden?\PYGZdq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Flags initialisieren}
+\PYG{n}{length\PYGZus{}is\PYGZus{}correct} \PYG{o}{=} \PYG{l+m+mi}{8} \PYG{o}{\PYGZlt{}=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{password}\PYG{p}{)} \PYG{o}{\PYGZlt{}=} \PYG{l+m+mi}{20}
+\PYG{n}{contains\PYGZus{}a\PYGZus{}digit} \PYG{o}{=} \PYG{k+kc}{False}
+\PYG{n}{contains\PYGZus{}a\PYGZus{}special\PYGZus{}character} \PYG{o}{=} \PYG{k+kc}{False}
+\PYG{n}{contains\PYGZus{}no\PYGZus{}forbidden\PYGZus{}characters} \PYG{o}{=} \PYG{k+kc}{False}
+\PYG{n}{contains\PYGZus{}lowercase\PYGZus{}letter} \PYG{o}{=} \PYG{k+kc}{False}
+\PYG{n}{contains\PYGZus{}uppercase\PYGZus{}letter} \PYG{o}{=} \PYG{k+kc}{False}
+
+\PYG{c+c1}{\PYGZsh{} Alles durchchecken}
+\PYG{k}{for} \PYG{n}{letter} \PYG{o+ow}{in} \PYG{n}{password}\PYG{p}{:}
+\PYG{c+c1}{\PYGZsh{} Achtung: Letter ist ein String}
+\PYG{k}{if} \PYG{n}{letter} \PYG{o+ow}{in} \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}0\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}1\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}2\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}3\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}4\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}5\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}6\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}7\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}8\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}9\PYGZdq{}}\PYG{p}{]:}
+  \PYG{n}{contains\PYGZus{}a\PYGZus{}digit} \PYG{o}{=} \PYG{k+kc}{True}
+\PYG{k}{if} \PYG{n}{letter} \PYG{o+ow}{in} \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}@\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}!\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}\PYGZam{}\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}?\PYGZdq{}}\PYG{p}{]:}
+  \PYG{n}{contains\PYGZus{}a\PYGZus{}special\PYGZus{}character} \PYG{o}{=} \PYG{k+kc}{True}
+\PYG{k}{if} \PYG{n}{letter} \PYG{o+ow}{not} \PYG{o+ow}{in} \PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{} \PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}.\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{},\PYGZdq{}}\PYG{p}{]:}
+  \PYG{n}{contains\PYGZus{}no\PYGZus{}forbidden\PYGZus{}characters} \PYG{o}{=} \PYG{k+kc}{True}
+\PYG{k}{if} \PYG{n}{letter} \PYG{o+ow}{in} \PYG{l+s+s2}{\PYGZdq{}abcdefghijklmnopqrstuvwxyz\PYGZdq{}}\PYG{p}{:}
+  \PYG{n}{contains\PYGZus{}lowercase\PYGZus{}letter} \PYG{o}{=} \PYG{k+kc}{True}
+\PYG{k}{if} \PYG{n}{letter} \PYG{o+ow}{in} \PYG{l+s+s2}{\PYGZdq{}ABCDEFGHIJKLMNOPQRSTUVWXYZ\PYGZdq{}}\PYG{p}{:}
+  \PYG{n}{contains\PYGZus{}uppercase\PYGZus{}letter} \PYG{o}{=} \PYG{k+kc}{True}
+
+\PYG{k}{if} \PYG{o+ow}{not} \PYG{n}{length\PYGZus{}is\PYGZus{}correct}\PYG{p}{:}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Das Passwort ist zu lang/zu kurz\PYGZdq{}}\PYG{p}{)}
+\PYG{k}{elif} \PYG{o+ow}{not} \PYG{n}{contains\PYGZus{}a\PYGZus{}digit}\PYG{p}{:}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Das Passwort muss eine Zahl enthalten\PYGZdq{}}\PYG{p}{)}
+\PYG{k}{elif} \PYG{o+ow}{not} \PYG{n}{contains\PYGZus{}a\PYGZus{}special\PYGZus{}character}\PYG{p}{:}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Das Passwort muss ein Sonderzeichen (@!\PYGZam{}?) enthalten\PYGZdq{}}\PYG{p}{)}
+\PYG{k}{elif} \PYG{o+ow}{not} \PYG{n}{contains\PYGZus{}no\PYGZus{}forbidden\PYGZus{}characters}\PYG{p}{:}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Das Passwort darf kein Leerzeichen, Punkt oder Komma enhalten\PYGZdq{}}\PYG{p}{)}
+\PYG{k}{elif} \PYG{o+ow}{not} \PYG{n}{contains\PYGZus{}lowercase\PYGZus{}letter}\PYG{p}{:}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Das Passwort muss einen Kleinbuchstaben (a\PYGZhy{}z) enthalten\PYGZdq{}}\PYG{p}{)}
+\PYG{k}{elif} \PYG{o+ow}{not} \PYG{n}{contains\PYGZus{}uppercase\PYGZus{}letter}\PYG{p}{:}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Das Passwort muss einen Großbuchstaben (A\PYGZhy{}Z) enthalten\PYGZdq{}}\PYG{p}{)}
+\PYG{k}{else}\PYG{p}{:}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Passwort akzeptiert\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}
