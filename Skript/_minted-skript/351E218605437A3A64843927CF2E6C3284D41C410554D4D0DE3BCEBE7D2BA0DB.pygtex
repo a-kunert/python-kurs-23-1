@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{o}{...}
+\PYG{k}{for} \PYG{n}{current\PYGZus{}country} \PYG{o+ow}{in} \PYG{n}{countries}\PYG{p}{:}
+  \PYG{k}{if} \PYG{n}{current\PYGZus{}country}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}capital\PYGZdq{}}\PYG{p}{]} \PYG{o}{!=} \PYG{n}{country}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}capital\PYGZdq{}}\PYG{p}{]:}
+    \PYG{n}{capitals}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{current\PYGZus{}country}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}capital\PYGZdq{}}\PYG{p}{])}
+\PYG{o}{...}
+\end{Verbatim}

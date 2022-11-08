@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{capitals} \PYG{o}{=} \PYG{p}{\PYGZob{}}
+  \PYG{l+s+s2}{\PYGZdq{}Deutschland\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Berlin\PYGZdq{}}\PYG{p}{,}
+  \PYG{l+s+s2}{\PYGZdq{}Spanien\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Madrid\PYGZdq{}}\PYG{p}{,}
+  \PYG{l+s+s2}{\PYGZdq{}Italien\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Rom\PYGZdq{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{def} \PYG{n+nf}{get\PYGZus{}answer\PYGZus{}options}\PYG{p}{(}\PYG{n}{active\PYGZus{}country}\PYG{p}{,} \PYG{n}{countries}\PYG{p}{):}
+  \PYG{n}{capitals} \PYG{o}{=} \PYG{p}{[]}
+  \PYG{k}{for} \PYG{n}{country} \PYG{o+ow}{in} \PYG{n}{countries}\PYG{p}{:}
+    \PYG{k}{if} \PYG{n}{country}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}capital\PYGZdq{}}\PYG{p}{]} \PYG{o}{!=} \PYG{n}{active\PYGZus{}country}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}capital\PYGZdq{}}\PYG{p}{]:}
+      \PYG{n}{capitals}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{country}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}capital\PYGZdq{}}\PYG{p}{])}
+  \PYG{n}{random}\PYG{o}{.}\PYG{n}{shuffle}\PYG{p}{(}\PYG{n}{capitals}\PYG{p}{)}
+  \PYG{n}{answer\PYGZus{}options} \PYG{o}{=} \PYG{n}{capitals}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{p}{]}
+  \PYG{n}{answer\PYGZus{}options}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{active\PYGZus{}country}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}capital\PYGZdq{}}\PYG{p}{])}
+  \PYG{n}{random}\PYG{o}{.}\PYG{n}{shuffle}\PYG{p}{(}\PYG{n}{answer\PYGZus{}options}\PYG{p}{)}
+  \PYG{k}{return} \PYG{n}{answer\PYGZus{}options}
+\end{Verbatim}

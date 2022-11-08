@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{def} \PYG{n+nf}{months\PYGZus{}until\PYGZus{}rich}\PYG{p}{(}\PYG{n}{target}\PYG{p}{,} \PYG{n}{interest}\PYG{o}{=}\PYG{l+m+mf}{0.5}\PYG{p}{):}
+\end{Verbatim}

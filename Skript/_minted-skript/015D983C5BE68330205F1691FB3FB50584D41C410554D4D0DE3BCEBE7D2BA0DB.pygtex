@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{del} \PYG{n}{eu\PYGZus{}countries}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}united\PYGZus{}kingdom\PYGZdq{}}\PYG{p}{]}
+\end{Verbatim}

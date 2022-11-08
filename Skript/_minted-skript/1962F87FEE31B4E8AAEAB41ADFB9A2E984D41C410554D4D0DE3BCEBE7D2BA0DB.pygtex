@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{o}{...}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{\PYGZdq{}}\PYG{o}{*}\PYG{l+m+mi}{100}\PYG{p}{)}
+  \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}Was ist die Hauptstadt von }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{country}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}name\PYGZsq{}}\PYG{p}{]}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{?}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{o}{...}
+\PYG{o}{...}
+  \PYG{n}{score} \PYG{o}{=} \PYG{n}{score} \PYG{o}{+} \PYG{n}{check\PYGZus{}answer}\PYG{p}{(}\PYG{n}{active\PYGZus{}country}\PYG{p}{,} \PYG{n}{answer\PYGZus{}options}\PYG{p}{)}
+  \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s2}{Weiter mit beliebiger Taste\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

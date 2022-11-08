@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{grades} \PYG{o}{=} \PYG{p}{[}
+  \PYG{p}{\PYGZob{}}
+    \PYG{l+s+s2}{\PYGZdq{}subject\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Deutsch\PYGZdq{}}\PYG{p}{,}
+    \PYG{l+s+s2}{\PYGZdq{}grade\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{14}\PYG{p}{,}
+    \PYG{l+s+s2}{\PYGZdq{}is\PYGZus{}major\PYGZdq{}}\PYG{p}{:} \PYG{k+kc}{True}
+  \PYG{p}{\PYGZcb{},}
+  \PYG{c+c1}{\PYGZsh{} ...}
+  \PYG{p}{\PYGZob{}}
+    \PYG{l+s+s2}{\PYGZdq{}subject\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}Sport\PYGZdq{}}\PYG{p}{,}
+    \PYG{l+s+s2}{\PYGZdq{}grade\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{11}\PYG{p}{,}
+    \PYG{l+s+s2}{\PYGZdq{}is\PYGZus{}major\PYGZdq{}}\PYG{p}{:} \PYG{k+kc}{False}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{]}
+\end{Verbatim}

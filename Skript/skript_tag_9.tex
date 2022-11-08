@@ -1,883 +1,389 @@
-\section{Funktionen \\ \footnotesize Wie man Code wiederverwerten kann}
+\section{Persistenz \\ \footnotesize Lesen und Schreiben von Dateien}
+
 \begin{frame}
-\begin{block}{Problemstellung}
-	\vspace{2pt}
-	Es sei eine Liste mit Temperaturen gegeben: 
 	
-	\py{temperatures = [22, 18, 20, 15, 12, 7, 5, -2, 4]}
-	
-	\pause
-	Es sollen zunächst Durchschnitte von jeweils der folgenden Grundgesamtheit genommen werden: 
-	\begin{itemize}
-		\item Alle Werte
-		\item Die ersten drei Werte
-		\item Jeder zweite Wert
-	\end{itemize}
+\begin{block}{Grundprinzip}
+\vspace{2pt}
+Um mit Dateien zu arbeiten, geht man immer in 3 Schritten vor:
 \pause 
-	Statt durch eine Zahl, soll das Ergebnis jedoch mit den Worten  
-	\begin{itemize}
-		\item \py{"Mild"} für Durchschnitte $\geq$ 15 Grad
-		\item \py{"Zu kalt"} für Durschnitte $<$ 15 Grad
-	\end{itemize}
-	abgespeichert werden. 
-	\pause 
-	\vspace{8pt}
-	Wie macht man das \emph{elegant}? 
+\begin{enumerate}
+	\item<2-> Datei öffnen 
+	\item<3-> Datei bearbeiten (d.h. z.B. lesen, überschreiben, etwas anhängen)
+	\item<4-> Datei schließen
+\end{enumerate}
+\pause \pause \pause
+Das Schließen von Dateien ist relativ wichtig, kann aber schnell mal vergessen werden. Daher bietet Python eine spezielle Syntax mithilfe des Keywords \py{with} an. 
 \end{block}
 \end{frame}
-\begin{fragile}{}
-\begin{block}{Lösung \onslide<8->{\footnotesize (Hauptsache es funktioniert)}}
+
+
+\begin{fragile}
+\begin{block}{Gesamten Text einer Datei einlesen}
 \vspace{2pt}
-\begin{overprint}
-\onslide<2|handout:0>
+\pause 
 \begin{minted}{python}
-average = sum(temperatures) / len(temperatures)
-   
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#   
+with open("some_file.txt") as my_file:
+  my_text = my_file.read()
+  print(my_text)
 \end{minted}
-\onslide<3|handout:0>
-\begin{minted}{python}
-average = sum(temperatures) / len(temperatures)
-if average >= 5: 
-  average = "Mild"
-else: 
-  average = "Zu kalt"
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-#  
-\end{minted}
-\onslide<4|handout:0>
-\begin{minted}{python}
-average = sum(temperatures) / len(temperatures)
-if average >= 5: 
-  average = "Mild"
-else: 
-  average = "Zu kalt"
 
-average_2 = sum(temperatures[:3]) / len(temperatures[:3])
+\pause
+\vspace{12pt}
 
+\begin{exampleblock}{Erklärung}
+\vspace{2pt}
+\begin{itemize}[<+->]
+	\item Die Funktion \py{open} öffnet die angegebene Datei (Python geht per se davon aus, dass die Datei im gleichen Ordner wie das ausgeführte Skript liegt).
+	\item Ein \emph{Dateiobjekt} wird in der Variable \py{my_file} gespeichert (der Variablenname ist beliebig)
+	\item Die Methode \py{.read()} liest den Text-Inhalt der Datei, so dass er in einer Variable gespeichert werden kann 
+	\item Sobald der eingerückte Block verlassen wird, wird die Datei automatisch geschlossen
+\end{itemize}
+\end{exampleblock}
 
-
-
-
-
-
-
-
-
-#
-\end{minted}
-\onslide<5|handout:0>
-\begin{minted}{python}
-average = sum(temperatures) / len(temperatures)
-if average >= 5: 
-  average = "Mild"
-else: 
-  average = "Zu kalt"
-
-average_2 = sum(temperatures[:3]) / len(temperatures[:3])
-if average_2 >= 5:
-  average_2 = "Mild"
-else: 
-  average_3 = "Zu kalt"
-
-
-
-
-
-
-#
-\end{minted}
-\onslide<6|handout:0>
-\begin{minted}{python}
-average = sum(temperatures) / len(temperatures)
-if average >= 5: 
-  average = "Mild"
-else: 
-  average = "Zu kalt"
-
-average_2 = sum(temperatures[:3]) / len(temperatures[:3])
-if average_2 >= 5:
-  average_2 = "Mild"
-else: 
-  average_3 = "Zu kalt"
-
-average_3 = sum(temperatures[::2]) / len(temperatures[::2])
-
-
-
-
-#
-\end{minted}
-\onslide<7-|handout:1>
-\begin{minted}{python}
-average = sum(temperatures) / len(temperatures)
-if average >= 5: 
-  average = "Mild"
-else: 
-  average = "Zu kalt"
-
-average_2 = sum(temperatures[:3]) / len(temperatures[:3])
-if average_2 >= 5:
-  average_2 = "Mild"
-else: 
-  average_3 = "Zu kalt"
-
-average_3 = sum(temperatures[::2]) / len(temperatures[::2])
-if average_3 < 5:
-  average_3 = "Zu kalt"
-else: 
-  average_3 = "Mild"
-#
-\end{minted}
-\end{overprint}
 \end{block}
 \end{fragile}
 
+\begin{fragile}
+\begin{block}{Den Text einer Datei zeilenweise einlesen}
+\pause 
+\vspace{2pt}
+
+\begin{minted}{python}
+with open("some_file.txt") as my_file:
+  my_lines = my_file.readlines()
+  for line in my_lines:
+    print(f"The line reads: {line}")
+\end{minted}
+
+\pause
+\vspace{12pt}
+
+\begin{exampleblock}{Erklärung}
+\vspace{2pt}
+\begin{itemize}[<+->]
+\item Die Methode \py{.readlines()} gibt eine \emph{Liste} der Zeilen des Inhalts der Datei \py{"some_file.txt"} zurück. 
+\item Durch diese Liste kann man mittels einer \pybw{for}-Schleife durchiterieren. 
+\end{itemize}
+\end{exampleblock}
+\end{block}
+\end{fragile}
+
+\begin{frame}{Übungen}
+\begin{block}{Text einlesen}
+\vspace{2pt}
+Lade Dir aus dem FirstClass die Datei \console{"tf.txt"} herunter und kopiere sie in Dein Python-Projekt. Gib den Text auf der Konsole aus. 
+\end{block}
+
+\pause 
+\vspace{12pt}
+
+\begin{block}{Zeilen zählen}
+\vspace{2pt}
+Lade Dir aus dem FirstClass die Datei \console{"vs.txt"} herunter und kopiere sie in Dein Python-Projekt. Gib auf der Konsole aus, aus wievielen Zeilen der Text besteht.  
+\end{block}
+
+\pause 
+\vspace{12pt}
+
+\begin{block}{Zählfunktion}
+\vspace{2pt}
+Schreibe eine Funktion, die zu dem übergebenen Dateinamen die Anzahl an Zeilen zurückgibt. 
+\end{block}
+\end{frame}
+
+
+\begin{frame}<beamer:0>[fragile]{Lösungen}
+\begin{solutionblock}{Text einlesen}
+\begin{minted}{python}
+with open("tf.txt") as my_file:
+  my_text = my_file.read()
+  print(my_text)
+\end{minted}
+\end{solutionblock}
+\begin{solutionblock}{Zeilen zählen}
+\begin{minted}{python}
+with open("vs.txt") as my_file:
+    my_lines = my_file.readlines()
+    length = len(my_lines)
+    print(length)
+\end{minted}
+\end{solutionblock}
+\begin{solutionblock}{Zählfunktion}
+\begin{minted}{python}
+def count_lines(filename): 
+    with open(filename) as my_file:
+        my_lines = my_file.readlines()
+        return len(my_lines)
+\end{minted}
+\end{solutionblock}
+\end{frame}
+
+
+
+
+\begin{fragile}
+\begin{block}{Text in eine Datei schreiben}
+\pause 
+\vspace{2pt}
+
+\begin{minted}{python}
+with open("some_file.txt", "w") as my_file:
+  my_file.write("Hello everybody")
+\end{minted}
+
+\pause
+\vspace{12pt}
+
+\begin{exampleblock}{Erklärung}
+\vspace{2pt}
+\begin{itemize}[<+->]
+\item Ruft man \py{open} mit dem zweiten Parameter \py{"w"} auf, so wird die Datei im Schreibmodus geöffnet. 
+\item Existierte die Datei zuvor noch nicht, so wird sie erzeugt. 
+\item Mit der Methode \py{.write("Inhalt")} lässt sich Text in eine Datei schreiben. 
+\item Achtung: Öffnet man eine Datei im Schreibmodus, so wird der bisherige Inhalt überschrieben. 
+\end{itemize}
+\end{exampleblock}
+\end{block}
+\end{fragile}
+
+\begin{fragile}
+\begin{block}{Text an eine Datei anhängen}
+\pause 
+\vspace{2pt}
+
+\begin{minted}{python}
+with open("some_file.txt", "a") as my_file:
+  my_file.write("Some text to append")
+\end{minted}
+
+\pause
+\vspace{12pt}
+
+\begin{exampleblock}{Erklärung}
+\vspace{2pt}
+\begin{itemize}[<+->]
+\item Ruft man \py{open} mit dem zweiten Parameter \py{"a"} auf, so wird die Datei im \emph{Append}-Modus geöffnet. 
+\item Existierte die Datei zuvor noch nicht, so wird sie erzeugt. 
+\item Mit der Methode \py{.write("Inhalt")} lässt sich Text an die Datei anhängen. 
+\item Der bis dahin in der Datei vorhandene Inhalt wird nicht verändert oder gelöscht. 
+\item Der einzige Unterschied zum letzten Punkt ist der Modus (\py{"a"} statt \py{"w"}).   
+\end{itemize}
+\end{exampleblock}
+\end{block}
+
+\end{fragile}
+
+\begin{fragile}
+	
+\begin{alertblock}{Achtung Umlaute}
+\vspace{2pt}
+Hat man eine etwas ältere Version von Python und möchte man Dateien, die Umlauten und andere Sonderzeichen enthalten, bearbeiten, so muss man beim Öffnen der Datei noch den Parameter \pybw{encoding="utf-8"} übergeben. 
+\end{alertblock}	
+
+ \vspace{12pt}
+ 
+\begin{exampleblock}{Beispiel}
+	\vspace{2pt}
+\begin{minted}{python}
+with open("some_file.txt", "a", encoding="utf-8") as my_file:
+  my_file.write("Hier ein Text mit Umlauten: äöüß")
+\end{minted}
+\end{exampleblock}
+\end{fragile}
+
+
+
+
+
+\section{JSON \\ \footnotesize Ein universelles Datenformat}
+
 \begin{frame}
-\begin{block}{Nachteile dieser Lösung}
-	\pause 
-	\begin{itemize}[<+->]
-	\item Viel Schreibarbeit, viel Wiederholung
-	\item Der Code ist schwierig zu lesen. Man sieht vor lauter Wiederholungen nicht, was passiert. 
-	\item Jedes Mal, wenn man diese \enquote{Berechnungslogik} verwendet, könnte man einen (Tipp-)Fehler machen.  
-	\item Wenn man das Anforderungsprofil minimal ändert, muss diese \enquote{Logik} bei \emph{jedem} Auftreten im Code geändert werden
-		(z.B. statt \py{"Mild"} soll das Ergebnis \py{"Warm"} heißen). In echten Projekten, kann das schnell ein paar Hundert Male sein. 	
-	\end{itemize}
+\metroset{block=fill}
+
+\begin{block}{Definition: JSON}
+\vspace{2pt}	
+JSON (Java Script Object Notation) ist ein Daten-Format, um Verschachtelungen von Listen und Dictionaries darzustellen, zu speichern und auszutauschen. Die Syntax entspricht (fast) der üblichen Python-Syntax und wird von den meisten Programmiersprachen \enquote{verstanden}.  
 \end{block}
 \end{frame}
 
 \begin{fragile}
-\begin{block}{Bessere Lösung}
+	
+\begin{exampleblock}{Beispiel: Eine Liste von Ländern}
+\vspace{2pt}
 \begin{minted}{python}
-def compute_average(temp_list):
-  result = sum(temp_list) / len(temp_list)
-  if result >= 5:
-    result = "Mild"
-  else: 
-    result = "Zu kalt"
-  return result
-
-average = compute_average(temperatures)
-average_2 = compute_average(temperatures[:3])
-average_3 = compute_average(temperatures[::2])
+[
+  {
+    "name": "Germany",
+    "capital": "Berlin",
+    "population": 83190556,
+    "cities": ["Berlin", "Hamburg","München","Köln"] 
+  },
+  {
+    "name": "France", 
+    "capital": "Paris",
+    "population": 67422000
+    "cities": ["Paris","Marseilles", "Lyon", "Toulouse"]
+  },
+  ...
+]
 \end{minted}
-\end{block}
-
+\end{exampleblock}
 \end{fragile}
 
 \begin{frame}
-\metroset{block=fill}
-\begin{block}{Definition: Funktion}
+\begin{block}{Eigenschaften}
 \vspace{2pt}
-Eine Funktion ist ein Codeblock, der nur ausgeführt wird, wenn die Funktion \emph{aufgerufen} wird. 
-Man kann der Funktion Werte als \emph{Parameter} übergeben. 
-Sie kann auch einen Wert als Ergebnis \emph{zurückgeben}. 
-\end{block}
-
-\pause 
-
-\vspace{12pt}
-Man kann sich eine Funktion wie eine Maschine vorstellen, wo man oben Dinge (=Parameter) hineinfüllt und unten ein Ergebnis (=Rückgabewert) herausbekommt. 
-Unabhängig von dem Eingabe-Ausgabe-Prinzip, kann solch eine Maschine auch Nebeneffekte (z.B. Krach) produzieren. 
-
-\pause 
-
-\vspace{12pt}
-Man unterscheidet zwischen \emph{Definition} und \emph{Ausführung} einer Funktion. 
-\end{frame}
-
-
-
-\begin{frame}
-\metroset{block=fill}
-
-
-\renewcommand{\baselinestretch}{1.5}
-\begin{block}{Struktur der Funktions-Definition}	
-\vspace{2pt}
-
-\pause 
-
-\texttt{def} \pause \textit{Funktionsname}\pause\texttt{(}\pause\textit{Parameter\_0}\pause, \textit{Parameter\_1}, \dots, \textit{Parameter\_n}\pause\texttt{)}\pause\texttt{:}\\
-\pause \spacechar \spacechar \textit{Codezeile1} \\
-\pause \spacechar \spacechar \textit{Codezeile2} \\
-\pause \phantom{Code} \vdots \\
-\pause \spacechar \spacechar \texttt{return} \textit{Ergebnis}
-\end{block}
-\renewcommand{\baselinestretch}{1}
-\vspace{12pt}
-
-\pause 
-
-\begin{block}{Struktur eines Funktionsaufrufs}	
-\vspace{2pt}
-result = \textit{Funktionsname}\texttt{(}\textit{Argument\_0}, \textit{Argument\_1}, \dots, \textit{Argument\_n}\texttt{)}
-\end{block}
-
-\end{frame}
-
-
-\begin{frame}
-
-\begin{block}{Good to know}
 \pause 
 \begin{itemize}[<+->]
-	\item Eine Funktion muss schon \emph{vor} dem ersten Aufruf definiert worden sein (das ist nicht in allen Sprachen so). 
-	\item Die Eingabwerte nennt man in der Funktionsdefintion \emph{Parameter}, beim Aufruf der Funktion nennt man sie jedoch \emph{Argumente}.
-	\item Nicht jede Funktion braucht Eingangsdaten. Die Liste von Parametern einer Funktion kann daher leer sein.   
-	\item Beim Aufruf spielt die Reihenfolge der angegebenen Argumente eine entscheidene Rolle. Sie werden entsprechend der Reihenfolge den Parametern in der Definition zugeordnet. 
-%	\item Den Rückgabewert der Funktion erhält man durch den Zuweisungsoperator (\py{=}).
-	\item Eine Funktion muss nicht unbedingt etwas zurückgeben, d.h. das \py{return}-Statement ist optional.
-	\item Das \py{return}-Statement muss nicht unbedingt am Schluss der Funktion stehen. Jedoch wird Code, der nach dem \py{return}-Statement kommt, nicht mehr ausgeführt. 
+	\item Dictionaries und Listen dürfen beliebig verschachtelt werden. 
+	\item Die äußerste Ebene kann ein Dictionary oder eine Liste sein. 
+	\item Es müssen doppelte Anführungsstriche verwendet werden. 
+	\item Neben Dictionaries und Listen können folgende Datentypen verwendet werden: 
+	\begin{itemize}
+		\item Integer
+		\item String
+		\item Float
+		\item Boolean (\pybw{true} bzw. \pybw{false})
+		\item \pybw{null} (entspricht \pybw{None})
+	\end{itemize}
 \end{itemize}
 \end{block}
 \end{frame}
 
-\begin{frame}{Übungen}
 
-\begin{block}{Funktion ohne Parameter}
-	\vspace{2pt}
-Schreibe eine Funktion, die Deinen Namen auf der Konsole ausgibt. 
-\end{block}
-\vspace{12pt}
-\begin{block}{Funktion mit einem Parameter}
+\begin{fragile}
+	
+\begin{block}{Python's JSON-Modul}
 \vspace{2pt}
-Schreibe eine Funktion, die die übergebene Zahl verdoppelt und das Ergebnis zurückgibt. 
-\end{block}
-\vspace{12pt}
-\begin{block}{Funktion mit zwei Parametern}
-\vspace{2pt}
-Schreibe eine Funktion, die die beiden übergebenen Zahlen multipliziert und das Ergebnis zurückgibt. 
-\end{block}
-\vspace{12pt}
-\begin{block}{Funktion ohne Rückgabewert}
-\vspace{2pt}
-Was gibt eine Funktion zurück, die kein \py{return}-Statement enthält?
-\end{block}
-\end{frame}
+Um in Python Daten im JSON-Format einzulesen und zu speichern, benötigt man das mitgelieferte JSON-\emph{Modul}. 
+Dazu einfach die folgende Zeile am Beginn des Python-Skripts anfügen: 
 
-\begin{frame}<beamer:0>[fragile]{Lösungen}
-
-\begin{solutionblock}{Funktion ohne Parameter}
-\begin{minted}{python}
-def my_name(): 
-  print("Aaron Kunert")
-\end{minted}
-\end{solutionblock}
-
-\vspace{12pt}
-
-\begin{solutionblock}{Funktion mit einem Parameter}
-\begin{minted}{python}
-def double(number): 
-  return number * 2
-\end{minted}
-\end{solutionblock}
-
-\vspace{12pt}
-
-\begin{solutionblock}{Funktion mit zwei Parametern}
-\begin{minted}{python}
-def multiply(number1,number2): 
-  return number1 * number2
-\end{minted}
-\end{solutionblock}
-
-
-\end{frame}
-
-\begin{frame}{Übung}
-\begin{block}{Aggregatzustand von Wasser}
-\vspace{2pt}
-Schreibe eine Funktion, die die Temperatur als Paramter erwartet und abhängig von der Temperatur den Aggregatzustand von Wasser (\py{"fest"},\py{"flüssig"},\py{"gasförmig"}) als String zurückgibt. 
 \pause 
 
-\textbf{Zusatz:} Schaffst Du es ohne die Schlüsselwörter \py{elif} und \py{else}? 
-\end{block}
-\end{frame}
-
-\begin{frame}<beamer:0>[fragile]{Lösung}
-
-\begin{solutionblock}{Aggregatzustand von Wasser}
 \begin{minted}{python}
-def get_state(temp):
-  if temp < 0:
-    return "fest"
-  if temp > 100:
-    return "gasförmig"
-  return "flüssig"
+import json 
+
+...
+
+
 \end{minted}
-\end{solutionblock}
-
-\end{frame}
-
-
-\begin{fragile}[Komplexere Übung]
-
-\begin{block}{Gewichtete Durschnittsnote}
-	\vspace{2pt}
-Schreibe eine Funktion, die eine Liste der folgenden Struktur erwartet: 
-
-\begin{minted}{python}
-grades = [ 
-  { 
-    "subject": "Deutsch", 
-    "grade": 14,
-    "is_major": True
-  },
-  # ... 
-  {
-    "subject": "Sport",
-    "grade": 11, 
-    "is_major": False
-  }
-]
-\end{minted}
-
-Berechne die Durchschnittsnote, wobei Hauptfächer doppelt gewichtet werden sollen. 
-\end{block}
+\end{block}	
 
 \end{fragile}
-
-\begin{frame}<beamer:0>[fragile]{Lösung}
-
-\begin{solutionblock}{Gewichtete Durchschnittsnote}
-\begin{minted}{python}
-def weighted_average(grades): 
-  weighted_sum = 0
-  weighted_length = 0
-  for grade in grades: 
-    if grade["is_major"]: 
-      weighted_sum += 2 * grade["grade"]
-      weighted_length += 2
-    else:
-      weighted_sum += grade["grade"]
-      weighted_length += 1
-  result = weighted_sum/weighted_length
-  return result 
-\end{minted}
-\end{solutionblock}
-
-\end{frame}
-
-
-\begin{fragile}[Übung]
-\begin{block}{Zinsrechner}
-\vspace{2pt}
-Angenommen, Du hast 1000€ so angelegt, dass es darauf jeden Monat 0,5\% Zinsen gibt (Haha -- als ob!). 
-Schreibe eine Funktion, die einen Geldbetrag erwartet und zurückgibt, nach wie vielen Monaten, dieser Geldbetrag erreicht wurde. 
-\end{block}
-\end{fragile}
-
-\begin{frame}<beamer:0>[fragile]{Lösung}
-
-\begin{solutionblock}{Zinsrechner}
-\begin{minted}{python}
-def months_until_rich(target):
-    month = 0
-    balance = 1000
-    while balance < target:
-        balance *= 1.005
-        month += 1
-    return month
-\end{minted}
-\end{solutionblock}
-\end{frame}
-
-
-
-\begin{fragile}[Übung]
-\begin{block}{Zinsrechner mit Sparrate}
-\vspace{2pt}
-Angenommen, Du hast wieder 1000€ so angelegt, dass es darauf jeden Monat 0,5\% Zinsen gibt (Haha -- als ob!). Zusätzlich gibt es nun jedoch noch eine monatliche Sparrate von 25€, die ebenfalls auf das Konto eingezahlt wird. 
-Schreibe eine Funktion, die einen Geldbetrag erwartet und zurückgibt, nach wie vielen Monaten, dieser Geldbetrag erreicht wurde. 
-\end{block}
-\end{fragile}
-
-\begin{frame}<beamer:0>[fragile]{Lösung}
-
-\begin{solutionblock}{Zinsrechner mit Sparrate}
-\begin{minted}{python}
-def months_until_rich(target):
-    month = 0
-    balance = 1000
-    while balance < target:
-        balance += 25
-        balance *= 1.005
-        month += 1
-    return month
-\end{minted}
-\end{solutionblock}
-\end{frame}
-
 
 
 \begin{fragile}
-
-\begin{block}{Optionale Parameter}
-	
-	\pause 
-	
-\vspace{2pt}
-Manchmal wirst Du bei Funktionen bemerken, dass einige der Parameter fast immer den gleichen Wert haben. In diesem Fall, möchtest Du diese Parameter nicht bei jedem Aufruf immer hinschreiben, sondern nur dort, wo er vom Standardfall abweicht. Dies ist möglich, wenn man den Standardwert (\emph{default value}) bei der Definition mit angibt. 
-
-\pause 
-
-\textbf{Wichtig:} Bei der Definition müssen die optionalen Parameter immer hinter den Pflichtparametern stehen.
-\end{block}
-
-\vspace{12pt}
-\pause 
-
-\begin{exampleblock}{Beispiel}
-\begin{minted}{python}
-def double(number, factor=2): 
-  return number * factor
-\end{minted} 
-
-
-\pause 
-
-Diese Funktion ist sehr vielseitig: Im einfachen Fall verdoppelt sie die eingegebene Zahl. Optional lässt sich der Faktor aber beliebig verändern. 
-\end{exampleblock}
-
+	\begin{block}{Daten als JSON-Datei abspeichern}
+		\vspace{2pt}
+		
+		\begin{minted}{python}
+		import json 
+		
+		data = {"a": 1, "b": 2}  # some dummy data
+		
+		with open("some_file_name.json","w") as my_file:
+		  json.dump(my_data, my_file)
+		\end{minted}
+		
+		\pause
+		
+		\vspace{12pt}
+		
+		\begin{exampleblock}{Erklärung}
+			\vspace{2pt}
+			\begin{itemize}[<+->]
+				\item Zunächst wird die Datei \pybw{some_file_name.json} im Schreibmodus geöffnet.  
+				\item Die Funktion \pybw{json.dump} erwartet die Daten und eine Datei. Die Daten werden im JSON-Format in der Datei abgespeichert. 
+				\item Achtung: Der bisherige Inhalt von \pybw{some_file_name.json} wird überschrieben.  
+			\end{itemize}
+		\end{exampleblock}
+	\end{block}
 \end{fragile}
 
 
-\begin{frame}
-\begin{block}{Typischer Einsatzbereich}
+\begin{fragile}
+\begin{block}{Daten aus einer JSON-Datei importieren}
 \vspace{2pt}
-Oftmals merkt man im Verlauf eines Projektes, dass eine gegebene Funktion nicht flexibel genug ist, dann kann man sie um einen optionalen Parameter erweitern, ohne den bisherigen Code verändern zu müssen. 
-\end{block}
 
-\vspace{12pt}
+\begin{minted}{python}
+import json 
 
-\pause 
-
-\begin{exampleblock}{Fiktives Beispiel}
-\vspace{2pt}
-Stell Dir vor, Du baust einen Zinsrechner wie oben, den auch schon einige Deiner Freund*innen, die den gleichen Sparplan haben, ebenfalls verwenden. Eine Deiner Freundinnen hat jedoch eine bessere Bank gefunden, die ihr 0,6\% Zinsen gibt. Also erweiterst Du die Funktion, so dass auch die Höhe der Zinsen anpassbar ist.   
+with open("some_file_name.json") as my_file:
+  data = json.load(my_file)
+  
+print(data)
+\end{minted}
 
 \pause
 
-Jedoch möchtest Du den bisherigen Code nicht verändern. Daher definierst Du den Zinssatz als optionalen Parameter, so dass die Funktion \enquote{abwärtskompatibel} zu ihrer bisherigen Verwendung ist.
-
-\pause 
-Die Definition startet dann mit \py{def months_until_rich(target, interest=0.5):} 
- 
-\end{exampleblock}
-
-\end{frame}
-
-\begin{frame}{Übung}
-\begin{block}{Flexibler Zinsrechner}
-\vspace{2pt}
-Erweitere den Zinsrechner, so dass optional der Zinssatz angegeben werden kann. 	
-\end{block}
-\end{frame}
-
-\begin{frame}<beamer:0>[fragile]{Lösung}
-
-\begin{solutionblock}{Flexibler Zinsrechner}
-\begin{minted}{python}
-def months_until_rich(target, interest=0.5):
-    month = 0
-    balance = 1000
-    while balance < target:
-        balance += 25
-        balance *= (1 + interest/100)
-        month += 1
-    return month
-\end{minted}
-\end{solutionblock}
-\end{frame}
-
-
-
-
-\begin{frame}{Schwierige Übung}
-
-\begin{block}{Flexibler Durchschnittsrechner}
-\vspace{2pt}
-Erweitere die Funktion zur Berechnung von gewichteten Durchschnittsnoten so, dass optional der Gewichtungsfaktor angegeben werden kann. 	
-\end{block}
-
-\end{frame}
-
-\begin{frame}<beamer:0>[fragile]{Lösung}
-
-\begin{solutionblock}{Flexibler Durchschnittsrechner}
-\begin{minted}{python}
-def weighted_average(grades, weight=2): 
-  weighted_sum = 0
-  weighted_length = 0
-  for grade in grades: 
-    if grade["is_major"]: 
-      weighted_sum += weight * grade["grade"]
-      weighted_length += weight
-    else:
-      weighted_sum += grade["grade"]
-      weighted_length += 1
-  result = weighted_sum/weighted_length
-  return result 
-\end{minted}
-\end{solutionblock}
-
-\end{frame}
-
-\begin{fragile}
-	
-\begin{block}{Named Parameters}
-\vspace{2pt}
-Hat eine Funktion viele Parameter, von denen etliche optional sind, so kann man einen Parameter statt über die Reihenfolge auch über den Namen übergeben. 
-\end{block}
-
-\pause 
 \vspace{12pt}
 
-\begin{exampleblock}{Beispiel}
+\begin{exampleblock}{Erklärung}
 \vspace{2pt}
-
-\begin{minted}{python}
-def my_function(parameter1, parameter2=0, parameter3="x", parameter4=-17):
-  # ... 
-\end{minted}
-Möchte man jetzt die Funktion mit einem eigenen Wert \pybw{parameter1} und \pybw{parameter4} aufrufen aber alles andere auf Standard lassen, so geht das wie folgt: 
-
-\py{my_function(15, parameter4=-20)}
+\begin{itemize}[<+->]
+\item Zunächst wird die Datei \pybw{some_file_name.json} im Lesemodus geöffnet.  
+\item Die Funktion \pybw{json.load} erwartet eine JSON-Datei und gibt die eingelesenen Daten als Liste bzw. Dictionary zurück.  
+\end{itemize}
 \end{exampleblock}
-
-	
+\end{block}
 \end{fragile}
 
 
 
 \begin{frame}{Übung}
-\begin{block}{Ganz flexibler Zinsrechner}
+\begin{block}{Userdaten}
 \vspace{2pt}
-Erweitere den Zinsrechner, so dass zusätzlich optional der Startbetrag und die monatliche Sparrate angepasst werden können. 	
-
-Welchen der Parameter muss man verdoppeln, um am schnellsten 10.000€ zu erreichen? 
+Lade Dir aus dem FirstClass die Datei \console{"player.json"} herunter und kopiere sie in Dein Python-Projekt. 
+Öffne die Datei und gib den Namen, der Spielerin, sowie das Level und den Punktestand auf der Konsole aus. 
 \end{block}
 \end{frame}
 
-\begin{frame}<beamer:0>[fragile]{Lösung}
 
-\begin{solutionblock}{Ganz flexibler Zinsrechner}
+
+\begin{frame}<beamer:0>[fragile]{}
+\begin{solutionblock}{Lösung}
+
 \begin{minted}{python}
-def months_until_rich(target, interest=0.5, initial_amount=1000, savings_rate=25):
-    month = 0
-    balance = initial_amount
-    while balance < target:
-        balance += savings_rate
-        balance *= (1 + interest/100)
-        month += 1
-    return month
+import json 
+
+with open("player.json") as my_file:
+    data = json.load(my_file)
+
+print(f"Name: { data["name"] } ")
+print(f"Punktestand: { data["score"] } ")
+print(f"Level: { data["level"] } ") 
+\end{minted}
+\end{solutionblock}
+\end{frame}
+
+
+\begin{frame}{Übung}
+\begin{block}{Levelfortschritt speichern}
+\vspace{2pt}
+Verwende wieder die Datei \console{"player.json"}. Implementiere die Funktion \py{levelup()}, die das Userprofil einliest, das Level um 1 und den Punktestand um 100 erhöht und die neuen Daten wieder in der Datei \console{"player.json"} abspeichert. 
+\end{block}
+\end{frame}
+
+
+\begin{frame}<beamer:0>[fragile]{}
+\begin{solutionblock}{Lösung}
+
+\begin{minted}{python}
+import json 
+
+def levelup(): 
+    with open("player.json") as my_file:
+        data = json.load(my_file)
+    data["score"] += 100
+    data["level"] += 1
+    with open("player.json","w") as my_file: 
+        json.dump(data, my_file)
 \end{minted}
 \end{solutionblock}
 \end{frame}
 
 
 
-\section{Scope \\ \footnotesize Wo Variablen gültig sind}
-
-
-\begin{frame}
-\begin{block}{Problemstellung}
-\vspace{2pt}
-Sei \py{my_variable} eine Variable mit Wert 1. 
-Schreibe eine Funktion, die bei Aufruf die Variable \py{my_variable} um 1 erhöht. 
-Schreibe eine Funktion, die bei Aufruf die Variable \py{my_variable} um 1 erhöht. 
-
-\vspace{8pt}
-
-Wie macht man das? 
-\end{block}
-\end{frame}
-
-\begin{fragile}
-	
-\begin{block}{Das Problem}
-\vspace{2pt}
-
-\begin{minted}{python}
-my_variable = 1
-
-def increment(): 
-  my_variable = my_variable + 1
-
-increment()
-print(my_variable)
-\end{minted}
-
-\pause 
-Die offensichtliche Lösung 
-funktioniert nicht. Warum nicht? 
-\end{block}
-\end{fragile}
-
-
-\begin{fragile}
-	
-\begin{block}{Experiment I}
-\vspace{2pt}
-
-\begin{minted}{python}
-global_variable = 1
-
-def my_function(): 
-  local_variable = 5
-
-my_function()
-print(global_variable)
-print(local_variable)
-\end{minted}
-
-
-\vspace{12pt}
-
-\end{block}
-
-\begin{exampleblock}{Beobachtung}
-
-\pause 
-
-Eine Variable, die innerhalb einer Funktion definiert wurde, ist auch nur innerhalb der Funktion sichtbar. 
-\end{exampleblock}
-
-
-\end{fragile}
-
-\begin{fragile}
-	
-\begin{block}{Experiment II}
-\vspace{2pt}
-
-\begin{minted}{python}
-global_variable = 1
-
-def my_function(): 
-  print(global_variable)
- 
-
-my_function()
-print(global_variable)
-\end{minted}
-
-
-\vspace{12pt}
-
-\end{block}
-
-\begin{exampleblock}{Beobachtung}
-
-\pause 
-
-Eine \emph{globale} Variable ist auch innerhalb einer Funktion definiert.  
-\end{exampleblock}
-
-	
-\end{fragile}
-
-\begin{fragile}
-
-\begin{block}{Experiment III}
-\vspace{2pt}
-
-\begin{minted}{python}
-global_variable = 1
-
-def my_function(): 
-  global_variable = 5
-  print(global_variable)
-
-
-my_function()
-print(global_variable)
-\end{minted}
-\vspace{12pt}
-
-\end{block}
-
-\begin{exampleblock}{Beobachtung}
-
-\pause 
-
-Eine Variable innerhalb einer Funktion kann den gleichen Namen wie eine Variable außerhalb haben, allerdings ist die innere Variable nur innerhalb der Funktion sichtbar. 
-\end{exampleblock}
-
-
-\end{fragile}
-
-
-\begin{fragile}
-	
-\begin{block}{Experiment IV}
-\vspace{2pt}
-
-\begin{minted}{python}
-global_variable = 1
-
-def my_function(): 
-  print(global_variable)
-  global_variable = 5
-
-
-my_function()
-print(global_variable)
-\end{minted}
-\vspace{12pt}
-
-\end{block}
-
-\begin{exampleblock}{Beobachtung/Erklärung}
-
-\pause 
-
-Python entscheidet anhand des Kontexts ob \py{global_variable} eine globale Variable ist, oder eine lokale Variable, die zufällig den gleichen Namen wie eine globale Variable trägt. 
-
-\pause 
-
-Falls Python denkt, dass es sich um eine globale Variable handelt, so kann diese nur gelesen, nicht aber geschrieben (d.h. neu definiert) werden. 
-
-\end{exampleblock}
-
-	
-\end{fragile}
-
-
-\begin{fragile}
-	
-\begin{block}{Das Eingangsbeispiel}
-\vspace{2pt}
-
-\begin{minted}{python}
-my_variable = 1
-
-def increment(): 
-  my_variable = my_variable + 1
-
-increment()
-print(my_variable)
-\end{minted}
-
-\vspace{12pt}
-
-\end{block}
-
-\begin{exampleblock}{Erklärung}
-
-\pause 
-
-Da \py{my_variable} rechts vom Gleichheitszeichen steht, denkt Python, dass es sich um die globale Variable \py{my_variable} handelt. Da \py{my_variable} aber auch links vom Gleichheitszeichen steht, wird auch schreibend auf die Variable zugegriffen. Das ist nicht erlaubt. 
-
-\end{exampleblock}
-	
-\end{fragile}
-
-
-\begin{fragile}
-
-\begin{block}{Mögliche Lösung}
-	\vspace{2pt}
-\begin{minted}{python}
-my_variable = 1
-
-def increment(var): 
-  return var + 1
-
-my_variable = increment(my_variable)
-print(my_variable)
-\end{minted}
-
-\vspace{12pt}
-
-\end{block}
-	
-\end{fragile}
-
-\begin{frame}
-\metroset{block=fill}
-	
-\begin{block}{Definition}
-\vspace{2pt}
-Der Gültigkeitsbereich einer Variable wird \emph{Scope} genannt. 
-\end{block}
-\vspace{12pt}
-\pause 
-
-\metroset{block=transparent}
-\begin{block}{Scope in Python}
-\vspace{2pt}
-In Python unterscheidet man zwischen \emph{global Scope} und \emph{local Scope}. Im local Scope hat man nur Lesezugriff auf den global Scope. 	
-\end{block}
-	
-\end{frame}
-
-\begin{fragile}
-\begin{alertblock}{Achtung Ausnahme}
-\begin{minted}{python}
-my_list = [1, 2, 3]
-
-def append(item):
-  my_list.append(item)
-
-append(4)
-print(my_list)
-\end{minted}
-\end{alertblock}
-
-\vspace{12pt}
-
-\begin{exampleblock}{Erklärung}
-	
-\pause 
-
-Da die Variable \py{my_list} nicht überschrieben wird, sondern nur das referenzierte Objekt verändert wird, erkennt Python dies nicht als Schreibzugriff und erlaubt dieses Vorgehen. 
-\end{exampleblock}
-\end{fragile}
-
-
-\begin{frame}
-	
-\begin{block}{Warum ist der Zugriff auf den Global Scope eingeschränkt?}
-	\pause 
-	\begin{itemize}[<+->]
-		\item Funktionen sollen möglichst wenige Nebeneffekte haben. Wenn eine Funktion den global Scope verändern kann, ist dies ein großer Nebeneffekt. 
-		\item Wenn man eine Funktion schreibt, muss man sich keine Gedanken machen, ob ein Variablenname schon vergeben ist. 
-		\item Wenn man sich innerhalb einer Funktion den Kontakt zum global Scope reduziert, so ist die Funktion besser zu verstehen, zu warten und zu testen. 
-		\item \dots
-	\end{itemize}
-\end{block}
-	
-	
-\end{frame}
 
 
 

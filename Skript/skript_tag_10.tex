@@ -1,386 +1,255 @@
-\section{Persistenz \\ \footnotesize Lesen und Schreiben von Dateien}
+\section{Web APIs\\ \footnotesize Wie Python im Netz surfen kann}
+
 
 \begin{frame}
-	
-\begin{block}{Grundprinzip}
-\vspace{2pt}
-Um mit Dateien zu arbeiten, geht man immer in 3 Schritten vor:
-\pause 
-\begin{enumerate}
-	\item<2-> Datei öffnen 
-	\item<3-> Datei bearbeiten (d.h. z.B. lesen, überschreiben, etwas anhängen)
-	\item<4-> Datei schließen
-\end{enumerate}
-\pause \pause \pause
-Das Schließen von Dateien ist relativ wichtig, kann aber schnell mal vergessen werden. Daher bietet Python eine spezielle Syntax mithilfe des Keywords \py{with} an. 
-\end{block}
-\end{frame}
 
-
-\begin{fragile}
-\begin{block}{Gesamten Text einer Datei einlesen}
-\vspace{2pt}
-\pause 
-\begin{minted}{python}
-with open("some_file.txt") as my_file:
-  my_text = my_file.read()
-  print(my_text)
-\end{minted}
-
-\pause
-\vspace{12pt}
-
-\begin{exampleblock}{Erklärung}
-\vspace{2pt}
-\begin{itemize}[<+->]
-	\item Die Funktion \py{open} öffnet die angegebene Datei (Python geht per se davon aus, dass die Datei im gleichen Ordner wie das ausgeführte Skript liegt).
-	\item Ein \emph{Dateiobjekt} wird in der Variable \py{my_file} gespeichert (der Variablenname ist beliebig)
-	\item Die Methode \py{.read()} liest den Text-Inhalt der Datei, so dass er in einer Variable gespeichert werden kann 
-	\item Sobald der eingerückte Block verlassen wird, wird die Datei automatisch geschlossen
-\end{itemize}
-\end{exampleblock}
-
-\end{block}
-\end{fragile}
-
-\begin{fragile}
-\begin{block}{Den Text einer Datei zeilenweise einlesen}
-\pause 
-\vspace{2pt}
-
-\begin{minted}{python}
-with open("some_file.txt") as my_file:
-  my_lines = my_file.readlines()
-  for line in my_lines:
-    print(f"The line reads: {line}")
-\end{minted}
-
-\pause
-\vspace{12pt}
-
-\begin{exampleblock}{Erklärung}
-\vspace{2pt}
-\begin{itemize}[<+->]
-\item Die Methode \py{.readlines()} gibt eine \emph{Liste} der Zeilen des Inhalts der Datei \py{"some_file.txt"} zurück. 
-\item Durch diese Liste kann man mittels einer \pybw{for}-Schleife durchiterieren. 
-\end{itemize}
-\end{exampleblock}
-\end{block}
-\end{fragile}
-
-\begin{frame}{Übungen}
-\begin{block}{Text einlesen}
-\vspace{2pt}
-Lade Dir aus dem FirstClass die Datei \console{"tf.txt"} herunter und kopiere sie in Dein Python-Projekt. Gib den Text auf der Konsole aus. 
-\end{block}
-
-\pause 
-\vspace{12pt}
-
-\begin{block}{Zeilen zählen}
-\vspace{2pt}
-Lade Dir aus dem FirstClass die Datei \console{"vs.txt"} herunter und kopiere sie in Dein Python-Projekt. Gib auf der Konsole aus, aus wievielen Zeilen der Text besteht.  
-\end{block}
-
-\pause 
-\vspace{12pt}
-
-\begin{block}{Zählfunktion}
-\vspace{2pt}
-Schreibe eine Funktion, die zu dem übergebenen Dateinamen die Anzahl an Zeilen zurückgibt. 
-\end{block}
-\end{frame}
-
-
-\begin{frame}<beamer:0>[fragile]{Lösungen}
-\begin{solutionblock}{Text einlesen}
-\begin{minted}{python}
-with open("tf.txt") as my_file:
-  my_text = my_file.read()
-  print(my_text)
-\end{minted}
-\end{solutionblock}
-\begin{solutionblock}{Zeilen zählen}
-\begin{minted}{python}
-with open("vs.txt") as my_file:
-    my_lines = my_file.readlines()
-    length = len(my_lines)
-    print(length)
-\end{minted}
-\end{solutionblock}
-\begin{solutionblock}{Zählfunktion}
-\begin{minted}{python}
-def count_lines(filename): 
-    with open(filename) as my_file:
-        my_lines = my_file.readlines()
-        return len(my_lines)
-\end{minted}
-\end{solutionblock}
-\end{frame}
-
-
-
-
-\begin{fragile}
-\begin{block}{Text in eine Datei schreiben}
-\pause 
-\vspace{2pt}
-
-\begin{minted}{python}
-with open("some_file.txt", "w") as my_file:
-  my_file.write("Hello everybody")
-\end{minted}
-
-\pause
-\vspace{12pt}
-
-\begin{exampleblock}{Erklärung}
-\vspace{2pt}
-\begin{itemize}[<+->]
-\item Ruft man \py{open} mit dem zweiten Parameter \py{"w"} auf, so wird die Datei im Schreibmodus geöffnet. 
-\item Existierte die Datei zuvor noch nicht, so wird sie erzeugt. 
-\item Mit der Methode \py{.write("Inhalt")} lässt sich Text in eine Datei schreiben. 
-\item Achtung: Öffnet man eine Datei im Schreibmodus, so wird der bisherige Inhalt überschrieben. 
-\end{itemize}
-\end{exampleblock}
-\end{block}
-\end{fragile}
-
-\begin{fragile}
-\begin{block}{Text an eine Datei anhängen}
-\pause 
-\vspace{2pt}
-
-\begin{minted}{python}
-with open("some_file.txt", "a") as my_file:
-  my_file.write("Some text to append")
-\end{minted}
-
-\pause
-\vspace{12pt}
-
-\begin{exampleblock}{Erklärung}
-\vspace{2pt}
-\begin{itemize}[<+->]
-\item Ruft man \py{open} mit dem zweiten Parameter \py{"a"} auf, so wird die Datei im \emph{Append}-Modus geöffnet. 
-\item Existierte die Datei zuvor noch nicht, so wird sie erzeugt. 
-\item Mit der Methode \py{.write("Inhalt")} lässt sich Text an die Datei anhängen. 
-\item Der bis dahin in der Datei vorhandene Inhalt wird nicht verändert oder gelöscht. 
-\item Der einzige Unterschied zum letzten Punkt ist der Modus (\py{"a"} statt \py{"w"}).   
-\end{itemize}
-\end{exampleblock}
-\end{block}
-
-\end{fragile}
-
-\begin{fragile}
-	
-\begin{alertblock}{Achtung Umlaute}
-\vspace{2pt}
-Hat man eine etwas ältere Version von Python und möchte man Dateien, die Umlauten und andere Sonderzeichen enthalten, bearbeiten, so muss man beim Öffnen der Datei noch den Parameter \pybw{encoding="utf-8"} übergeben. 
-\end{alertblock}	
-
- \vspace{12pt}
- 
-\begin{exampleblock}{Beispiel}
-	\vspace{2pt}
-\begin{minted}{python}
-with open("some_file.txt", "a", encoding="utf-8") as my_file:
-  my_file.write("Hier ein Text mit Umlauten: äöüß")
-\end{minted}
-\end{exampleblock}
-\end{fragile}
-
-
-
-
-
-\section{JSON \\ \footnotesize Ein universelles Datenformat}
-
-\begin{frame}
 \metroset{block=fill}
-
-\begin{block}{Definition: JSON}
-\vspace{2pt}	
-JSON (Java Script Object Notation) ist ein Daten-Format, um Verschachtelungen von Listen und Dictionaries darzustellen, zu speichern und auszutauschen. Die Syntax entspricht (fast) der üblichen Python-Syntax und wird von den meisten Programmiersprachen \enquote{verstanden}.  
+\begin{block}{Definition: API}
+\vspace{2pt}
+Eine \emph{API} (Application Programming Interface) ist im Allgemeinen eine klar definierte Schnittstelle zwischen Programmen. \\ \\
+Im Kontext des Internets geht es dabei meist um Webanwendungen, die statt einer für menschen lesbaren Seite, ein maschinenlesbares JSON ausliefern. Auf diese Weise ist ein Datenaustausch zwischen Deinem Programm und einer Webanwendung in beide Richtungen möglich. \\ \\
+Eine Web-Api besteht meist aus einer (oder mehreren) Webadressen und einer Anleitung, wie sie zu benutzen ist. 
 \end{block}
 \end{frame}
 
-\begin{fragile}
-	
-\begin{exampleblock}{Beispiel: Eine Liste von Ländern}
-\vspace{2pt}
-\begin{minted}{python}
-[
-  {
-    "name": "Germany",
-    "capital": "Berlin",
-    "population": 83190556,
-    "cities": ["Berlin", "Hamburg","München","Köln"] 
-  },
-  {
-    "name": "France", 
-    "capital": "Paris",
-    "population": 67422000
-    "cities": ["Paris","Marseilles", "Lyon", "Toulouse"]
-  },
-  ...
-]
-\end{minted}
-\end{exampleblock}
-\end{fragile}
 
 \begin{frame}
-\begin{block}{Eigenschaften}
+
+\begin{exampleblock}{Beispiele für APIs}
 \vspace{2pt}
 \pause 
 \begin{itemize}[<+->]
-	\item Dictionaries und Listen dürfen beliebig verschachtelt werden. 
-	\item Die äußerste Ebene kann ein Dictionary oder eine Liste sein. 
-	\item Es müssen doppelte Anführungsstriche verwendet werden. 
-	\item Neben Dictionaries und Listen können folgende Datentypen verwendet werden: 
-	\begin{itemize}
-		\item Integer
-		\item String
-		\item Float
-		\item Boolean (\pybw{true} bzw. \pybw{false})
-		\item \pybw{null} (entspricht \pybw{None})
-	\end{itemize}
+\item \textbf{Instagram Api}:  Erhalte Infos, wer Dir folgt und welche Reaktionen Du auf Deine Bilder erhältst.
+\item \textbf{GoogleMaps Api}:  Sende Koordinaten an Google-Maps und erhalte die Adresse.
+\item \textbf{REST Countries}: Erhalte Daten von Ländern dieser Erde.
+\item \textbf{Stock Market Apis}: Erhalte live Daten zu Börsenkursen.
 \end{itemize}
+\end{exampleblock}
+
+\vspace{12pt}
+\pause 
+
+\begin{exampleblock}{Anwendungsbeispiele}
+\pause 
+\begin{itemize}[<+->]
+\item \textbf{Instagram}: Schreibe Dir einen Python-Scheduler, wann welche Bilder von Dir veröffentlicht werden sollen. 
+\item \textbf{REST Countries}: Nutze die Daten, um ein Quiz zu schreiben.
+\item \textbf{Stock Market Apis}: Trading Apps, SMS-Warnung bei einbrechenden Preisen. 
+\end{itemize}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Wie macht man einen API-Call?}
+\vspace{2pt}
+Im Folgenden gehen wir durch die Schritte, die man ausführen muss, um einen lesenden API-Call auszuführen. Wir verwenden dafür die \textbf{REST Countries Api}. Die Dokumentation (\emph{Docs}) der Api findet sich unter \texttt{https://restcountries.com/}.
+\end{block}
+
+\end{frame}
+
+\begin{frame}
+\begin{block}{Schritt 1: Finde die richtige URL (d.h. Webadresse)}
+\vspace{2pt}
+Zunächst benötigt man eine URL (den sogennante \emph{Endpoint}). Diese kann völlig statisch sein, oftmals aber sind Teile der URL dynamisch bzw. hängen von Deiner genauen Anfrage ab. 
+
+Beispiel:
+
+\texttt{https://restcountries.com/v3.1/all} 
+
+oder 
+
+\texttt{https://restcountries.com/v3.1/name/france}
 \end{block}
 \end{frame}
 
 
 \begin{fragile}
-	
-\begin{block}{Python's JSON-Modul}
+\begin{block}{Schritt 2: Schicke einen Request an den Endpoint}
 \vspace{2pt}
-Um in Python Daten im JSON-Format einzulesen und zu speichern, benötigt man das mitgelieferte JSON-\emph{Modul}. 
-Dazu einfach die folgende Zeile am Beginn des Python-Skripts anfügen: 
-
-\pause 
+Verwende folgenden Code, um einen Request zu schicken: 
 
 \begin{minted}{python}
-import json 
-
+import requests
 ...
 
-
+response = requests.get("https://restcountries.com/v3.1/name/france")
+data = response.json()
+# print(data)
 \end{minted}
-\end{block}	
-
-\end{fragile}
-
-
-\begin{fragile}
-	\begin{block}{Daten als JSON-Datei abspeichern}
-		\vspace{2pt}
-		
-		\begin{minted}{python}
-		import json 
-		
-		data = {"a": 1, "b": 2}  # some dummy data
-		
-		with open("some_file_name.json","w") as my_file:
-		  json.dump(my_data, my_file)
-		\end{minted}
-		
-		\pause
-		
-		\vspace{12pt}
-		
-		\begin{exampleblock}{Erklärung}
-			\vspace{2pt}
-			\begin{itemize}[<+->]
-				\item Zunächst wird die Datei \pybw{some_file_name.json} im Schreibmodus geöffnet.  
-				\item Die Funktion \pybw{json.dump} erwartet die Daten und eine Datei. Die Daten werden im JSON-Format in der Datei abgespeichert. 
-				\item Achtung: Der bisherige Inhalt von \pybw{some_file_name.json} wird überschrieben.  
-			\end{itemize}
-		\end{exampleblock}
-	\end{block}
-\end{fragile}
-
-
-\begin{fragile}
-\begin{block}{Daten aus einer JSON-Datei importieren}
-\vspace{2pt}
-
-\begin{minted}{python}
-import json 
-
-with open("some_file_name.json") as my_file:
-  data = json.load(my_file)
-  
-print(data)
-\end{minted}
-
-\pause
-
-\vspace{12pt}
-
-\begin{exampleblock}{Erklärung}
-\vspace{2pt}
-\begin{itemize}[<+->]
-\item Zunächst wird die Datei \pybw{some_file_name.json} im Lesemodus geöffnet.  
-\item Die Funktion \pybw{json.load} erwartet eine JSON-Datei und gibt die eingelesenen Daten als Liste bzw. Dictionary zurück.  
-\end{itemize}
-\end{exampleblock}
 \end{block}
 \end{fragile}
 
 
 
-\begin{frame}{Übung}
-\begin{block}{Userdaten}
+
+\begin{fragile}
+\begin{block}{Schritt 3: Erweitere den Request ggf. um \emph{Query-Parameter}}
 \vspace{2pt}
-Lade Dir aus dem FirstClass die Datei \console{"player.json"} herunter und kopiere sie in Dein Python-Projekt. 
-Öffne die Datei und gib den Namen, der Spielerin, sowie das Level und den Punktestand auf der Konsole aus. 
+
+\begin{minted}{python}
+import requests
+...
+
+payload = {"fields": ["capital","population","continents"]}
+response = requests.get("https://restcountries.com/v3.1/name/france", params=payload)
+data = response.json()
+# print(data)
+\end{minted}
+\end{block}
+\end{fragile}
+
+
+\begin{fragile}
+\begin{block}{Schritt 4: Transformiere, filtere und speichere die Daten je nach Bedarf}
+\vspace{2pt}
+
+\begin{minted}{python}
+import requests
+import json
+...
+
+payload = {"fields": ["capital","population","continents"]}
+response = requests.get("https://restcountries.com/v3.1/name/france", params=payload)
+data = response.json()
+
+with open("france.json","w") as my_file:
+  json.dump(data, my_file)
+
+\end{minted}
+\end{block}
+\end{fragile}
+
+
+\begin{frame}{Übung}
+
+\begin{block}{Daten eines Landes extrahieren}
+\vspace{2pt}
+
+Stelle einen Request zu Italien an die Countries-Api. Bereite die zurückgegebenen Daten so auf, dass folgendes auf der Konsole erscheint: 
+
+\console{Hauptstadt: Rome} \\
+\console{Bevölkerung: 59554023} \\
+\console{Kontinent: Europe} 
 \end{block}
 \end{frame}
 
 
 
-\begin{frame}<beamer:0>[fragile]{}
-\begin{solutionblock}{Lösung}
 
+
+
+\begin{frame}<beamer:0>[fragile]{Lösung}
+\begin{solutionblock}{Daten eines Landes extrahieren}
 \begin{minted}{python}
-import json 
+import requests
 
-with open("player.json") as my_file:
-    data = json.load(my_file)
+response = requests.get("https://restcountries.com/v3.1/name/italy")
+data = response.json()
 
-print(f"Name: { data["name"] } ")
-print(f"Punktestand: { data["score"] } ")
-print(f"Level: { data["level"] } ") 
+data = data[0]
+capital = data["capital"][0]
+population = data["population"]
+continent = data["continents"][0]
+
+print(f"Hauptstadt: {capital}")
+print(f"Bevölkerung: {population}")
+print(f"Kontinent: {continent}")
 \end{minted}
 \end{solutionblock}
 \end{frame}
 
 
+
+
+
+
+
+
+
+
 \begin{frame}{Übung}
-\begin{block}{Levelfortschritt speichern}
+
+\begin{block}{Hauptstadt-Orakel}
 \vspace{2pt}
-Verwende wieder die Datei \console{"player.json"}. Implementiere die Funktion \py{levelup()}, die das Userprofil einliest, das Level um 1 und den Punktestand um 100 erhöht und die neuen Daten wieder in der Datei \console{"player.json"} abspeichert. 
+Schreibe eine Funktion, die den (englischsprachigen) Namen eines Landes erwartet und den Namen der Hauptstadt zurückgibt.
 \end{block}
 \end{frame}
 
 
-\begin{frame}<beamer:0>[fragile]{}
-\begin{solutionblock}{Lösung}
 
+
+
+\begin{frame}<beamer:0>[fragile]{Lösung}
+\begin{solutionblock}{Hauptstadt-Orakel}
 \begin{minted}{python}
-import json 
+import requests
 
-def levelup(): 
-    with open("player.json") as my_file:
-        data = json.load(my_file)
-    data["score"] += 100
-    data["level"] += 1
-    with open("player.json","w") as my_file: 
-        json.dump(data, my_file)
+def get_capital(country): 
+    response = requests.get("https://restcountries.com/v3.1/name/" + country)
+    data = response.json()
+    data = data[0]
+    capital = data["capital"][0]
+    return capital
 \end{minted}
 \end{solutionblock}
 \end{frame}
+
+
+
+
+
+
+
+
+\begin{fragile}[Übung]
+\begin{block}{Datenaufbereitung}
+\vspace{2pt}
+Erstelle eine Liste aller Länder. Jedes Land soll dabei als Dictionary der folgenden Form abgespeichert werden: 
+\begin{minted}{python}
+{
+  "name": "Italy",
+  "capital": "Rome",
+  "continent": "Europe", 
+  "population": 59554023
+}
+\end{minted} 
+Speichere diese Liste als JSON in der Datei \texttt{countries.json}. 
+\end{block}
+\end{fragile}
+
+\begin{frame}<beamer:0>[fragile]{Lösung}
+\begin{solutionblock}{Datenaufbereitung}
+\begin{minted}{python}
+import requests
+import json 
+
+response = requests.get("https://restcountries.com/v3.1/all")
+data = response.json()
+
+countries = []
+for country in data: 
+    if "capital" in country.keys():
+        countries.append({
+            "name": country["name"]["common"],
+            "capital": country["capital"][0],
+            "population": country["population"],
+            "continent": country["continents"][0]
+        }) 
+
+with open("countries.json", "w") as my_file: 
+    json.dump(countries,my_file, indent=4)
+\end{minted}
+\end{solutionblock}
+\end{frame}
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{def} \PYG{n+nf}{my\PYGZus{}function}\PYG{p}{(}\PYG{n}{parameter1}\PYG{p}{,} \PYG{n}{parameter2}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{parameter3}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}x\PYGZdq{}}\PYG{p}{,} \PYG{n}{parameter4}\PYG{o}{=\PYGZhy{}}\PYG{l+m+mi}{17}\PYG{p}{):}
+  \PYG{c+c1}{\PYGZsh{} ...}
+\end{Verbatim}

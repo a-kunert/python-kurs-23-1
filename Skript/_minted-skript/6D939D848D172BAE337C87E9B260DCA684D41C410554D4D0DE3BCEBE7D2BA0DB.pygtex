@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{o}{...}
+\PYG{k}{with} \PYG{n+nb}{open}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}countries.json\PYGZdq{}}\PYG{p}{)} \PYG{k}{as} \PYG{n}{my\PYGZus{}file}\PYG{p}{:}
+  \PYG{n}{countries} \PYG{o}{=} \PYG{n}{json}\PYG{o}{.}\PYG{n}{load}\PYG{p}{(}\PYG{n}{my\PYGZus{}file}\PYG{p}{)}
+
+\PYG{n}{filtered\PYGZus{}countries} \PYG{o}{=} \PYG{p}{[]}
+\PYG{k}{for} \PYG{n}{country} \PYG{o+ow}{in} \PYG{n}{countries}\PYG{p}{:}
+  \PYG{k}{if} \PYG{n}{country}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}continent\PYGZdq{}}\PYG{p}{]} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}Europa\PYGZdq{}}\PYG{p}{:}
+    \PYG{n}{filtered\PYGZus{}countries}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{country}\PYG{p}{)}
+
+\PYG{n}{countries} \PYG{o}{=} \PYG{n}{filtered\PYGZus{}countries}
+
+\PYG{n}{random}\PYG{o}{.}\PYG{n}{shuffle}\PYG{p}{(}\PYG{n}{countries}\PYG{p}{)}
+\PYG{o}{...}
+\end{Verbatim}

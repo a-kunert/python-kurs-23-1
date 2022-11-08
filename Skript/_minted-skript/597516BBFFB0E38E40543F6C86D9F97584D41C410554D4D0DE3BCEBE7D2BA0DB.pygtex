@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{def} \PYG{n+nf}{filter\PYGZus{}countries}\PYG{p}{(}\PYG{n}{countries}\PYG{p}{,} \PYG{n}{continent}\PYG{p}{):}
+  \PYG{n}{result} \PYG{o}{=} \PYG{p}{[]}
+  \PYG{k}{for} \PYG{n}{country} \PYG{o+ow}{in} \PYG{n}{countries}\PYG{p}{:}
+    \PYG{k}{if} \PYG{n}{country}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}continent\PYGZdq{}}\PYG{p}{]} \PYG{o}{==} \PYG{n}{continent}\PYG{p}{:}
+      \PYG{n}{result}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{country}\PYG{p}{)}
+  \PYG{k}{return} \PYG{n}{result}
+\end{Verbatim}

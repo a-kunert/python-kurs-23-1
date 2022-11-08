@@ -1,0 +1,20 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{o}{...}	
+\PYG{k}{def} \PYG{n+nf}{get\PYGZus{}countries}\PYG{p}{():}
+\PYG{o}{...}
+\PYG{k}{def} \PYG{n+nf}{filter\PYGZus{}countries}\PYG{p}{(}\PYG{n}{countries}\PYG{p}{,} \PYG{n}{continent}\PYG{p}{):}
+\PYG{o}{...}
+\PYG{k}{def} \PYG{n+nf}{get\PYGZus{}answer\PYGZus{}options}\PYG{p}{(}\PYG{n}{active\PYGZus{}country}\PYG{p}{,} \PYG{n}{countries}\PYG{p}{):}
+\PYG{o}{...}
+\PYG{k}{def} \PYG{n+nf}{display\PYGZus{}question}\PYG{p}{(}\PYG{n}{active\PYGZus{}country}\PYG{p}{,} \PYG{n}{answer\PYGZus{}options}\PYG{p}{):}
+\PYG{o}{...}
+\PYG{k}{def} \PYG{n+nf}{check\PYGZus{}answer}\PYG{p}{(}\PYG{n}{active\PYGZus{}country}\PYG{p}{,} \PYG{n}{answer\PYGZus{}options}\PYG{p}{):}
+\PYG{o}{...}
+\PYG{n}{countries} \PYG{o}{=} \PYG{n}{get\PYGZus{}countries}\PYG{p}{()}
+\PYG{n}{countries} \PYG{o}{=} \PYG{n}{filter\PYGZus{}countries}\PYG{p}{(}\PYG{n}{countries}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}Europa\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{random}\PYG{o}{.}\PYG{n}{shuffle}\PYG{p}{(}\PYG{n}{countries}\PYG{p}{)}
+\PYG{n}{active\PYGZus{}country} \PYG{o}{=} \PYG{n}{countries}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}
+\PYG{n}{answer\PYGZus{}options} \PYG{o}{=} \PYG{n}{get\PYGZus{}answer\PYGZus{}options}\PYG{p}{(}\PYG{n}{active\PYGZus{}country}\PYG{p}{,} \PYG{n}{countries}\PYG{p}{)}
+\PYG{n}{display\PYGZus{}question}\PYG{p}{(}\PYG{n}{active\PYGZus{}country}\PYG{p}{,} \PYG{n}{answer\PYGZus{}options}\PYG{p}{)}
+\PYG{n}{check\PYGZus{}answer}\PYG{p}{(}\PYG{n}{active\PYGZus{}country}\PYG{p}{,} \PYG{n}{answer\PYGZus{}options}\PYG{p}{)}	
+\end{Verbatim}

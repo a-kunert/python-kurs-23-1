@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{my\PYGZus{}variable} \PYG{o}{=} \PYG{l+m+mi}{1}
+
+\PYG{k}{def} \PYG{n+nf}{increment}\PYG{p}{(}\PYG{n}{var}\PYG{p}{):}
+  \PYG{k}{return} \PYG{n}{var} \PYG{o}{+} \PYG{l+m+mi}{1}
+
+\PYG{n}{my\PYGZus{}variable} \PYG{o}{=} \PYG{n}{increment}\PYG{p}{(}\PYG{n}{my\PYGZus{}variable}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{my\PYGZus{}variable}\PYG{p}{)}
+\end{Verbatim}

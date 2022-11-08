@@ -200,6 +200,181 @@ Da Dictionaries mutable sind, findet bei ihnen der Aufruf mittels \emph{Call by 
 
 
 
+\begin{fragile}
+
+\begin{block}{Schleife über Dictionary I}
+\vspace{2pt}
+Ähnlich wie bei Listen kann man Schleifen auch über ein Dictionary laufen lassen.  
+\end{block}
+\vspace{12pt}
+\pause 
+
+\begin{exampleblock}{Beispiel}
+\vspace{2pt}
+\begin{overprint}
+\onslide<2|handout:0>
+\begin{minted}{python}
+capitals = {"Litauen": "Vilnius", "Lettland": "Riga", "Estland": "Tallin"}
+
+for item in capitals:
+  print(item)
+\end{minted}
+\onslide<3|handout:1>
+\begin{minted}{python}
+capitals = {"Litauen": "Vilnius", "Lettland": "Riga", "Estland": "Tallin"}
+
+for item in capitals:
+  print(item)
+
+# Litauen
+# Lettland
+# Estland
+\end{minted}
+\end{overprint}
+\end{exampleblock}
+\end{fragile}
+
+\begin{fragile}
+\begin{block}{Schleife über Dictionary II}
+\vspace{2pt}
+Möchte man in der Schleife nicht nur die Schlüssel, sondern auch die Werte des Dictionaries zur Verfügung haben, so muss man die Methode \py{.items()} auf das Dictionary anwenden.   
+\end{block}
+\vspace{12pt}
+\pause 
+
+
+\begin{exampleblock}{Beispiel}
+\vspace{2pt}
+\begin{overprint}
+\onslide<2|handout:0>
+\begin{minted}{python}
+capitals = {"Litauen": "Vilnius", "Lettland": "Riga", "Estland": "Tallin"}
+
+for key, value in capitals.items():
+  print(f"Hauptstadt von {key}: {value}")
+\end{minted}
+\onslide<3|handout:1>
+\begin{minted}{python}
+capitals = {"Litauen": "Vilnius", "Lettland": "Riga", "Estland": "Tallin"}
+
+for key, value in capitals.items():
+  print(f"Hauptstadt von {key}: {value}")
+
+# Hauptstadt von Litauen: Vilnius
+# Hauptstadt von Lettland: Riga
+# Hauptstadt von Estland: Tallin
+\end{minted}
+\end{overprint}
+\end{exampleblock}
+\end{fragile}
+
+\begin{frame}{Übungen}
+
+\begin{block}{Zwei Dictionaries kombinieren}
+	\vspace{2pt}
+Gegeben seien zwei Dictionaries, z.B.  
+
+\py{eu = {"Deutschland": "Berlin", "Frankreich": "Paris" }}
+
+und 
+
+\py{non_eu = {"Russland": "Moskau", "China": "Peking" }}
+
+Füge die Einträge des zweiten Dictionaries zum ersten Dictionary hinzu. 
+\end{block}
+
+\pause 
+
+\vspace{12pt}
+
+\begin{block}{Ein Dictionary \enquote{filtern}}
+\vspace{2pt}
+Sei ein beliebiges Dictionary mit Noten gegeben. Entferne alle Einträge, deren Note schlechter als 5 Punkte ist. 
+\end{block}
+\end{frame}
+
+
+\begin{frame}<beamer:0>[fragile]{Lösung}
+
+\begin{solutionblock}{Zwei Dictionaries kombinieren}
+\begin{minted}{python}
+eu = {"Deutschland": "Berlin", "Frankreich": "Paris" }
+non_eu = {"Russland": "Moskau", "China": "Peking" }
+
+for key,value in non_eu.items():
+  eu[key] = value
+print(eu)
+\end{minted}
+\end{solutionblock}
+
+\vspace{12pt}
+
+\begin{solutionblock}{Ein Dictionary \enquote{filtern}}
+\begin{minted}{python}
+grades = {"Deutsch": 11, "Mathe": 3, "Sport": 14, "Geschichte": 1}
+#  Man darf die Länge eines Dictionaries in einer Schleife nicht verändern, deshalb machen wir eine Kopie
+result = dict(grades)
+for key, value in grades.items():
+  if value < 5:
+    del result[key]
+print(result)
+\end{minted}
+\end{solutionblock}
+
+\end{frame}
+
+
+\begin{fragile}
+
+\begin{block}{Ein Dictionary zerlegen}
+\vspace{2pt}
+Mit der Methode \py{.keys()} erhält man eine Liste aller Schlüssel eines Dictionaries. \pause
+
+Mit der Methode \py{.values()} erhält man eine Liste aller Werte eines Dictionaries. \pause 
+
+In beiden Fällen, muss das Ergebnis mittels der Funktion \py{list()} in eine Liste umgewandelt werden. 
+\end{block}
+
+
+\vspace{12pt}
+\pause 
+
+\begin{exampleblock}{Beispiel}
+\vspace{2pt}
+\begin{overprint}
+\onslide<4|handout:0>
+\begin{minted}{python}
+my_dictionary = {"China": "Peking", "Japan": "Tokio", "Korea": "Seoul"}
+
+countries = my_dictionary.keys()
+countries = list(countries)
+
+capitals = my_dictionary.values()
+capitals = list(capitals)
+
+print(countries)
+print(capitals)
+\end{minted}
+\onslide<5|handout:1>
+\begin{minted}{python}
+my_dictionary = {"China": "Peking", "Japan": "Tokio", "Korea": "Seoul"}
+
+countries = my_dictionary.keys()
+countries = list(countries)
+
+capitals = my_dictionary.values()
+capitals = list(capitals)
+
+print(countries)  # ["China", "Japan", "Korea"]
+print(capitals)   # ["Peking", "Tokio", "Seoul"]
+\end{minted}
+\end{overprint}
+\end{exampleblock}
+\end{fragile}
+
+
+
+
 
 
 

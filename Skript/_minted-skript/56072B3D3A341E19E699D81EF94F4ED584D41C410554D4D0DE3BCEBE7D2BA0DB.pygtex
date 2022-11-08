@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{def} \PYG{n+nf}{months\PYGZus{}until\PYGZus{}rich}\PYG{p}{(}\PYG{n}{target}\PYG{p}{):}
+    \PYG{n}{month} \PYG{o}{=} \PYG{l+m+mi}{0}
+    \PYG{n}{balance} \PYG{o}{=} \PYG{l+m+mi}{1000}
+    \PYG{k}{while} \PYG{n}{balance} \PYG{o}{\PYGZlt{}} \PYG{n}{target}\PYG{p}{:}
+        \PYG{n}{balance} \PYG{o}{*=} \PYG{l+m+mf}{1.005}
+        \PYG{n}{month} \PYG{o}{+=} \PYG{l+m+mi}{1}
+    \PYG{k}{return} \PYG{n}{month}
+\end{Verbatim}

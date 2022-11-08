@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{def} \PYG{n+nf}{count\PYGZus{}lines}\PYG{p}{(}\PYG{n}{filename}\PYG{p}{):}
+    \PYG{k}{with} \PYG{n+nb}{open}\PYG{p}{(}\PYG{n}{filename}\PYG{p}{)} \PYG{k}{as} \PYG{n}{my\PYGZus{}file}\PYG{p}{:}
+        \PYG{n}{my\PYGZus{}lines} \PYG{o}{=} \PYG{n}{my\PYGZus{}file}\PYG{o}{.}\PYG{n}{readlines}\PYG{p}{()}
+        \PYG{k}{return} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{my\PYGZus{}lines}\PYG{p}{)}
+\end{Verbatim}
