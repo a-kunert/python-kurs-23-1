@@ -895,7 +895,198 @@ Da die Variable \py{my_list} nicht überschrieben wird, sondern nur das referenz
 
 
 
+\section{Persistenz \\ \footnotesize Lesen und Schreiben von Dateien}
 
+\begin{frame}
+	
+\begin{block}{Grundprinzip}
+\vspace{2pt}
+Um mit Dateien zu arbeiten, geht man immer in 3 Schritten vor:
+\pause 
+\begin{enumerate}
+	\item<2-> Datei öffnen 
+	\item<3-> Datei bearbeiten (d.h. z.B. lesen, überschreiben, etwas anhängen)
+	\item<4-> Datei schließen
+\end{enumerate}
+\pause \pause \pause
+Das Schließen von Dateien ist relativ wichtig, kann aber schnell mal vergessen werden. Daher bietet Python eine spezielle Syntax mithilfe des Keywords \py{with} an. 
+\end{block}
+\end{frame}
+
+
+\begin{fragile}
+\begin{block}{Gesamten Text einer Datei einlesen}
+\vspace{2pt}
+\pause 
+\begin{minted}{python}
+with open("some_file.txt") as my_file:
+  my_text = my_file.read()
+  print(my_text)
+\end{minted}
+
+\pause
+\vspace{12pt}
+
+\begin{exampleblock}{Erklärung}
+\vspace{2pt}
+\begin{itemize}[<+->]
+	\item Die Funktion \py{open} öffnet die angegebene Datei (Python geht per se davon aus, dass die Datei im gleichen Ordner wie das ausgeführte Skript liegt).
+	\item Ein \emph{Dateiobjekt} wird in der Variable \py{my_file} gespeichert (der Variablenname ist beliebig)
+	\item Die Methode \py{.read()} liest den Text-Inhalt der Datei, so dass er in einer Variable gespeichert werden kann 
+	\item Sobald der eingerückte Block verlassen wird, wird die Datei automatisch geschlossen
+\end{itemize}
+\end{exampleblock}
+
+\end{block}
+\end{fragile}
+
+\begin{fragile}
+\begin{block}{Den Text einer Datei zeilenweise einlesen}
+\pause 
+\vspace{2pt}
+
+\begin{minted}{python}
+with open("some_file.txt") as my_file:
+  my_lines = my_file.readlines()
+  for line in my_lines:
+    print(f"The line reads: {line}")
+\end{minted}
+
+\pause
+\vspace{12pt}
+
+\begin{exampleblock}{Erklärung}
+\vspace{2pt}
+\begin{itemize}[<+->]
+\item Die Methode \py{.readlines()} gibt eine \emph{Liste} der Zeilen des Inhalts der Datei \py{"some_file.txt"} zurück. 
+\item Durch diese Liste kann man mittels einer \pybw{for}-Schleife durchiterieren. 
+\end{itemize}
+\end{exampleblock}
+\end{block}
+\end{fragile}
+
+\begin{frame}{Übungen}
+\begin{block}{Text einlesen}
+\vspace{2pt}
+Lade Dir aus dem FirstClass die Datei \console{"tf.txt"} herunter und kopiere sie in Dein Python-Projekt. Gib den Text auf der Konsole aus. 
+\end{block}
+
+\pause 
+\vspace{12pt}
+
+\begin{block}{Zeilen zählen}
+\vspace{2pt}
+Lade Dir aus dem FirstClass die Datei \console{"vs.txt"} herunter und kopiere sie in Dein Python-Projekt. Gib auf der Konsole aus, aus wievielen Zeilen der Text besteht.  
+\end{block}
+
+\pause 
+\vspace{12pt}
+
+\begin{block}{Zählfunktion}
+\vspace{2pt}
+Schreibe eine Funktion, die zu dem übergebenen Dateinamen die Anzahl an Zeilen zurückgibt. 
+\end{block}
+\end{frame}
+
+
+\begin{frame}<beamer:0>[fragile]{Lösungen}
+\begin{solutionblock}{Text einlesen}
+\begin{minted}{python}
+with open("tf.txt") as my_file:
+  my_text = my_file.read()
+  print(my_text)
+\end{minted}
+\end{solutionblock}
+\begin{solutionblock}{Zeilen zählen}
+\begin{minted}{python}
+with open("vs.txt") as my_file:
+    my_lines = my_file.readlines()
+    length = len(my_lines)
+    print(length)
+\end{minted}
+\end{solutionblock}
+\begin{solutionblock}{Zählfunktion}
+\begin{minted}{python}
+def count_lines(filename): 
+    with open(filename) as my_file:
+        my_lines = my_file.readlines()
+        return len(my_lines)
+\end{minted}
+\end{solutionblock}
+\end{frame}
+
+
+
+
+\begin{fragile}
+\begin{block}{Text in eine Datei schreiben}
+\pause 
+\vspace{2pt}
+
+\begin{minted}{python}
+with open("some_file.txt", "w") as my_file:
+  my_file.write("Hello everybody")
+\end{minted}
+
+\pause
+\vspace{12pt}
+
+\begin{exampleblock}{Erklärung}
+\vspace{2pt}
+\begin{itemize}[<+->]
+\item Ruft man \py{open} mit dem zweiten Parameter \py{"w"} auf, so wird die Datei im Schreibmodus geöffnet. 
+\item Existierte die Datei zuvor noch nicht, so wird sie erzeugt. 
+\item Mit der Methode \py{.write("Inhalt")} lässt sich Text in eine Datei schreiben. 
+\item Achtung: Öffnet man eine Datei im Schreibmodus, so wird der bisherige Inhalt überschrieben. 
+\end{itemize}
+\end{exampleblock}
+\end{block}
+\end{fragile}
+
+\begin{fragile}
+\begin{block}{Text an eine Datei anhängen}
+\pause 
+\vspace{2pt}
+
+\begin{minted}{python}
+with open("some_file.txt", "a") as my_file:
+  my_file.write("Some text to append")
+\end{minted}
+
+\pause
+\vspace{12pt}
+
+\begin{exampleblock}{Erklärung}
+\vspace{2pt}
+\begin{itemize}[<+->]
+\item Ruft man \py{open} mit dem zweiten Parameter \py{"a"} auf, so wird die Datei im \emph{Append}-Modus geöffnet. 
+\item Existierte die Datei zuvor noch nicht, so wird sie erzeugt. 
+\item Mit der Methode \py{.write("Inhalt")} lässt sich Text an die Datei anhängen. 
+\item Der bis dahin in der Datei vorhandene Inhalt wird nicht verändert oder gelöscht. 
+\item Der einzige Unterschied zum letzten Punkt ist der Modus (\py{"a"} statt \py{"w"}).   
+\end{itemize}
+\end{exampleblock}
+\end{block}
+
+\end{fragile}
+
+\begin{fragile}
+	
+\begin{alertblock}{Achtung Umlaute}
+\vspace{2pt}
+Hat man eine etwas ältere Version von Python und möchte man Dateien, die Umlauten und andere Sonderzeichen enthalten, bearbeiten, so muss man beim Öffnen der Datei noch den Parameter \pybw{encoding="utf-8"} übergeben. 
+\end{alertblock}	
+
+ \vspace{12pt}
+ 
+\begin{exampleblock}{Beispiel}
+	\vspace{2pt}
+\begin{minted}{python}
+with open("some_file.txt", "a", encoding="utf-8") as my_file:
+  my_file.write("Hier ein Text mit Umlauten: äöüß")
+\end{minted}
+\end{exampleblock}
+\end{fragile}
 
 
 

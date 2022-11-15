@@ -278,7 +278,7 @@ Gegeben seien zwei Dictionaries, z.B.
 
 und 
 
-\py{non_eu = {"Russland": "Moskau", "China": "Peking" }}
+\py{non_eu = {"Ukraine": "Kiew", "Norwegen": "Oslo" }}
 
 Füge die Einträge des zweiten Dictionaries zum ersten Dictionary hinzu. 
 \end{block}
@@ -299,7 +299,7 @@ Sei ein beliebiges Dictionary mit Noten gegeben. Entferne alle Einträge, deren 
 \begin{solutionblock}{Zwei Dictionaries kombinieren}
 \begin{minted}{python}
 eu = {"Deutschland": "Berlin", "Frankreich": "Paris" }
-non_eu = {"Russland": "Moskau", "China": "Peking" }
+non_eu = {"Ukraine": "Kiew", "Norwegen": "Oslo" }
 
 for key,value in non_eu.items():
   eu[key] = value
