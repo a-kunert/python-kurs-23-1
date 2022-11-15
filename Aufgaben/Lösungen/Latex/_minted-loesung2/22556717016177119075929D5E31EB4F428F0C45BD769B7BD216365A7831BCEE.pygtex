@@ -1,0 +1,28 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Man verwendet statt ganzen Euros lieber Cents}
+\PYG{c+c1}{\PYGZsh{} Der Unterstrich innerhalb einer Zahl dient nur zur Übersichtlichkeit}
+\PYG{c+c1}{\PYGZsh{} und kann ignoriert werden (z.B. 50\PYGZus{}00 = 5000)}
+
+\PYG{c+c1}{\PYGZsh{} Teil A}
+\PYG{n}{value} \PYG{o}{=} \PYG{l+m+mi}{3000\PYGZus{}00}
+\PYG{n}{interest} \PYG{o}{=} \PYG{l+m+mf}{0.0028}
+\PYG{n}{rate} \PYG{o}{=} \PYG{l+m+mi}{50\PYGZus{}00}
+
+\PYG{k}{for} \PYG{n}{month} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{12} \PYG{o}{*} \PYG{l+m+mi}{15} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{):}
+    \PYG{n}{value} \PYG{o}{+=} \PYG{n}{rate}
+    \PYG{n}{value} \PYG{o}{+=} \PYG{n}{interest} \PYG{o}{*} \PYG{n}{value}
+    \PYG{n}{value} \PYG{o}{=} \PYG{n+nb}{round}\PYG{p}{(}\PYG{n}{value}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}a) In Monat }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{month}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ beträgt der Wert }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{value}\PYG{o}{/}\PYG{l+m+mi}{100}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{€\PYGZdq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Teil B}
+\PYG{n}{month} \PYG{o}{=} \PYG{l+m+mi}{0}
+\PYG{n}{value} \PYG{o}{=} \PYG{l+m+mi}{3000\PYGZus{}00}
+
+\PYG{k}{while} \PYG{n}{interest} \PYG{o}{*} \PYG{n}{value} \PYG{o}{\PYGZlt{}} \PYG{n}{rate}\PYG{p}{:}
+    \PYG{n}{month} \PYG{o}{+=} \PYG{l+m+mi}{1}
+    \PYG{n}{value} \PYG{o}{+=} \PYG{n}{rate}
+    \PYG{n}{value} \PYG{o}{+=} \PYG{n}{interest} \PYG{o}{*} \PYG{n}{value}
+    \PYG{n}{value} \PYG{o}{=} \PYG{n+nb}{round}\PYG{p}{(}\PYG{n}{value}\PYG{p}{)}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}b) Nach }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{month}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ Monaten gibt der Zinssatz mehr als die Sparrate\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

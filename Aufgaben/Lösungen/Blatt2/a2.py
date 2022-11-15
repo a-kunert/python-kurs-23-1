@@ -1,19 +1,57 @@
-example_list = [2, 7, 5, -1, 4, 12, 3, -19, 16]
+# Man verwendet statt ganzen Euros lieber Cents
+# Der Unterstrich innerhalb einer Zahl dient nur zur Übersichtlichkeit
+# und kann ignoriert werden (z.B. 50_00 = 5000)
 
-# We add all items up, every second item is multiplied by 2 (i.e. weighting)
-weighted_sum = 0
-length = 0
+# Teil A
+value = 3000_00
+interest = 0.0028
+rate = 50_00
 
-for (index, number) in enumerate(example_list):
-    if index % 2 == 0:
-        # Remember: The first item in the list has index 0
-        weighted_sum += number
-        length += 1
-    else:
-        weighted_sum += 2*number
-        length += 2
+for month in range(1, 12 * 15 + 1):
+    value += rate
+    value += interest * value
+    value = round(value)
+print(f"a) In Monat {month} beträgt der Wert {value/100}€")
 
-result = weighted_sum / length
-print(f"Der gewichtete Durchschnitt ist {result}")
+# Teil B
+month = 0
+value = 3000_00
 
+while interest * value < rate:
+    month += 1
+    value += rate
+    value += interest * value
+    value = round(value)
 
+print(f"b) Nach {month} Monaten gibt der Zinssatz mehr als die Sparrate")
+
+# Teil C
+value = 3000_00
+alt_value = 3000_00
+alt_rate = 10_00
+alt_interest = 0.009
+month = 0
+
+while alt_value <= value:
+    month += 1
+    value += rate
+    value += interest * value
+    value = round(value)
+    alt_value += alt_rate
+    alt_value += alt_interest * alt_value
+    alt_value = round(alt_value)
+
+print(f"c) Nach {month} Monaten ist das zweite Modell besser")
+
+value = 3000_00
+alt_value = 3000_00
+
+for month in range(1, 12 * 20 + 1):
+    value += rate
+    value += interest * value
+    value = round(value)
+    alt_value += alt_rate
+    alt_value += alt_interest * alt_value
+    alt_value = round(alt_value)
+
+print(f"d) Nach 20 Jahren beträgt die Differenz gleich {alt_value/100} - {value/100} = {(alt_value - value)/100}")

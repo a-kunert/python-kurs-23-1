@@ -22,40 +22,6 @@
 
 \section{}
 \begin{minted}{python}
-day = 0
-incidence = 219
-
-above_300 = False
-above_500 = False
-above_1000 = False
-above_10000 = False
-
-# The loop simulates the incidence for every day
-# Once it hits one of the given thresholds a message is printed
-# To stop printing after the threshold is reached the flags above_xxx are used
-
-while incidence <= 100000:
-    day += 1
-    incidence = int(incidence*1.0458)
-    if incidence > 300 and not above_300:
-        print(f"Über 300 an Tag {day}")
-        above_300 = True
-    if incidence > 500 and not above_500:
-        print(f"Über 500 an Tag {day}")
-        above_500 = True
-    if incidence > 1000 and not above_1000:
-        print(f"Über 1000 an Tag {day}")
-        above_1000 = True
-    if incidence > 10000 and not above_10000:
-        print(f"Über 10000 an Tag {day}")
-        above_10000 = True
-    if incidence > 100000:
-        print(f"Über 100000 an Tag {day}")
-
-\end{minted}
-
-\section{}
-\begin{minted}{python}
 example_list = [2, 7, 5, -1, 4, 12, 3, -19, 16]
 
 # We add all items up, every second item is multiplied by 2 (i.e. weighting)
@@ -72,7 +38,71 @@ for (index, number) in enumerate(example_list):
         length += 2
 
 result = weighted_sum / length
-print(f"Der gewichtete Durchschnitt ist {result}")
+print(f"Der gewichtete Durchschnitt ist {result}")\\
+\end{minted}
+
+\section{}
+\begin{minted}{python}
+# Man verwendet statt ganzen Euros lieber Cents
+# Der Unterstrich innerhalb einer Zahl dient nur zur Übersichtlichkeit
+# und kann ignoriert werden (z.B. 50_00 = 5000)
+
+# Teil A
+value = 3000_00
+interest = 0.0028
+rate = 50_00
+
+for month in range(1, 12 * 15 + 1):
+    value += rate
+    value += interest * value
+    value = round(value)
+print(f"a) In Monat {month} beträgt der Wert {value/100}€")
+
+# Teil B
+month = 0
+value = 3000_00
+
+while interest * value < rate:
+    month += 1
+    value += rate
+    value += interest * value
+    value = round(value)
+
+print(f"b) Nach {month} Monaten gibt der Zinssatz mehr als die Sparrate")
+\end{minted}
+\newpage
+\begin{minted}{python}
+# Teil C
+value = 3000_00
+alt_value = 3000_00
+alt_rate = 10_00
+alt_interest = 0.009
+month = 0
+
+while alt_value <= value:
+    month += 1
+    value += rate
+    value += interest * value
+    value = round(value)
+    alt_value += alt_rate
+    alt_value += alt_interest * alt_value
+    alt_value = round(alt_value)
+
+print(f"c) Nach {month} Monaten ist das zweite Modell besser")
+
+value = 3000_00
+alt_value = 3000_00
+
+for month in range(1, 12 * 20 + 1):
+    value += rate
+    value += interest * value
+    value = round(value)
+    alt_value += alt_rate
+    alt_value += alt_interest * alt_value
+    alt_value = round(alt_value)
+
+print(f"d) Nach 20 Jahren beträgt die Differenz gleich")
+print(f"{alt_value/100} - {value/100} = {(alt_value - value)/100}")
 \end{minted}
 
 \newpage

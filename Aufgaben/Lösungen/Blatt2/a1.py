@@ -1,64 +1,19 @@
-value = 3000
-interest = 0.0028
-rate = 50
+example_list = [2, 7, 5, -1, 4, 12, 3, -19, 16]
 
-for month in range(1, 12 * 15 + 1):
-    value += rate
-    value += interest * value
-    value = round(value)
+# We add all items up, every second item is multiplied by 2 (i.e. weighting)
+weighted_sum = 0
+length = 0
 
-print(f"In Monat {month} beträgt der Wert {value}€")
-month = 0
+for (index, number) in enumerate(example_list):
+    if index % 2 == 0:
+        # Remember: The first item in the list has index 0
+        weighted_sum += number
+        length += 1
+    else:
+        weighted_sum += 2*number
+        length += 2
 
-
-value = 3000
-
-while interest * value < rate:
-    month += 1
-    value += rate
-    value += interest * value
-    value = round(value)
-
-print(f"Nach {month} Monaten gibt der Zinssatz mehr")
+result = weighted_sum / length
+print(f"Der gewichtete Durchschnitt ist {result}")
 
 
-value = 3000
-alt_value = 3000
-alt_rate = 10
-alt_interest = 0.009
-
-for month in range(1, 12 * 15 + 1):
-    alt_value += alt_rate
-    alt_value += alt_interest * alt_value
-    alt_value = round(alt_value)
-print(f"In Monat {month} beträgt der Wert {alt_value}€")
-
-value = 3000
-alt_value = 3000
-month = 0
-while alt_value <= value:
-    month += 1
-    value += rate
-    value += interest * value
-    value = round(value)
-    alt_value += alt_rate
-    alt_value += alt_interest * alt_value
-    alt_value = round(alt_value)
-
-print(f"Nach {month} Monaten ist das zweite Modell besser")
-
-
-value = 3000
-alt_value = 3000
-
-for month in range(1, 12 * 20 + 1):
-    value += rate
-    value += interest * value
-    value = round(value)
-    alt_value += alt_rate
-    alt_value += alt_interest * alt_value
-    alt_value = round(alt_value)
-
-print(f"In Monat {month} beträgt der Wert {value}€")
-print(f"Alt: In Monat {month} beträgt der Wert {alt_value}€")
-month = 0

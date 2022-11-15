@@ -1,0 +1,33 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Teil C}
+\PYG{n}{value} \PYG{o}{=} \PYG{l+m+mi}{3000\PYGZus{}00}
+\PYG{n}{alt\PYGZus{}value} \PYG{o}{=} \PYG{l+m+mi}{3000\PYGZus{}00}
+\PYG{n}{alt\PYGZus{}rate} \PYG{o}{=} \PYG{l+m+mi}{10\PYGZus{}00}
+\PYG{n}{alt\PYGZus{}interest} \PYG{o}{=} \PYG{l+m+mf}{0.009}
+\PYG{n}{month} \PYG{o}{=} \PYG{l+m+mi}{0}
+
+\PYG{k}{while} \PYG{n}{alt\PYGZus{}value} \PYG{o}{\PYGZlt{}=} \PYG{n}{value}\PYG{p}{:}
+    \PYG{n}{month} \PYG{o}{+=} \PYG{l+m+mi}{1}
+    \PYG{n}{value} \PYG{o}{+=} \PYG{n}{rate}
+    \PYG{n}{value} \PYG{o}{+=} \PYG{n}{interest} \PYG{o}{*} \PYG{n}{value}
+    \PYG{n}{value} \PYG{o}{=} \PYG{n+nb}{round}\PYG{p}{(}\PYG{n}{value}\PYG{p}{)}
+    \PYG{n}{alt\PYGZus{}value} \PYG{o}{+=} \PYG{n}{alt\PYGZus{}rate}
+    \PYG{n}{alt\PYGZus{}value} \PYG{o}{+=} \PYG{n}{alt\PYGZus{}interest} \PYG{o}{*} \PYG{n}{alt\PYGZus{}value}
+    \PYG{n}{alt\PYGZus{}value} \PYG{o}{=} \PYG{n+nb}{round}\PYG{p}{(}\PYG{n}{alt\PYGZus{}value}\PYG{p}{)}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}c) Nach }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{month}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ Monaten ist das zweite Modell besser\PYGZdq{}}\PYG{p}{)}
+
+\PYG{n}{value} \PYG{o}{=} \PYG{l+m+mi}{3000\PYGZus{}00}
+\PYG{n}{alt\PYGZus{}value} \PYG{o}{=} \PYG{l+m+mi}{3000\PYGZus{}00}
+
+\PYG{k}{for} \PYG{n}{month} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{12} \PYG{o}{*} \PYG{l+m+mi}{20} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{):}
+    \PYG{n}{value} \PYG{o}{+=} \PYG{n}{rate}
+    \PYG{n}{value} \PYG{o}{+=} \PYG{n}{interest} \PYG{o}{*} \PYG{n}{value}
+    \PYG{n}{value} \PYG{o}{=} \PYG{n+nb}{round}\PYG{p}{(}\PYG{n}{value}\PYG{p}{)}
+    \PYG{n}{alt\PYGZus{}value} \PYG{o}{+=} \PYG{n}{alt\PYGZus{}rate}
+    \PYG{n}{alt\PYGZus{}value} \PYG{o}{+=} \PYG{n}{alt\PYGZus{}interest} \PYG{o}{*} \PYG{n}{alt\PYGZus{}value}
+    \PYG{n}{alt\PYGZus{}value} \PYG{o}{=} \PYG{n+nb}{round}\PYG{p}{(}\PYG{n}{alt\PYGZus{}value}\PYG{p}{)}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}d) Nach 20 Jahren beträgt die Differenz gleich\PYGZdq{}}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{alt\PYGZus{}value}\PYG{o}{/}\PYG{l+m+mi}{100}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ \PYGZhy{} }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{value}\PYG{o}{/}\PYG{l+m+mi}{100}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ = }\PYG{l+s+si}{\PYGZob{}}\PYG{p}{(}\PYG{n}{alt\PYGZus{}value} \PYG{o}{\PYGZhy{}} \PYG{n}{value}\PYG{p}{)}\PYG{o}{/}\PYG{l+m+mi}{100}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

@@ -1,0 +1,63 @@
+\documentclass[a4paper]{article} 
+\input{head}
+
+\sheetsubmission{Abgabe bis Mo. 28.11.2022 per Replit-Einladung}
+\sheetnumber{3}
+\sheetdate{16.11.2022}
+
+
+
+\begin{document}
+
+%-------------------------------
+%	TITLE SECTION
+%-------------------------------
+
+\input{header}
+
+%-------------------------------
+%	CONTENTS
+%-------------------------------
+
+
+
+
+  
+\section{Merge-Funktion}
+Schreibe eine Funktion, die zwei Dictionaries zu einem verschmilzt. Falls ein Key in beiden Dictionaries vorkommt, so soll der jeweilige Wert des zweiten Parameters genommen werden. 
+
+\vspace{4pt}
+\textbf{Beispiel}: \py{merge_dict({"a":1, "b":2}, {"b":3, "c":4}) = {"a":1, "b":3, "c":4}}.  
+
+
+\section{String umkehren}
+Schreibe eine Funktion, die einen String erwartet und den String in umgekehrter Reihenfolge zurückgibt. 
+
+\vspace{4pt}
+\textbf{Beispiel}: \py{my_func("Hallo") = "ollaH"}  
+
+
+\section{Palindrom erkennen}
+Schreibe eine Funktion, die einen String erwartet und \py{True} zurückgibt, falls der String ein Palindrom ist, andernfalls soll sie \py{False} zurückgeben. Die Groß-/Kleinschreibung soll dafür nicht berücksichtigt werden. 
+
+\vspace{4pt}
+
+{\footnotesize\textbf{Hinweis:} \\
+	Ein Palindrom ist ein Wort bzw. ein Text, der vorwärts wie rückwärts gelesen identisch ist. Ein Beispiel dafür ist das Wort \enquote{Lagerregal}. \\
+Um die Groß-/Kleinschreibung zu ignorieren, kann man den String vorab mit der Methode \py{.lower()} in Kleinbuchstaben verwandeln. 
+Die vorherige Aufgabe ist hilfreich. 
+
+
+\section{Multiple-Choice Antworten}
+Google nach dem Modul \texttt{random}. Schreibe eine Funktion, die eine Liste annimmt. Dabei darf man annehmen, dass die Eingangsliste mindestens 4 Elemente hat und keine doppelten Elemente vorkommen. Die Funktion soll eine Liste mit genau 4 Einträgen zurückgeben, die folgende Eigenschaften hat. 
+\begin{itemize}
+	\item Der erste Eintrag der Eingangsliste ist in der Ausgangsliste enthalten
+	\item Die Position dieses Eintrages ist zufällig (d.h. nicht immer an Position \py{0})
+	\item Die weiteren Einträge sind zufällig gewählte Elemente der Eingabeliste
+	\item Es gibt keine doppelten Einträge in der Ausgangsliste
+\end{itemize}
+Die Eingangsliste soll dabei nicht verändert werden. 
+
+
+
+\end{document}

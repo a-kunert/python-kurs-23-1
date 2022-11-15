@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{my\PYGZus{}func}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Hallo\PYGZdq{}}\PYG{p}{)} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}ollaH\PYGZdq{}}
+\end{Verbatim}
