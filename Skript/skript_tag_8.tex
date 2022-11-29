@@ -1,27 +1,23 @@
 \section{Funktionen \\ \footnotesize Wie man Code wiederverwerten kann}
 \begin{frame}
-\begin{block}{Problemstellung}
+\begin{block}{Problemstellung (Beispiel: Fieberthermometer)}
 	\vspace{2pt}
-	Es sei eine Liste mit Temperaturen gegeben: 
-	
-	\py{temperatures = [22, 18, 20, 15, 12, 7, 5, -2, 4]}
-	
+	Gegeben seien Listen mit jeweils 3 Temperaturen (entspricht den Messwerten). 
+
 	\pause
-	Es sollen zunächst Durchschnitte von jeweils der folgenden Grundgesamtheit genommen werden: 
+
+	Von jeder Liste soll zunächst der Durchschnitt gebildet werden. 
+    Liegt dieser unter $37,8^\circ C$ so soll jeweils die Variable \py{result} auf \py{"Normale Temperatur"} im andern Fall auf \py{"Fieber"}
+	gesetzt werden. 
+		
+	\pause
+Die Listen sind 
 	\begin{itemize}
-		\item Alle Werte
-		\item Die ersten drei Werte
-		\item Jeder zweite Wert
+		\item \py{temps_1 = [38, 37.8, 37.9]}
+		\item \py{temps_2 = [37.5, 37.9, 38.1]}
+		\item \py{temps_3 = [38.1, 37.7, 37.9]}
 	\end{itemize}
 \pause 
-	Statt durch eine Zahl, soll das Ergebnis jedoch mit den Worten  
-	\begin{itemize}
-		\item \py{"Mild"} für Durchschnitte $\geq$ 15 Grad
-		\item \py{"Zu kalt"} für Durschnitte $<$ 15 Grad
-	\end{itemize}
-	abgespeichert werden. 
-	\pause 
-	\vspace{8pt}
 	Wie macht man das \emph{elegant}? 
 \end{block}
 \end{frame}
@@ -31,9 +27,7 @@
 \begin{overprint}
 \onslide<2|handout:0>
 \begin{minted}{python}
-average = sum(temperatures) / len(temperatures)
-   
-   
+average = sum(temps_1) / len(temps_1)
 
 
 
@@ -48,38 +42,40 @@ average = sum(temperatures) / len(temperatures)
 
 
 
-#   
+
+
+# 
 \end{minted}
 \onslide<3|handout:0>
 \begin{minted}{python}
-average = sum(temperatures) / len(temperatures)
-if average >= 5: 
-  average = "Mild"
+average = sum(temps_1) / len(temps_1)
+if average >= 37.8: 
+  result = "Fieber"
 else: 
-  average = "Zu kalt"
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  result = "Normale Temperatur"
+
+
+
+
+
+
+
+
+
+
+
+
 #  
 \end{minted}
 \onslide<4|handout:0>
 \begin{minted}{python}
-average = sum(temperatures) / len(temperatures)
-if average >= 5: 
-  average = "Mild"
+average = sum(temps_1) / len(temps_1)
+if average >= 37.8: 
+  result = "Fieber"
 else: 
-  average = "Zu kalt"
+  result = "Normale Temperatur"
 
-average_2 = sum(temperatures[:3]) / len(temperatures[:3])
+average_2 = sum(temps_2) / len(temps_2)
 
 
 
@@ -94,17 +90,17 @@ average_2 = sum(temperatures[:3]) / len(temperatures[:3])
 \end{minted}
 \onslide<5|handout:0>
 \begin{minted}{python}
-average = sum(temperatures) / len(temperatures)
-if average >= 5: 
-  average = "Mild"
+average = sum(temps_1) / len(temps_1)
+if average >= 37.8: 
+  result = "Fieber"
 else: 
-  average = "Zu kalt"
+  result = "Normale Temperatur"
 
-average_2 = sum(temperatures[:3]) / len(temperatures[:3])
-if average_2 >= 5:
-  average_2 = "Mild"
+average_2 = sum(temps_2) / len(temps_2)
+if average_2 >= 37.8:
+  result_2 = "Fieber"
 else: 
-  average_3 = "Zu kalt"
+  result_2 = "Normale Temperatur"
 
 
 
@@ -115,19 +111,19 @@ else:
 \end{minted}
 \onslide<6|handout:0>
 \begin{minted}{python}
-average = sum(temperatures) / len(temperatures)
-if average >= 5: 
-  average = "Mild"
+average = sum(temps_1) / len(temps_1)
+if average >= 37.8: 
+  result = "Fieber"
 else: 
-  average = "Zu kalt"
+  result = "Normale Temperatur"
 
-average_2 = sum(temperatures[:3]) / len(temperatures[:3])
-if average_2 >= 5:
-  average_2 = "Mild"
+average_2 = sum(temps_2) / len(temps_2)
+if average_2 >= 37.8:
+  result_2 = "Fieber"
 else: 
-  average_3 = "Zu kalt"
+  result_2 = "Normale Temperatur"
 
-average_3 = sum(temperatures[::2]) / len(temperatures[::2])
+average_3 = sum(temps_3) / len(temps_3)
 
 
 
@@ -136,23 +132,23 @@ average_3 = sum(temperatures[::2]) / len(temperatures[::2])
 \end{minted}
 \onslide<7-|handout:1>
 \begin{minted}{python}
-average = sum(temperatures) / len(temperatures)
-if average >= 5: 
-  average = "Mild"
+average = sum(temps_1) / len(temps_1)
+if average >= 37.8: 
+  result = "Fieber"
 else: 
-  average = "Zu kalt"
+  result = "Normale Temperatur"
 
-average_2 = sum(temperatures[:3]) / len(temperatures[:3])
-if average_2 >= 5:
-  average_2 = "Mild"
+average_2 = sum(temps_2) / len(temps_2)
+if average_2 >= 37.8:
+  result_2 = "Fieber"
 else: 
-  average_3 = "Zu kalt"
+  result_2 = "Normale Temperatur"
 
-average_3 = sum(temperatures[::2]) / len(temperatures[::2])
-if average_3 < 5:
-  average_3 = "Zu kalt"
+average_3 = sum(temps_3) / len(temps_3)
+if average_3 >= 37.8:
+  result_3 = "Fieber"
 else: 
-  average_3 = "Mild"
+  result_3 = "Normale Temperatur"
 #
 \end{minted}
 \end{overprint}
@@ -167,7 +163,7 @@ else:
 	\item Der Code ist schwierig zu lesen. Man sieht vor lauter Wiederholungen nicht, was passiert. 
 	\item Jedes Mal, wenn man diese \enquote{Berechnungslogik} verwendet, könnte man einen (Tipp-)Fehler machen.  
 	\item Wenn man das Anforderungsprofil minimal ändert, muss diese \enquote{Logik} bei \emph{jedem} Auftreten im Code geändert werden
-		(z.B. statt \py{"Mild"} soll das Ergebnis \py{"Warm"} heißen). In echten Projekten, kann das schnell ein paar Hundert Male sein. 	
+		(z.B. statt \py{"Fieber"} soll die Ausgabe \py{"Achtung Fieber!"}) heißen. In echten Projekten, kann das schnell ein paar Hundert Male sein. 	
 	\end{itemize}
 \end{block}
 \end{frame}
@@ -175,21 +171,22 @@ else:
 \begin{fragile}
 \begin{block}{Bessere Lösung}
 \begin{minted}{python}
-def compute_average(temp_list):
+def check_temperature(temp_list):
   result = sum(temp_list) / len(temp_list)
-  if result >= 5:
-    result = "Mild"
+  if result >= 37.8:
+    result = "Fieber"
   else: 
-    result = "Zu kalt"
+    result = "Normale Temperatur"
   return result
 
-average = compute_average(temperatures)
-average_2 = compute_average(temperatures[:3])
-average_3 = compute_average(temperatures[::2])
+result_1 = check_temperature(temps_1)
+result_2 = check_temperature(temps_2)
+result_3 = check_temperature(temps_3)
 \end{minted}
 \end{block}
 
 \end{fragile}
+
 
 \begin{frame}
 \metroset{block=fill}
@@ -243,6 +240,55 @@ result = \textit{Funktionsname}\texttt{(}\textit{Argument\_0}, \textit{Argument\
 \end{frame}
 
 
+\begin{fragile}
+\begin{exampleblock}{Beispiel}
+\vspace{2pt}
+
+\begin{overprint}
+\onslide<1|handout:0>
+\begin{minted}{python}
+def square(x): 
+  result = x * x
+  return result
+
+# Was passiert hier ? 
+
+
+
+
+#
+\end{minted}
+\onslide<2|handout:0>
+\begin{minted}{python}
+def square(x): 
+  result = x * x
+  return result
+
+# Was passiert hier ?
+ 
+y = square(7)
+print(y) 
+
+#
+\end{minted}
+\onslide<3|handout:1>
+\begin{minted}{python}
+def square(x): 
+  result = x * x
+  return result
+
+# Was passiert hier ?
+ 
+y = square(7)
+print(y) # 49
+
+#
+\end{minted}
+\end{overprint}
+\end{exampleblock}
+\end{fragile}
+
+
 \begin{frame}
 
 \begin{block}{Good to know}
@@ -261,11 +307,6 @@ result = \textit{Funktionsname}\texttt{(}\textit{Argument\_0}, \textit{Argument\
 
 \begin{frame}{Übungen}
 
-\begin{block}{Funktion ohne Parameter}
-	\vspace{2pt}
-Schreibe eine Funktion, die Deinen Namen auf der Konsole ausgibt. 
-\end{block}
-\vspace{12pt}
 \begin{block}{Funktion mit einem Parameter}
 \vspace{2pt}
 Schreibe eine Funktion, die die übergebene Zahl verdoppelt und das Ergebnis zurückgibt. 
@@ -276,6 +317,11 @@ Schreibe eine Funktion, die die übergebene Zahl verdoppelt und das Ergebnis zur
 Schreibe eine Funktion, die die beiden übergebenen Zahlen multipliziert und das Ergebnis zurückgibt. 
 \end{block}
 \vspace{12pt}
+\begin{block}{Funktion ohne Parameter}
+	\vspace{2pt}
+Schreibe eine Funktion, die Deinen Namen auf der Konsole ausgibt. 
+\end{block}
+\vspace{12pt}
 \begin{block}{Funktion ohne Rückgabewert}
 \vspace{2pt}
 Was gibt eine Funktion zurück, die kein \py{return}-Statement enthält?
@@ -284,14 +330,6 @@ Was gibt eine Funktion zurück, die kein \py{return}-Statement enthält?
 
 \begin{frame}<beamer:0>[fragile]{Lösungen}
 
-\begin{solutionblock}{Funktion ohne Parameter}
-\begin{minted}{python}
-def my_name(): 
-  print("Aaron Kunert")
-\end{minted}
-\end{solutionblock}
-
-\vspace{12pt}
 
 \begin{solutionblock}{Funktion mit einem Parameter}
 \begin{minted}{python}
@@ -309,6 +347,14 @@ def multiply(number1,number2):
 \end{minted}
 \end{solutionblock}
 
+\vspace{12pt}
+
+\begin{solutionblock}{Funktion ohne Parameter}
+\begin{minted}{python}
+def my_name(): 
+  print("Aaron Kunert")
+\end{minted}
+\end{solutionblock}
 
 \end{frame}
 
@@ -318,7 +364,7 @@ def multiply(number1,number2):
 Schreibe eine Funktion, die die Temperatur als Paramter erwartet und abhängig von der Temperatur den Aggregatzustand von Wasser (\py{"fest"},\py{"flüssig"},\py{"gasförmig"}) als String zurückgibt. 
 \pause 
 
-\textbf{Zusatz:} Schaffst Du es ohne die Schlüsselwörter \py{elif} und \py{else}? 
+\textbf{Zusatz:} Schaffst Du es, die Schlüsselwörter \py{elif} und \py{else} gar nicht und das Schlüsselwort \py{if} nur genau zweimal zu verwenden? 
 \end{block}
 \end{frame}
 
@@ -360,26 +406,48 @@ grades = [
 ]
 \end{minted}
 
-Berechne die Durchschnittsnote, wobei Hauptfächer doppelt gewichtet werden sollen. 
+Berechne die Durchschnittsnote. 
+
+\textbf{Zusatz:} Berechne die Durchschnittsnote wenn Hauptfächer doppelt gewichtet werden. 
 \end{block}
 
 \end{fragile}
 
+
 \begin{frame}<beamer:0>[fragile]{Lösung}
 
-\begin{solutionblock}{Gewichtete Durchschnittsnote}
+\begin{solutionblock}{Durchschnittsnote}
 \begin{minted}{python}
 def weighted_average(grades): 
-  weighted_sum = 0
-  weighted_length = 0
+  grades_sum = 0
+  grades_length = 0
+  for grade in grades: 
+    grades_sum += grade["grade"]
+    grades_length += 1
+  result = grades_sum/grades_length
+  return result 
+\end{minted}
+\end{solutionblock}
+
+\end{frame}
+
+
+
+\begin{frame}<beamer:0>[fragile]{Lösung}
+
+\begin{solutionblock}{Zusatz: Gewichtete Durchschnittsnote}
+\begin{minted}{python}
+def weighted_average(grades): 
+  grades_sum = 0
+  grades_length = 0
   for grade in grades: 
     if grade["is_major"]: 
-      weighted_sum += 2 * grade["grade"]
-      weighted_length += 2
+      grades_sum += 2 * grade["grade"]
+      grades_length += 2
     else:
-      weighted_sum += grade["grade"]
-      weighted_length += 1
-  result = weighted_sum/weighted_length
+      grades_sum += grade["grade"]
+      grades_length += 1
+  result = grades_sum/grades_length
   return result 
 \end{minted}
 \end{solutionblock}
@@ -415,7 +483,7 @@ def months_until_rich(target):
 \begin{fragile}[Übung]
 \begin{block}{Zinsrechner mit Sparrate}
 \vspace{2pt}
-Angenommen, Du hast wieder 1000€ so angelegt, dass es darauf jeden Monat 0,5\% Zinsen gibt (Haha -- als ob!). Zusätzlich gibt es nun jedoch noch eine monatliche Sparrate von 25€, die ebenfalls auf das Konto eingezahlt wird. 
+Angenommen, Du hast wieder 1000€ so angelegt, dass es darauf jeden Monat 0,5\% Zinsen gibt. Zusätzlich gibt es nun jedoch noch eine monatliche Sparrate von 25€, die ebenfalls auf das Konto eingezahlt wird. 
 Schreibe eine Funktion, die einen Geldbetrag erwartet und zurückgibt, nach wie vielen Monaten, dieser Geldbetrag erreicht wurde. 
 \end{block}
 \end{fragile}
@@ -535,16 +603,16 @@ Erweitere die Funktion zur Berechnung von gewichteten Durchschnittsnoten so, das
 \begin{solutionblock}{Flexibler Durchschnittsrechner}
 \begin{minted}{python}
 def weighted_average(grades, weight=2): 
-  weighted_sum = 0
-  weighted_length = 0
+  grades_sum = 0
+  grades_length = 0
   for grade in grades: 
     if grade["is_major"]: 
-      weighted_sum += weight * grade["grade"]
-      weighted_length += weight
+      grades_sum += weight * grade["grade"]
+      grades_length += weight
     else:
-      weighted_sum += grade["grade"]
-      weighted_length += 1
-  result = weighted_sum/weighted_length
+      grades_sum += grade["grade"]
+      grades_length += 1
+  result = grades_sum/grades_length
   return result 
 \end{minted}
 \end{solutionblock}
@@ -605,279 +673,6 @@ def months_until_rich(target, interest=0.5, initial_amount=1000, savings_rate=25
 
 
 
-\section{Scope \\ \footnotesize Wo Variablen gültig sind}
-
-
-\begin{frame}
-\begin{block}{Problemstellung}
-\vspace{2pt}
-Sei \py{my_variable} eine Variable mit Wert 1. 
-Schreibe eine Funktion, die bei Aufruf die Variable \py{my_variable} um 1 erhöht. 
-Schreibe eine Funktion, die bei Aufruf die Variable \py{my_variable} um 1 erhöht. 
-
-\vspace{8pt}
-
-Wie macht man das? 
-\end{block}
-\end{frame}
-
-\begin{fragile}
-	
-\begin{block}{Das Problem}
-\vspace{2pt}
-
-\begin{minted}{python}
-my_variable = 1
-
-def increment(): 
-  my_variable = my_variable + 1
-
-increment()
-print(my_variable)
-\end{minted}
-
-\pause 
-Die offensichtliche Lösung 
-funktioniert nicht. Warum nicht? 
-\end{block}
-\end{fragile}
-
-
-\begin{fragile}
-	
-\begin{block}{Experiment I}
-\vspace{2pt}
-
-\begin{minted}{python}
-global_variable = 1
-
-def my_function(): 
-  local_variable = 5
-
-my_function()
-print(global_variable)
-print(local_variable)
-\end{minted}
-
-
-\vspace{12pt}
-
-\end{block}
-
-\begin{exampleblock}{Beobachtung}
-
-\pause 
-
-Eine Variable, die innerhalb einer Funktion definiert wurde, ist auch nur innerhalb der Funktion sichtbar. 
-\end{exampleblock}
-
-
-\end{fragile}
-
-\begin{fragile}
-	
-\begin{block}{Experiment II}
-\vspace{2pt}
-
-\begin{minted}{python}
-global_variable = 1
-
-def my_function(): 
-  print(global_variable)
- 
-
-my_function()
-print(global_variable)
-\end{minted}
-
-
-\vspace{12pt}
-
-\end{block}
-
-\begin{exampleblock}{Beobachtung}
-
-\pause 
-
-Eine \emph{globale} Variable ist auch innerhalb einer Funktion definiert.  
-\end{exampleblock}
-
-	
-\end{fragile}
-
-\begin{fragile}
-
-\begin{block}{Experiment III}
-\vspace{2pt}
-
-\begin{minted}{python}
-global_variable = 1
-
-def my_function(): 
-  global_variable = 5
-  print(global_variable)
-
-
-my_function()
-print(global_variable)
-\end{minted}
-\vspace{12pt}
-
-\end{block}
-
-\begin{exampleblock}{Beobachtung}
-
-\pause 
-
-Eine Variable innerhalb einer Funktion kann den gleichen Namen wie eine Variable außerhalb haben, allerdings ist die innere Variable nur innerhalb der Funktion sichtbar. 
-\end{exampleblock}
-
-
-\end{fragile}
-
-
-\begin{fragile}
-	
-\begin{block}{Experiment IV}
-\vspace{2pt}
-
-\begin{minted}{python}
-global_variable = 1
-
-def my_function(): 
-  print(global_variable)
-  global_variable = 5
-
-
-my_function()
-print(global_variable)
-\end{minted}
-\vspace{12pt}
-
-\end{block}
-
-\begin{exampleblock}{Beobachtung/Erklärung}
-
-\pause 
-
-Python entscheidet anhand des Kontexts ob \py{global_variable} eine globale Variable ist, oder eine lokale Variable, die zufällig den gleichen Namen wie eine globale Variable trägt. 
-
-\pause 
-
-Falls Python denkt, dass es sich um eine globale Variable handelt, so kann diese nur gelesen, nicht aber geschrieben (d.h. neu definiert) werden. 
-
-\end{exampleblock}
-
-	
-\end{fragile}
-
-
-\begin{fragile}
-	
-\begin{block}{Das Eingangsbeispiel}
-\vspace{2pt}
-
-\begin{minted}{python}
-my_variable = 1
-
-def increment(): 
-  my_variable = my_variable + 1
-
-increment()
-print(my_variable)
-\end{minted}
-
-\vspace{12pt}
-
-\end{block}
-
-\begin{exampleblock}{Erklärung}
-
-\pause 
-
-Da \py{my_variable} rechts vom Gleichheitszeichen steht, denkt Python, dass es sich um die globale Variable \py{my_variable} handelt. Da \py{my_variable} aber auch links vom Gleichheitszeichen steht, wird auch schreibend auf die Variable zugegriffen. Das ist nicht erlaubt. 
-
-\end{exampleblock}
-	
-\end{fragile}
-
-
-\begin{fragile}
-
-\begin{block}{Mögliche Lösung}
-	\vspace{2pt}
-\begin{minted}{python}
-my_variable = 1
-
-def increment(var): 
-  return var + 1
-
-my_variable = increment(my_variable)
-print(my_variable)
-\end{minted}
-
-\vspace{12pt}
-
-\end{block}
-	
-\end{fragile}
-
-\begin{frame}
-\metroset{block=fill}
-	
-\begin{block}{Definition}
-\vspace{2pt}
-Der Gültigkeitsbereich einer Variable wird \emph{Scope} genannt. 
-\end{block}
-\vspace{12pt}
-\pause 
-
-\metroset{block=transparent}
-\begin{block}{Scope in Python}
-\vspace{2pt}
-In Python unterscheidet man zwischen \emph{global Scope} und \emph{local Scope}. Im local Scope hat man nur Lesezugriff auf den global Scope. 	
-\end{block}
-	
-\end{frame}
-
-\begin{fragile}
-\begin{alertblock}{Achtung Ausnahme}
-\begin{minted}{python}
-my_list = [1, 2, 3]
-
-def append(item):
-  my_list.append(item)
-
-append(4)
-print(my_list)
-\end{minted}
-\end{alertblock}
-
-\vspace{12pt}
-
-\begin{exampleblock}{Erklärung}
-	
-\pause 
-
-Da die Variable \py{my_list} nicht überschrieben wird, sondern nur das referenzierte Objekt verändert wird, erkennt Python dies nicht als Schreibzugriff und erlaubt dieses Vorgehen. 
-\end{exampleblock}
-\end{fragile}
-
-
-\begin{frame}
-	
-\begin{block}{Warum ist der Zugriff auf den Global Scope eingeschränkt?}
-	\pause 
-	\begin{itemize}[<+->]
-		\item Funktionen sollen möglichst wenige Nebeneffekte haben. Wenn eine Funktion den global Scope verändern kann, ist dies ein großer Nebeneffekt. 
-		\item Wenn man eine Funktion schreibt, muss man sich keine Gedanken machen, ob ein Variablenname schon vergeben ist. 
-		\item Wenn man sich innerhalb einer Funktion den Kontakt zum global Scope reduziert, so ist die Funktion besser zu verstehen, zu warten und zu testen. 
-		\item \dots
-	\end{itemize}
-\end{block}
-	
-	
-\end{frame}
 
 
 

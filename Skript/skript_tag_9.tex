@@ -1,3 +1,279 @@
+\section{Scope \\ \footnotesize Wo Variablen gültig sind}
+
+
+\begin{frame}
+\begin{block}{Problemstellung}
+\vspace{2pt}
+Sei \py{my_variable} eine Variable mit Wert 1. 
+Schreibe eine Funktion, die bei Aufruf die Variable \py{my_variable} um 1 erhöht. 
+Schreibe eine Funktion, die bei Aufruf die Variable \py{my_variable} um 1 erhöht. 
+
+\vspace{8pt}
+
+Wie macht man das? 
+\end{block}
+\end{frame}
+
+\begin{fragile}
+	
+\begin{block}{Das Problem}
+\vspace{2pt}
+
+\begin{minted}{python}
+my_variable = 1
+
+def increment(): 
+  my_variable = my_variable + 1
+
+increment()
+print(my_variable)
+\end{minted}
+
+\pause 
+Die offensichtliche Lösung 
+funktioniert nicht. Warum nicht? 
+\end{block}
+\end{fragile}
+
+
+\begin{fragile}
+	
+\begin{block}{Experiment I}
+\vspace{2pt}
+
+\begin{minted}{python}
+global_variable = 1
+
+def my_function(): 
+  local_variable = 5
+
+my_function()
+print(global_variable)
+print(local_variable)
+\end{minted}
+
+
+\vspace{12pt}
+
+\end{block}
+
+\begin{exampleblock}{Beobachtung}
+
+\pause 
+
+Eine Variable, die innerhalb einer Funktion definiert wurde, ist auch nur innerhalb der Funktion sichtbar. 
+\end{exampleblock}
+
+
+\end{fragile}
+
+\begin{fragile}
+	
+\begin{block}{Experiment II}
+\vspace{2pt}
+
+\begin{minted}{python}
+global_variable = 1
+
+def my_function(): 
+  print(global_variable)
+ 
+
+my_function()
+print(global_variable)
+\end{minted}
+
+
+\vspace{12pt}
+
+\end{block}
+
+\begin{exampleblock}{Beobachtung}
+
+\pause 
+
+Eine \emph{globale} Variable ist auch innerhalb einer Funktion definiert.  
+\end{exampleblock}
+
+	
+\end{fragile}
+
+\begin{fragile}
+
+\begin{block}{Experiment III}
+\vspace{2pt}
+
+\begin{minted}{python}
+global_variable = 1
+
+def my_function(): 
+  global_variable = 5
+  print(global_variable)
+
+
+my_function()
+print(global_variable)
+\end{minted}
+\vspace{12pt}
+
+\end{block}
+
+\begin{exampleblock}{Beobachtung}
+
+\pause 
+
+Eine Variable innerhalb einer Funktion kann den gleichen Namen wie eine Variable außerhalb haben, allerdings ist die innere Variable nur innerhalb der Funktion sichtbar. 
+\end{exampleblock}
+
+
+\end{fragile}
+
+
+\begin{fragile}
+	
+\begin{block}{Experiment IV}
+\vspace{2pt}
+
+\begin{minted}{python}
+global_variable = 1
+
+def my_function(): 
+  print(global_variable)
+  global_variable = 5
+
+
+my_function()
+print(global_variable)
+\end{minted}
+\vspace{12pt}
+
+\end{block}
+
+\begin{exampleblock}{Beobachtung/Erklärung}
+
+\pause 
+
+Python entscheidet anhand des Kontexts ob \py{global_variable} eine globale Variable ist, oder eine lokale Variable, die zufällig den gleichen Namen wie eine globale Variable trägt. 
+
+\pause 
+
+Falls Python denkt, dass es sich um eine globale Variable handelt, so kann diese nur gelesen, nicht aber geschrieben (d.h. neu definiert) werden. 
+
+\end{exampleblock}
+
+	
+\end{fragile}
+
+
+\begin{fragile}
+	
+\begin{block}{Das Eingangsbeispiel}
+\vspace{2pt}
+
+\begin{minted}{python}
+my_variable = 1
+
+def increment(): 
+  my_variable = my_variable + 1
+
+increment()
+print(my_variable)
+\end{minted}
+
+\vspace{12pt}
+
+\end{block}
+
+\begin{exampleblock}{Erklärung}
+
+\pause 
+
+Da \py{my_variable} rechts vom Gleichheitszeichen steht, denkt Python, dass es sich um die globale Variable \py{my_variable} handelt. Da \py{my_variable} aber auch links vom Gleichheitszeichen steht, wird auch schreibend auf die Variable zugegriffen. Das ist nicht erlaubt. 
+
+\end{exampleblock}
+	
+\end{fragile}
+
+
+\begin{fragile}
+
+\begin{block}{Mögliche Lösung}
+	\vspace{2pt}
+\begin{minted}{python}
+my_variable = 1
+
+def increment(var): 
+  return var + 1
+
+my_variable = increment(my_variable)
+print(my_variable)
+\end{minted}
+
+\vspace{12pt}
+
+\end{block}
+	
+\end{fragile}
+
+\begin{frame}
+\metroset{block=fill}
+	
+\begin{block}{Definition}
+\vspace{2pt}
+Der Gültigkeitsbereich einer Variable wird \emph{Scope} genannt. 
+\end{block}
+\vspace{12pt}
+\pause 
+
+\metroset{block=transparent}
+\begin{block}{Scope in Python}
+\vspace{2pt}
+In Python unterscheidet man zwischen \emph{global Scope} und \emph{local Scope}. Im local Scope hat man nur Lesezugriff auf den global Scope. 	
+\end{block}
+	
+\end{frame}
+
+\begin{fragile}
+\begin{alertblock}{Achtung Ausnahme}
+\begin{minted}{python}
+my_list = [1, 2, 3]
+
+def append(item):
+  my_list.append(item)
+
+append(4)
+print(my_list)
+\end{minted}
+\end{alertblock}
+
+\vspace{12pt}
+
+\begin{exampleblock}{Erklärung}
+	
+\pause 
+
+Da die Variable \py{my_list} nicht überschrieben wird, sondern nur das referenzierte Objekt verändert wird, erkennt Python dies nicht als Schreibzugriff und erlaubt dieses Vorgehen. 
+\end{exampleblock}
+\end{fragile}
+
+
+\begin{frame}
+	
+\begin{block}{Warum ist der Zugriff auf den Global Scope eingeschränkt?}
+	\pause 
+	\begin{itemize}[<+->]
+		\item Funktionen sollen möglichst wenige Nebeneffekte haben. Wenn eine Funktion den global Scope verändern kann, ist dies ein großer Nebeneffekt. 
+		\item Wenn man eine Funktion schreibt, muss man sich keine Gedanken machen, ob ein Variablenname schon vergeben ist. 
+		\item Wenn man sich innerhalb einer Funktion den Kontakt zum global Scope reduziert, so ist die Funktion besser zu verstehen, zu warten und zu testen. 
+		\item \dots
+	\end{itemize}
+\end{block}
+	
+	
+\end{frame}
+
+
+
 \section{Persistenz \\ \footnotesize Lesen und Schreiben von Dateien}
 
 \begin{frame}

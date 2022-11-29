@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{def} \PYG{n+nf}{square}\PYG{p}{(}\PYG{n}{x}\PYG{p}{):}
+  \PYG{n}{result} \PYG{o}{=} \PYG{n}{x} \PYG{o}{*} \PYG{n}{x}
+  \PYG{k}{return} \PYG{n}{result}
+
+\PYG{c+c1}{\PYGZsh{} Was passiert hier ?}
+
+
+
+
+\PYG{c+c1}{\PYGZsh{}}
+\end{Verbatim}
